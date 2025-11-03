@@ -100,13 +100,16 @@ const observerOptions = {
 const fadeInElements = document.querySelectorAll('.card, .benefit-item, .stat-item');
 
 const fadeInObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
+    entries.forEach((entry) => {
         if (entry.isIntersecting) {
+            // Usa o índice armazenado no dataset do elemento
+            const elementIndex = parseInt(entry.target.dataset.animationIndex || '0', 10);
+
             // Adiciona delay progressivo para efeito cascata
             setTimeout(() => {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
-            }, index * 100);
+            }, elementIndex * 100);
 
             fadeInObserver.unobserve(entry.target);
         }
@@ -114,7 +117,9 @@ const fadeInObserver = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Configura estado inicial e observa elementos
-fadeInElements.forEach(element => {
+fadeInElements.forEach((element, index) => {
+    // Armazena o índice correto no dataset do elemento
+    element.dataset.animationIndex = index;
     element.style.opacity = '0';
     element.style.transform = 'translateY(20px)';
     element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -156,18 +161,28 @@ ctaButtons.forEach(button => {
 
 // Log performance metrics quando a página carregar completamente
 window.addEventListener('load', () => {
-    // Performance API
-    if ('performance' in window) {
-        const perfData = window.performance.timing;
-        const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
-        const connectTime = perfData.responseEnd - perfData.requestStart;
-        const renderTime = perfData.domComplete - perfData.domLoading;
+    // Modern Performance API
+    if ('performance' in window && performance.getEntriesByType) {
+        const navigationEntries = performance.getEntriesByType('navigation');
 
-        console.log('Performance Metrics:', {
-            pageLoadTime: `${pageLoadTime}ms`,
-            connectTime: `${connectTime}ms`,
-            renderTime: `${renderTime}ms`
-        });
+        if (navigationEntries.length > 0) {
+            const perfData = navigationEntries[0];
+
+            // Métricas mais precisas e modernas
+            const pageLoadTime = perfData.loadEventEnd - perfData.fetchStart;
+            const connectTime = perfData.responseEnd - perfData.requestStart;
+            const renderTime = perfData.domComplete - perfData.domInteractive;
+            const dnsTime = perfData.domainLookupEnd - perfData.domainLookupStart;
+            const ttfb = perfData.responseStart - perfData.requestStart; // Time to First Byte
+
+            console.log('Performance Metrics:', {
+                pageLoadTime: `${Math.round(pageLoadTime)}ms`,
+                connectTime: `${Math.round(connectTime)}ms`,
+                renderTime: `${Math.round(renderTime)}ms`,
+                dnsTime: `${Math.round(dnsTime)}ms`,
+                ttfb: `${Math.round(ttfb)}ms`
+            });
+        }
     }
 });
 
