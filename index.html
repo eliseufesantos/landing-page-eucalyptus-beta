@@ -3,326 +3,424 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Crescer com leveza é possível. Um ecossistema que organiza o invisível e devolve paz à rotina da sua clínica de estética.">
-    <meta name="keywords" content="Eucalyptus, Gestão de Clínica de Estética, Automação, IA Sensível, CRM">
-    <title>Programa Beta - Eucalyptus</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Eucalyptus Solutions - Crescer com Leveza é Possível</title>
+    <meta name="description" content="Um ecossistema que organiza o invisível da sua clínica de estética e devolve paz à sua rotina.">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde-principal: #a8b4a5;
+            --verde-profundo: #4f5a4b;
+            --bege-claro: #faf6ef;
+            --dourado: #e3c98c;
+            --cinza: #595d5b;
+            --acento: #b7835a;
+        }
+
+        body {
+            background-color: var(--bege-claro);
+            color: var(--cinza);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .gradient-accent {
+            background: linear-gradient(135deg, var(--verde-principal), var(--dourado));
+        }
+
+        .hero-pattern {
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(168, 180, 165, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(227, 201, 140, 0.05) 0%, transparent 50%);
+        }
+
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--acento), var(--dourado));
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(183, 131, 90, 0.3);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
 </head>
-<body>
-    <!-- Header -->
-    <header class="header" id="header">
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo-container">
-                    <!-- Espaço reservado para logo da Eucalyptus -->
-                    <div class="logo-placeholder">
-                        <span class="logo-text">EUCALYPTUS</span>
-                    </div>
-                </div>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#sobre" class="nav-link">Sobre o Programa</a></li>
-                    <li><a href="#beneficios" class="nav-link">Benefícios</a></li>
-                    <li><a href="#parceria" class="nav-link">Parceria</a></li>
-                    <li><a href="https://form.respondi.app/AkLggsjN" class="nav-link cta-button" target="_blank">Participar do Beta</a></li>
-                </ul>
-                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </nav>
-        </div>
-    </header>
+<body class="smooth-scroll">
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-background"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="gradient-text">Crescer com leveza</span>
-                    é possível
-                </h1>
-                <p class="hero-subtitle">
-                    Um ecossistema que organiza o invisível e devolve paz à rotina da sua clínica de estética.
-                    Participe do Programa Beta e descubra seu ritmo ideal.
-                </p>
-                <div class="hero-cta">
-                    <a href="https://form.respondi.app/AkLggsjN" class="btn btn-primary" target="_blank">
-                        Descubra seu ritmo ideal
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                    <a href="#sobre" class="btn btn-secondary">Conheça o programa</a>
+    <section class="hero-pattern min-h-screen flex items-center justify-center px-4 py-16">
+        <div class="max-w-4xl mx-auto text-center animate-fade-in">
+            <!-- Logo/Badge -->
+            <div class="inline-block mb-8">
+                <div class="px-6 py-2 rounded-full border-2 border-[#a8b4a5] text-[#4f5a4b] text-sm font-medium tracking-wide">
+                    EUCALYPTUS SOLUTIONS
                 </div>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Sobre o Programa -->
-    <section class="section section-about" id="sobre">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Programa Beta</span>
-                <h2 class="section-title">Tecnologia com alma para sua clínica</h2>
-                <p class="section-description">
-                    O Programa Beta é uma jornada exclusiva para clínicas de estética que desejam crescer
-                    sem perder leveza. Um ecossistema que cuida dos bastidores enquanto você cuida da beleza.
+            <!-- Headline -->
+            <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl text-[#4f5a4b] font-light leading-tight mb-6">
+                Crescer com leveza<br/>
+                <span class="font-semibold">é possível</span>
+            </h1>
+
+            <!-- Subheadline -->
+            <p class="text-xl md:text-2xl text-[#595d5b] font-light mb-12 leading-relaxed max-w-3xl mx-auto">
+                Um ecossistema que organiza o invisível da sua clínica<br class="hidden md:block"/>
+                e devolve paz à sua rotina
+            </p>
+
+            <!-- CTA Button -->
+            <a href="https://form.respondi.app/AkLggsjN" target="_blank"
+               class="btn-primary inline-block text-white px-10 py-4 rounded-full text-lg font-medium shadow-lg">
+                Descubra seu ritmo ideal
+            </a>
+
+            <!-- Badge Exclusividade -->
+            <div class="mt-12 inline-flex items-center gap-2 px-5 py-3 bg-white/60 backdrop-blur-sm rounded-full">
+                <span class="w-2 h-2 rounded-full bg-[#b7835a] animate-pulse"></span>
+                <p class="text-sm text-[#4f5a4b] font-medium">
+                    Programa exclusivo para 5 clínicas em São Paulo
                 </p>
             </div>
-            <div class="grid grid-3">
-                <div class="card card-feature">
-                    <div class="card-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <circle cx="20" cy="20" r="18" stroke="url(#gradient1)" stroke-width="2"/>
-                            <path d="M20 12V20L25 25" stroke="url(#gradient1)" stroke-width="2" stroke-linecap="round"/>
-                            <defs>
-                                <linearGradient id="gradient1" x1="0" y1="0" x2="40" y2="40">
-                                    <stop offset="0%" stop-color="#a8b4a5"/>
-                                    <stop offset="100%" stop-color="#4f5a4b"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                    </div>
-                    <h3 class="card-title">Ritmo Inteligente</h3>
-                    <p class="card-text">
-                        Recupere tempo e presença nos atendimentos com automação sensível que responde com o mesmo tom da sua equipe.
-                    </p>
-                </div>
-                <div class="card card-feature">
-                    <div class="card-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <path d="M10 20L18 28L30 12" stroke="url(#gradient2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="20" cy="20" r="18" stroke="url(#gradient2)" stroke-width="2"/>
-                            <defs>
-                                <linearGradient id="gradient2" x1="0" y1="0" x2="40" y2="40">
-                                    <stop offset="0%" stop-color="#a8b4a5"/>
-                                    <stop offset="100%" stop-color="#4f5a4b"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                    </div>
-                    <h3 class="card-title">Consultoria Sensível</h3>
-                    <p class="card-text">
-                        Não é ferramenta, é parceria. Construímos juntas um sistema que respira junto com sua clínica.
-                    </p>
-                </div>
-                <div class="card card-feature">
-                    <div class="card-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <path d="M20 8L24 16H32L26 22L28 30L20 25L12 30L14 22L8 16H16L20 8Z" stroke="url(#gradient3)" stroke-width="2" stroke-linejoin="round"/>
-                            <defs>
-                                <linearGradient id="gradient3" x1="0" y1="0" x2="40" y2="40">
-                                    <stop offset="0%" stop-color="#a8b4a5"/>
-                                    <stop offset="100%" stop-color="#4f5a4b"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                    </div>
-                    <h3 class="card-title">Condições Especiais</h3>
-                    <p class="card-text">
-                        Investimento reduzido e implementação prioritária para pioneiras do programa Beta.
-                    </p>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Benefícios -->
-    <section class="section section-benefits" id="beneficios">
-        <div class="container">
-            <div class="benefits-layout">
-                <div class="benefits-content">
-                    <span class="section-tag">Transformação Real</span>
-                    <h2 class="section-title">O que muda na sua rotina</h2>
-                    <div class="benefits-list">
-                        <div class="benefit-item">
-                            <div class="benefit-number">01</div>
-                            <div class="benefit-content">
-                                <h3>Atendimento que não dorme</h3>
-                                <p>IA sensível responde leads em segundos, com empatia e no tom da sua clínica. Nenhum cliente perde interesse esperando.</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <div class="benefit-number">02</div>
-                            <div class="benefit-content">
-                                <h3>Vendas que não dependem de talento</h3>
-                                <p>Roteiros e treinamento suaves que transformam vendas em conversas bonitas. Sua equipe técnica vira consultiva.</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <div class="benefit-number">03</div>
-                            <div class="benefit-content">
-                                <h3>Leads que voltam sozinhos</h3>
-                                <p>15% dos contatos esquecidos retornam com mensagens de cuidado automáticas. Sem pressão, com presença.</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <div class="benefit-number">04</div>
-                            <div class="benefit-content">
-                                <h3>Cobrança sem ansiedade</h3>
-                                <p>Lembretes organizados e tom natural que reduzem inadimplência e devolvem previsibilidade financeira.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="benefits-visual">
-                    <div class="visual-card">
-                        <div class="visual-stats">
-                            <div class="stat-item">
-                                <span class="stat-number">2 sem</span>
-                                <span class="stat-label">Implementação Eucalyptus Mini</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">6 sem</span>
-                                <span class="stat-label">Implementação Eucalyptus Full</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">15%</span>
-                                <span class="stat-label">Leads esquecidos que retornam</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Parceria Kommo -->
-    <section class="section section-partnership" id="parceria">
-        <div class="container">
-            <div class="partnership-card">
-                <div class="partnership-content">
-                    <span class="section-tag">Ecossistema Integrado</span>
-                    <h2 class="section-title">Tecnologia que trabalha em harmonia</h2>
-                    <p class="section-description">
-                        A Eucalyptus une as melhores ferramentas do mercado — Kommo, N8N, Claude AI —
-                        e cria um sistema vivo que respira junto com a sua clínica. Você não gerencia ferramentas, você vive ritmo.
-                    </p>
-                    <!-- Espaço reservado para banner da Kommo -->
-                    <div class="kommo-banner-placeholder">
-                        <div class="banner-content">
-                            <span class="banner-label">ESPAÇO PARA BANNER KOMMO</span>
-                            <p>Dimensões recomendadas: 800x200px</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Final -->
-    <section class="section section-cta">
-        <div class="container">
-            <div class="cta-card">
-                <h2 class="cta-title">Sua clínica merece paz, não planilhas</h2>
-                <p class="cta-description">
-                    Preencha o formulário e vamos conversar sobre a rotina da sua clínica.
-                    Sem pitch, sem pressão. Apenas uma conversa real sobre como você cresce hoje.
+    <!-- Seção: O Problema (Sutil e Empático) -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl text-[#4f5a4b] font-light mb-6">
+                    A rotina que <span class="font-semibold">rouba sua presença</span>
+                </h2>
+                <p class="text-lg text-[#595d5b] max-w-2xl mx-auto">
+                    Você criou sua clínica para cuidar da beleza das pessoas.<br/>
+                    Mas acabou perdida em planilhas, mensagens e tarefas que nunca terminam.
                 </p>
-                <a href="https://form.respondi.app/AkLggsjN" class="btn btn-primary btn-large" target="_blank">
-                    Quero conhecer o programa
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-                <p class="cta-note">Vagas limitadas • Condições especiais para pioneiras</p>
             </div>
+
+            <!-- Cards de Dores -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Dor 1 -->
+                <div class="card-hover bg-[#faf6ef] p-8 rounded-2xl border border-[#a8b4a5]/20">
+                    <div class="w-12 h-12 rounded-full bg-[#a8b4a5]/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-[#4f5a4b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-2xl text-[#4f5a4b] mb-3">Sempre atrasada</h3>
+                    <p class="text-[#595d5b] leading-relaxed">
+                        Leads esperando horas por resposta. A noite chega e você ainda não conseguiu atender todo mundo.
+                    </p>
+                </div>
+
+                <!-- Dor 2 -->
+                <div class="card-hover bg-[#faf6ef] p-8 rounded-2xl border border-[#a8b4a5]/20">
+                    <div class="w-12 h-12 rounded-full bg-[#a8b4a5]/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-[#4f5a4b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-2xl text-[#4f5a4b] mb-3">Equipe improvisando</h3>
+                    <p class="text-[#595d5b] leading-relaxed">
+                        Cada profissional atende de um jeito. Vendas que poderiam acontecer se perdem na conversa.
+                    </p>
+                </div>
+
+                <!-- Dor 3 -->
+                <div class="card-hover bg-[#faf6ef] p-8 rounded-2xl border border-[#a8b4a5]/20">
+                    <div class="w-12 h-12 rounded-full bg-[#a8b4a5]/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-[#4f5a4b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-2xl text-[#4f5a4b] mb-3">Clientes que somem</h3>
+                    <p class="text-[#595d5b] leading-relaxed">
+                        Aquela cliente que disse "vou pensar" nunca mais voltou. E você esqueceu de retomar contato.
+                    </p>
+                </div>
+
+                <!-- Dor 4 -->
+                <div class="card-hover bg-[#faf6ef] p-8 rounded-2xl border border-[#a8b4a5]/20">
+                    <div class="w-12 h-12 rounded-full bg-[#a8b4a5]/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-[#4f5a4b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-2xl text-[#4f5a4b] mb-3">Dinheiro parado</h3>
+                    <p class="text-[#595d5b] leading-relaxed">
+                        Cobranças atrasadas, inadimplência acumulando. O desconforto de ter que correr atrás.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: A Solução (Método RADIX) -->
+    <section class="py-20 px-4 bg-[#faf6ef]">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-block px-5 py-2 rounded-full bg-white border border-[#a8b4a5] text-[#4f5a4b] text-sm font-medium mb-6">
+                    MÉTODO RADIX™
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl text-[#4f5a4b] font-light mb-6">
+                    O sistema que organiza<br/>
+                    <span class="font-semibold">o invisível</span>
+                </h2>
+                <p class="text-lg text-[#595d5b] max-w-2xl mx-auto italic">
+                    Raízes fortes constroem crescimento leve
+                </p>
+            </div>
+
+            <!-- Timeline RADIX -->
+            <div class="space-y-6">
+                <!-- R -->
+                <div class="bg-white p-8 rounded-2xl border-l-4 border-[#a8b4a5] shadow-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full gradient-accent flex items-center justify-center flex-shrink-0 text-white font-serif text-2xl">
+                            R
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-2xl text-[#4f5a4b] mb-2">Reconhecimento</h3>
+                            <p class="text-[#595d5b] leading-relaxed">
+                                Identificamos o que drena sua energia e tempo. Sem planilhas, só conversas reais e soluções visuais.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- A -->
+                <div class="bg-white p-8 rounded-2xl border-l-4 border-[#e3c98c] shadow-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full gradient-accent flex items-center justify-center flex-shrink-0 text-white font-serif text-2xl">
+                            A
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-2xl text-[#4f5a4b] mb-2">Automação Inteligente</h3>
+                            <p class="text-[#595d5b] leading-relaxed">
+                                Um assistente que responde com o tom da sua marca. A tecnologia cuida das repetições, você cuida do toque humano.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- D -->
+                <div class="bg-white p-8 rounded-2xl border-l-4 border-[#a8b4a5] shadow-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full gradient-accent flex items-center justify-center flex-shrink-0 text-white font-serif text-2xl">
+                            D
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-2xl text-[#4f5a4b] mb-2">Desenvolvimento Cultural</h3>
+                            <p class="text-[#595d5b] leading-relaxed">
+                                Treinamento suave da equipe em atendimento consultivo. Vendas viram conversas bonitas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- I -->
+                <div class="bg-white p-8 rounded-2xl border-l-4 border-[#e3c98c] shadow-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full gradient-accent flex items-center justify-center flex-shrink-0 text-white font-serif text-2xl">
+                            I
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-2xl text-[#4f5a4b] mb-2">Integração Contínua</h3>
+                            <p class="text-[#595d5b] leading-relaxed">
+                                Acompanhamento prático e evolutivo. Seu sistema cresce com você, sempre em harmonia.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- X -->
+                <div class="bg-gradient-to-r from-[#a8b4a5]/10 to-[#e3c98c]/10 p-8 rounded-2xl border-l-4 border-[#b7835a] shadow-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-full bg-[#b7835a] flex items-center justify-center flex-shrink-0 text-white font-serif text-2xl">
+                            X
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-2xl text-[#4f5a4b] mb-2">eXpansão</h3>
+                            <p class="text-[#595d5b] leading-relaxed">
+                                O momento em que sua clínica opera com autonomia, confiança e crescimento natural. Você lidera, não apaga incêndios.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Oportunidade Beta -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-gradient-to-br from-[#4f5a4b] to-[#595d5b] p-12 rounded-3xl text-white relative overflow-hidden">
+                <!-- Pattern decorativo -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-[#a8b4a5] opacity-10 rounded-full -mr-32 -mt-32"></div>
+                <div class="absolute bottom-0 left-0 w-48 h-48 bg-[#e3c98c] opacity-10 rounded-full -ml-24 -mb-24"></div>
+
+                <div class="relative z-10">
+                    <div class="inline-block px-5 py-2 rounded-full bg-[#e3c98c] text-[#4f5a4b] text-sm font-medium mb-6">
+                        PROGRAMA EXCLUSIVO
+                    </div>
+
+                    <h2 class="font-serif text-4xl md:text-5xl font-light mb-6">
+                        Uma oportunidade<br/>
+                        <span class="font-semibold">rara e intencional</span>
+                    </h2>
+
+                    <p class="text-xl text-white/90 mb-8 leading-relaxed">
+                        Estamos selecionando 5 clínicas de estética em São Paulo para implementar
+                        o Ecossistema Eucalyptus em condições especiais.
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-[#e3c98c] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-medium mb-1">Implementação completa</h4>
+                                <p class="text-white/80 text-sm">6 semanas de transformação guiada</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-[#e3c98c] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-medium mb-1">Suporte dedicado</h4>
+                                <p class="text-white/80 text-sm">60 dias de acompanhamento próximo</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-[#e3c98c] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-medium mb-1">Tecnologia sensível</h4>
+                                <p class="text-white/80 text-sm">IA que conversa com alma</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-[#e3c98c] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-medium mb-1">Condição especial</h4>
+                                <p class="text-white/80 text-sm">Investimento reduzido para pioneiras</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-white/20 pt-6">
+                        <p class="text-white/90 mb-6">
+                            <span class="font-medium">Por que apenas 5 clínicas?</span><br/>
+                            Porque implementação com excelência exige dedicação total. Cada projeto recebe atenção artesanal.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row gap-4 items-center">
+                            <a href="https://form.respondi.app/AkLggsjN" target="_blank"
+                               class="w-full sm:w-auto bg-white text-[#4f5a4b] px-8 py-4 rounded-full font-medium hover:bg-[#e3c98c] transition-all duration-300 shadow-lg text-center">
+                                Quero fazer parte
+                            </a>
+                            <span class="text-white/80 text-sm">
+                                Apenas <span class="font-semibold text-[#e3c98c]">3 vagas</span> restantes
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção CTA Final -->
+    <section class="py-20 px-4 bg-[#faf6ef]">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="font-serif text-4xl md:text-5xl text-[#4f5a4b] font-light mb-6">
+                Descubra seu<br/>
+                <span class="font-semibold">ritmo ideal</span>
+            </h2>
+            <p class="text-lg text-[#595d5b] mb-8">
+                Preencha o formulário e receba um diagnóstico sensível da sua rotina.<br/>
+                Sem pitch, sem pressão. Apenas uma conversa real.
+            </p>
+
+            <a href="https://form.respondi.app/AkLggsjN" target="_blank"
+               class="btn-primary inline-block text-white px-10 py-4 rounded-full text-lg font-medium shadow-lg">
+                Acessar formulário
+            </a>
+
+            <p class="mt-6 text-sm text-[#595d5b]/70">
+                Retornaremos em até 24 horas úteis
+            </p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-main">
-                    <div class="footer-brand">
-                        <div class="logo-placeholder">
-                            <span class="logo-text">EUCALYPTUS</span>
-                        </div>
-                        <p class="footer-description">
-                            O sistema que organiza o invisível da sua clínica — para que você recupere leveza, ritmo e presença nos atendimentos.
-                        </p>
-                        <div class="footer-social">
-                            <a href="#" class="social-link" aria-label="LinkedIn">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z"/>
-                                </svg>
-                            </a>
-                            <a href="#" class="social-link" aria-label="Instagram">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M10 1.802c2.67 0 2.987.01 4.041.059 2.71.123 3.975 1.409 4.099 4.099.048 1.054.057 1.37.057 4.04 0 2.672-.01 2.988-.057 4.042-.124 2.687-1.387 3.975-4.1 4.099-1.054.048-1.37.058-4.041.058-2.67 0-2.987-.01-4.04-.058-2.717-.124-3.977-1.416-4.1-4.1-.048-1.054-.058-1.37-.058-4.041 0-2.67.01-2.986.058-4.04.124-2.69 1.387-3.977 4.1-4.1 1.054-.048 1.37-.058 4.04-.058zM10 0C7.284 0 6.944.012 5.877.06 2.246.227.228 2.242.06 5.877.01 6.944 0 7.284 0 10s.012 3.057.06 4.123c.167 3.632 2.182 5.65 5.817 5.817 1.067.048 1.407.06 4.123.06s3.057-.012 4.123-.06c3.629-.167 5.652-2.182 5.816-5.817.05-1.066.061-1.407.061-4.123s-.012-3.056-.06-4.122C19.773 2.249 17.76.228 14.124.06 13.057.01 12.716 0 10 0zm0 4.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 8.468a3.333 3.333 0 110-6.666 3.333 3.333 0 010 6.666zm5.338-9.87a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"/>
-                                </svg>
-                            </a>
-                            <a href="#" class="social-link" aria-label="Facebook">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M18.896 0H1.104C.494 0 0 .494 0 1.104v17.793C0 19.506.494 20 1.104 20h9.58v-7.745H8.076V9.237h2.606V7.01c0-2.583 1.578-3.99 3.883-3.99 1.104 0 2.052.082 2.329.119v2.7h-1.598c-1.254 0-1.496.597-1.496 1.47v1.928h2.989l-.39 3.018h-2.6V20h5.098c.608 0 1.102-.494 1.102-1.104V1.104C20 .494 19.506 0 18.896 0z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="footer-links">
-                        <div class="footer-column">
-                            <h4 class="footer-title">Programa</h4>
-                            <ul class="footer-list">
-                                <li><a href="#sobre">Sobre o Beta</a></li>
-                                <li><a href="#beneficios">Benefícios</a></li>
-                                <li><a href="https://form.respondi.app/AkLggsjN" target="_blank">Inscrever-se</a></li>
-                                <li><a href="#parceria">Parceiros</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-column">
-                            <h4 class="footer-title">Empresa</h4>
-                            <ul class="footer-list">
-                                <li><a href="#">Sobre Nós</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Carreiras</a></li>
-                                <li><a href="#">Contato</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-column">
-                            <h4 class="footer-title">Suporte</h4>
-                            <ul class="footer-list">
-                                <li><a href="#">Central de Ajuda</a></li>
-                                <li><a href="#">FAQ</a></li>
-                                <li><a href="#">Documentação</a></li>
-                                <li><a href="#">Status</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-column">
-                            <h4 class="footer-title">Legal</h4>
-                            <ul class="footer-list">
-                                <li><a href="#">Privacidade</a></li>
-                                <li><a href="#">Termos de Uso</a></li>
-                                <li><a href="#">Cookies</a></li>
-                                <li><a href="#">Licenças</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <p class="footer-copyright">
-                        &copy; 2024 Eucalyptus. Todos os direitos reservados.
+    <footer class="bg-[#4f5a4b] text-white py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <!-- Coluna 1 -->
+                <div>
+                    <h3 class="font-serif text-2xl mb-4">Eucalyptus Solutions</h3>
+                    <p class="text-white/80 text-sm leading-relaxed">
+                        Tecnologia com alma para clínicas que crescem com leveza.
                     </p>
-                    <div class="footer-bottom-links">
-                        <a href="#">Política de Privacidade</a>
-                        <span class="separator">•</span>
-                        <a href="#">Termos de Serviço</a>
+                </div>
+
+                <!-- Coluna 2 -->
+                <div>
+                    <h4 class="font-medium mb-4">Contato</h4>
+                    <div class="space-y-2 text-white/80 text-sm">
+                        <p>São Paulo, SP</p>
+                        <p>contato@eucalyptus.solutions</p>
                     </div>
                 </div>
+
+                <!-- Coluna 3 -->
+                <div>
+                    <h4 class="font-medium mb-4">Mensagem</h4>
+                    <p class="text-white/80 text-sm italic leading-relaxed">
+                        "Raízes fortes constroem crescimento leve"
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 pt-6 text-center text-white/70 text-sm">
+                <p>© 2025 Eucalyptus Solutions. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
