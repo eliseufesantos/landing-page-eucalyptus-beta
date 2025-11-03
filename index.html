@@ -43,7 +43,7 @@
 
         body {
             background-color: var(--bege-claro);
-            color: var(--cinza);
+            color: #4a4e4c; /* Melhor contraste: 4.52:1 */
             font-family: 'Inter', sans-serif;
         }
 
@@ -196,8 +196,8 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-white">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button id="mobile-menu-btn" class="md:hidden text-white" aria-label="Abrir menu de navegação" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
                 </button>
@@ -274,7 +274,7 @@
                 <!-- Dor 1 -->
                 <div class="card-hover glass p-8 rounded-3xl backdrop-blur-xl border border-white/40 shadow-xl">
                     <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#a8b4a5] to-[#4f5a4b] flex items-center justify-center mb-5 shadow-lg">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                     </div>
@@ -432,7 +432,7 @@
     <!-- Seção: Oportunidade Beta -->
     <section id="programa" class="py-20 px-4 bg-white">
         <div class="max-w-4xl mx-auto">
-            <div class="bg-gradient-to-br from-[#4f5a4b] to-[#595d5b] p-12 rounded-3xl text-white relative overflow-hidden">
+            <div class="bg-gradient-to-br from-[#4f5a4b] to-[#595d5b] p-6 md:p-12 rounded-3xl text-white relative overflow-hidden">
                 <!-- Pattern decorativo -->
                 <div class="absolute top-0 right-0 w-64 h-64 bg-[#a8b4a5] opacity-10 rounded-full -mr-32 -mt-32 pointer-events-none" aria-hidden="true"></div>
                 <div class="absolute bottom-0 left-0 w-48 h-48 bg-[#e3c98c] opacity-10 rounded-full -ml-24 -mb-24 pointer-events-none" aria-hidden="true"></div>
@@ -442,54 +442,54 @@
                         PROGRAMA EXCLUSIVO
                     </div>
 
-                    <h2 class="font-serif text-4xl md:text-5xl font-light mb-6">
+                    <h2 class="font-serif text-3xl md:text-5xl font-light mb-4 md:mb-6">
                         Uma oportunidade<br/>
                         <span class="font-semibold">rara e intencional</span>
                     </h2>
 
-                    <p class="text-xl text-white/90 mb-8 leading-relaxed">
+                    <p class="text-base md:text-xl text-white/90 mb-6 md:mb-8 leading-relaxed">
                         Estamos selecionando 5 clínicas de estética em São Paulo para implementar
                         o Ecossistema Eucalyptus em condições especiais.
                     </p>
 
-                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
                         <div class="flex items-start gap-3">
-                            <svg class="w-6 h-6 text-[#e3c98c] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-[#e3c98c] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                             </svg>
                             <div>
-                                <h4 class="font-medium mb-1">Implementação completa</h4>
-                                <p class="text-white/80 text-sm">6 semanas de transformação guiada</p>
+                                <h3 class="font-medium mb-1 text-sm md:text-base">Implementação completa</h3>
+                                <p class="text-white/80 text-xs md:text-sm">6 semanas de transformação guiada</p>
                             </div>
                         </div>
 
                         <div class="flex items-start gap-3">
-                            <svg class="w-6 h-6 text-[#e3c98c] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-[#e3c98c] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                             </svg>
                             <div>
-                                <h4 class="font-medium mb-1">Suporte dedicado</h4>
-                                <p class="text-white/80 text-sm">60 dias de acompanhamento próximo</p>
+                                <h3 class="font-medium mb-1 text-sm md:text-base">Suporte dedicado</h3>
+                                <p class="text-white/80 text-xs md:text-sm">60 dias de acompanhamento próximo</p>
                             </div>
                         </div>
 
                         <div class="flex items-start gap-3">
-                            <svg class="w-6 h-6 text-[#e3c98c] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-[#e3c98c] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                             </svg>
                             <div>
-                                <h4 class="font-medium mb-1">Tecnologia sensível</h4>
-                                <p class="text-white/80 text-sm">IA que conversa com alma</p>
+                                <h3 class="font-medium mb-1 text-sm md:text-base">Tecnologia sensível</h3>
+                                <p class="text-white/80 text-xs md:text-sm">IA que conversa com alma</p>
                             </div>
                         </div>
 
                         <div class="flex items-start gap-3">
-                            <svg class="w-6 h-6 text-[#e3c98c] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-[#e3c98c] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                             </svg>
                             <div>
-                                <h4 class="font-medium mb-1">Condição especial</h4>
-                                <p class="text-white/80 text-sm">Investimento reduzido para pioneiras</p>
+                                <h3 class="font-medium mb-1 text-sm md:text-base">Condição especial</h3>
+                                <p class="text-white/80 text-xs md:text-sm">Investimento reduzido para pioneiras</p>
                             </div>
                         </div>
                     </div>
@@ -624,7 +624,8 @@
         const mobileMenu = document.getElementById('mobile-menu');
 
         mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
+            const isExpanded = mobileMenu.classList.toggle('active');
+            mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
         });
 
         // Close mobile menu when clicking on a link
