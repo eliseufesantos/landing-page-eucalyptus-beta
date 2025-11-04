@@ -84,9 +84,12 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .badge-exclusive:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(168, 180, 165, 0.2);
+        /* Hover apenas no desktop e mais sutil */
+        @media (min-width: 769px) {
+            .badge-exclusive:hover {
+                transform: scale(1.02);
+                box-shadow: 0 2px 8px rgba(168, 180, 165, 0.15);
+            }
         }
 
         @keyframes fadeIn {
@@ -103,7 +106,6 @@
             backdrop-filter: blur(20px) saturate(180%);
             background-color: rgba(79, 90, 75, 0.95);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         /* Glassmorphism */
@@ -188,26 +190,40 @@
             position: fixed;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 3px;
             background: linear-gradient(90deg, #e3c98c 0%, #b7835a 100%);
             transform-origin: 0%;
             transition: transform 0.1s ease-out;
             box-shadow: 0 2px 4px rgba(183, 131, 90, 0.3);
         }
 
-        /* Desktop: abaixo do header */
+        /* Desktop: progress bar na borda inferior do header */
         @media (min-width: 769px) {
             .scroll-progress {
-                top: 72px;
-                z-index: 45;
+                top: auto;
+                bottom: 0;
+                z-index: 51;
+                position: absolute;
+            }
+
+            .mobile-progress {
+                display: none;
+            }
+
+            header {
+                position: relative;
             }
         }
 
-        /* Mobile: acima do header */
+        /* Mobile: progress bar acima do header */
         @media (max-width: 768px) {
-            .scroll-progress {
+            .mobile-progress {
                 top: 0;
                 z-index: 10000;
+            }
+
+            header .scroll-progress {
+                display: none;
             }
         }
 
@@ -255,10 +271,6 @@
             background: rgba(227, 201, 140, 0.15);
         }
 
-        .dock-icon.active {
-            color: #e3c98c;
-            background: rgba(227, 201, 140, 0.2);
-        }
 
         .dock-icon img {
             width: 26px;
@@ -267,8 +279,7 @@
             transition: filter 0.3s ease, transform 0.3s ease;
         }
 
-        .dock-icon:hover img,
-        .dock-icon.active img {
+        .dock-icon:hover img {
             filter: brightness(0) saturate(100%) invert(78%) sepia(21%) saturate(648%) hue-rotate(353deg) brightness(93%) contrast(87%);
         }
 
@@ -312,8 +323,8 @@
 </head>
 <body class="smooth-scroll">
 
-    <!-- Progress Bar -->
-    <div class="scroll-progress" id="scroll-progress" style="transform: scaleX(0);"></div>
+    <!-- Progress Bar Mobile -->
+    <div class="scroll-progress mobile-progress" id="scroll-progress-mobile" style="transform: scaleX(0);"></div>
 
     <!-- Dock Bar Mobile -->
     <nav class="dock-bar mobile">
@@ -366,6 +377,8 @@
                 </div>
             </div>
         </nav>
+        <!-- Progress Bar -->
+        <div class="scroll-progress" id="scroll-progress" style="transform: scaleX(0);"></div>
     </header>
 
     <!-- Hero Section -->
@@ -658,8 +671,8 @@
     </section>
 
     <!-- Seção CTA Final -->
-    <section class="py-20 px-4 bg-gradient-to-b from-[#faf6ef] to-[#a8b4a5]/20 relative">
-        <!-- Linhas douradas decorativas -->
+    <section id="cta-final" class="py-20 px-4 bg-gradient-to-b from-[#faf6ef] to-[#a8b4a5]/20 relative">
+        <!-- Linhas douradas decorativas laterais -->
         <div class="absolute left-0 top-1/2 -translate-y-1/2 w-32 md:w-64 h-px bg-gradient-to-r from-transparent via-[#e3c98c] to-[#e3c98c] opacity-40"></div>
         <div class="absolute right-0 top-1/2 -translate-y-1/2 w-32 md:w-64 h-px bg-gradient-to-l from-transparent via-[#e3c98c] to-[#e3c98c] opacity-40"></div>
 
@@ -794,13 +807,19 @@
         });
 
         // Progress Bar Scroll Tracking
-        const scrollProgress = document.getElementById('scroll-progress');
+        const scrollProgressDesktop = document.getElementById('scroll-progress');
+        const scrollProgressMobile = document.getElementById('scroll-progress-mobile');
         let ticking = false;
 
         function updateProgressBar() {
             const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = Math.max(0, Math.min(1, window.scrollY / windowHeight));
-            scrollProgress.style.transform = `scaleX(${scrolled})`;
+            if (scrollProgressDesktop) {
+                scrollProgressDesktop.style.transform = `scaleX(${scrolled})`;
+            }
+            if (scrollProgressMobile) {
+                scrollProgressMobile.style.transform = `scaleX(${scrolled})`;
+            }
             ticking = false;
         }
 
@@ -810,32 +829,6 @@
                 ticking = true;
             }
         }, { passive: true });
-
-        // Dock Icon Active State Management
-        const sections = document.querySelectorAll('section[id]');
-        const dockIcons = document.querySelectorAll('.dock-icon[data-section]');
-
-        const observerOptions = {
-            threshold: 0.3,
-            rootMargin: '-100px 0px -50% 0px'
-        };
-
-        const sectionObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const sectionId = entry.target.id;
-                    dockIcons.forEach(icon => {
-                        if (icon.dataset.section === sectionId) {
-                            icon.classList.add('active');
-                        } else {
-                            icon.classList.remove('active');
-                        }
-                    });
-                }
-            });
-        }, observerOptions);
-
-        sections.forEach(section => sectionObserver.observe(section));
     </script>
 
 </body>
