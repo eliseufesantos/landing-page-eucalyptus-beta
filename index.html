@@ -24,15 +24,21 @@
     <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
 
     <!-- Preload de imagens críticas (hero) -->
-    <link rel="preload" as="image" href="assets/Eucalyptus5.png" fetchpriority="high">
-    <link rel="preload" as="image" href="assets/radix_icon.png">
+    <link rel="preload" as="image" href="assets/Eucalyptus5.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/radix-icon.webp">
 
     <!-- Fontes otimizadas com display=swap para evitar FOIT -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS com carregamento assíncrono -->
-    <script src="https://cdn.tailwindcss.com" async></script>
+    <!-- Fallback fonts inline para prevenir FOUT -->
+    <style>
+        /* Fallback enquanto fontes carregam */
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        .font-serif { font-family: Georgia, 'Times New Roman', serif; }
+    </style>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
             --verde-principal: #a8b4a5;
@@ -46,11 +52,11 @@
         body {
             background-color: var(--bege-claro);
             color: #4a4e4c; /* Melhor contraste: 4.52:1 */
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         .font-serif {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
         }
 
         .hero-pattern {
@@ -366,7 +372,7 @@
                 </svg>
             </a>
             <a href="#metodo" class="dock-icon radix-icon" data-section="metodo" title="RADIX™">
-                <img src="assets/radix_icon.png" alt="RADIX" width="26" height="26">
+                <img src="assets/radix-icon.webp" alt="RADIX" width="26" height="26">
             </a>
             <a href="#programa" class="dock-icon" data-section="programa" title="Beta">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -390,7 +396,7 @@
             <div class="flex items-center justify-between">
                 <!-- Logo e Nome -->
                 <div class="flex items-center gap-4">
-                    <img src="assets/Eucalyptus5.png" alt="Eucalyptus Solutions" class="h-14 w-auto" fetchpriority="high" width="56" height="56">
+                    <img src="assets/Eucalyptus5.webp" alt="Eucalyptus Solutions" class="h-14 w-auto" fetchpriority="high" width="56" height="56">
                     <span class="font-serif text-2xl font-semibold text-white tracking-wide">EUCALYPTUS</span>
                 </div>
 
@@ -529,7 +535,7 @@
         <div class="max-w-4xl mx-auto relative z-10">
             <div class="text-center mb-16">
                 <div class="inline-flex items-center gap-4 px-8 py-3 rounded-full glass mb-8">
-                    <img src="assets/radix_icon.png" alt="RADIX" class="w-10 h-10" loading="lazy" width="40" height="40">
+                    <img src="assets/radix-icon.webp" alt="RADIX" class="w-10 h-10" loading="lazy" width="40" height="40">
                     <span class="text-white font-medium text-base tracking-wide" style="text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);">MÉTODO RADIX™</span>
                 </div>
                 <h2 class="font-serif text-4xl md:text-6xl text-white font-light mb-6" style="text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);">
@@ -752,7 +758,7 @@
                 <!-- Logo e Descrição -->
                 <div class="lg:col-span-2 flex flex-col items-center md:items-start">
                     <div class="flex items-center gap-3 mb-4">
-                        <img src="assets/Eucalyptus5.png" alt="Eucalyptus Solutions" class="h-10 w-auto" loading="lazy" width="40" height="40">
+                        <img src="assets/Eucalyptus5.webp" alt="Eucalyptus Solutions" class="h-10 w-auto" loading="lazy" width="40" height="40">
                         <span class="font-serif text-2xl font-semibold tracking-wide">EUCALYPTUS</span>
                     </div>
                     <p class="text-white/80 text-sm leading-relaxed mb-6 max-w-md">
