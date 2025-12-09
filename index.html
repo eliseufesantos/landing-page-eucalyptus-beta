@@ -129,6 +129,143 @@
             will-change: opacity, transform;
         }
 
+        /* Toggle Component Styles */
+        .toggle-container {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .toggle-btn {
+            position: relative;
+            z-index: 10;
+            transition: color 0.3s ease;
+        }
+
+        .toggle-btn.active {
+            color: #4f5a4b;
+            font-weight: 600;
+        }
+
+        .toggle-btn:not(.active) {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .toggle-bg {
+            position: absolute;
+            top: 4px;
+            bottom: 4px;
+            border-radius: 9999px;
+            background: #faf6ef;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }
+
+        /* Content Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .view-content {
+            display: none;
+        }
+
+        .view-content.active {
+            display: block;
+            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Chat Message Animations */
+        @keyframes chatMessageIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .chat-message {
+            opacity: 0;
+            animation: chatMessageIn 0.4s ease-out forwards;
+        }
+
+        .chat-message:nth-child(1) {
+            animation-delay: 0.5s;
+        }
+
+        .chat-message:nth-child(2) {
+            animation-delay: 1.5s;
+        }
+
+        .chat-message:nth-child(3) {
+            animation-delay: 2.5s;
+        }
+
+        .chat-message:nth-child(4) {
+            animation-delay: 3.5s;
+        }
+
+        .chat-message:nth-child(5) {
+            animation-delay: 4.5s;
+        }
+
+        .chat-message:nth-child(6) {
+            animation-delay: 5.5s;
+        }
+
+        /* Typing Indicator */
+        @keyframes typingBounce {
+
+            0%,
+            60%,
+            100% {
+                transform: translateY(0);
+            }
+
+            30% {
+                transform: translateY(-4px);
+            }
+        }
+
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            background: #9ca3af;
+            border-radius: 50%;
+            animation: typingBounce 1.4s infinite ease-in-out;
+        }
+
+        .typing-dot:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .typing-indicator {
+            opacity: 0;
+            animation: chatMessageIn 0.4s ease-out forwards;
+            animation-delay: 1s;
+        }
+
         /* Remove will-change após animação */
         .animate-fade-in.animation-complete {
             will-change: auto;
@@ -566,48 +703,174 @@
                 </p>
             </div>
 
-            <!-- Features Grid -->
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- O Concierge -->
-                <div
-                    class="glass p-8 md:p-12 rounded-3xl backdrop-blur-xl border border-white/40 hover:border-white/60 transition-all duration-300 flex flex-col h-full">
-                    <div
-                        class="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#e3c98c] to-[#b7835a] flex items-center justify-center mb-8 shadow-xl">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                        </svg>
-                    </div>
-                    <h3 class="font-serif text-3xl text-white mb-4 font-semibold">O Concierge (Nilo)</h3>
-                    <p class="text-white/90 leading-relaxed text-lg flex-grow">
-                        O Nilo (nossa Inteligência Artificial) recebe seus pacientes com a educação de um mordomo. Ele
-                        tira dúvidas e filtra curiosos, garantindo que apenas agendamentos reais cheguem a você.
-                    </p>
-                    <div class="mt-8 pt-6 border-t border-white/20">
-                        <p class="text-[#e3c98c] font-medium italic">"Vendas acontecendo enquanto você dorme."</p>
+            <!-- Toggle Section -->
+            <div class="max-w-5xl mx-auto">
+                <!-- Toggle Header -->
+                <div class="flex justify-center mb-16">
+                    <div class="toggle-container relative inline-flex rounded-full p-1 w-[320px] h-[56px]">
+                        <div id="toggle-bg" class="toggle-bg w-[50%] left-1"></div>
+                        <button onclick="switchView('concierge')" id="btn-concierge"
+                            class="toggle-btn active w-1/2 flex items-center justify-center gap-2 text-sm tracking-wide">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                            </svg>
+                            O Concierge
+                        </button>
+                        <button onclick="switchView('panel')" id="btn-panel"
+                            class="toggle-btn w-1/2 flex items-center justify-center gap-2 text-sm tracking-wide">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                            </svg>
+                            O Painel
+                        </button>
                     </div>
                 </div>
 
-                <!-- O Painel -->
-                <div
-                    class="glass p-8 md:p-12 rounded-3xl backdrop-blur-xl border border-white/40 hover:border-white/60 transition-all duration-300 flex flex-col h-full">
-                    <div
-                        class="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#a8b4a5] to-[#4f5a4b] flex items-center justify-center mb-8 shadow-xl">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                        </svg>
+                <!-- Dynamic Content Container -->
+                <div class="relative min-h-[500px]">
+
+                    <!-- View: O Concierge -->
+                    <div id="view-concierge" class="view-content active">
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                            <!-- Text Content -->
+                            <div class="flex-1 text-center md:text-left max-w-md">
+                                <h3 class="font-serif text-4xl md:text-5xl text-white mb-6 leading-tight">
+                                    Atendimento Imediato e <span class="italic text-[#e3c98c]">Humanizado</span>
+                                </h3>
+                                <p class="text-white/80 text-lg leading-relaxed mb-8">
+                                    O Nilo agenda, tira dúvidas e encanta seus pacientes 24/7. Vendas enquanto você
+                                    dorme, sem perder a elegância.
+                                </p>
+                                <div
+                                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md">
+                                    <div class="w-2 h-2 rounded-full bg-[#28CA42] animate-pulse"></div>
+                                    <span class="text-white text-xs font-medium tracking-widest uppercase">Disponível
+                                        24/7</span>
+                                </div>
+                            </div>
+
+                            <!-- Mockup (Phone) -->
+                            <div class="flex-1 flex justify-center md:justify-end relative">
+                                <!-- Glow -->
+                                <div
+                                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-[#e3c98c]/20 blur-[100px] rounded-full pointer-events-none">
+                                </div>
+
+                                <div
+                                    class="relative w-[260px] h-[520px] rounded-[3rem] border-[8px] border-[#2d2d2d] bg-white overflow-hidden shadow-2xl transform hover:-translate-y-2 transition-transform duration-500 z-10">
+                                    <div
+                                        class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-[#2d2d2d] rounded-b-xl z-20">
+                                    </div>
+                                    <div class="absolute inset-0 flex flex-col bg-[#f5f5f5]">
+                                        <!-- Header -->
+                                        <div
+                                            class="bg-white border-b border-gray-200 pt-10 pb-3 px-4 text-center flex-shrink-0">
+                                            <div
+                                                class="w-12 h-12 mx-auto mb-2 rounded-full bg-[#f5efe6] flex items-center justify-center text-xl shadow-sm border border-gray-100">
+                                                🐨</div>
+                                            <p class="font-semibold text-[#4f5a4b] text-sm">Nilo</p>
+                                            <p
+                                                class="text-[10px] text-green-500 flex items-center justify-center gap-1">
+                                                <span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span> Online
+                                            </p>
+                                        </div>
+                                        <!-- Messages -->
+                                        <div class="flex-grow overflow-hidden px-4 py-4 space-y-3">
+                                            <div class="flex justify-end chat-message">
+                                                <div
+                                                    class="bg-[#6b7a65] text-white px-3 py-2 rounded-2xl rounded-tr-sm max-w-[85%] text-xs shadow-sm">
+                                                    Tem horário para amanhã?</div>
+                                            </div>
+                                            <div class="flex justify-start chat-message">
+                                                <div
+                                                    class="bg-white text-gray-800 px-3 py-2 rounded-2xl rounded-tl-sm max-w-[85%] text-xs shadow-sm border border-gray-100">
+                                                    Olá! Tenho sim. Às 15h fica bom? 😊</div>
+                                            </div>
+                                            <div class="flex justify-end chat-message">
+                                                <div
+                                                    class="bg-[#6b7a65] text-white px-3 py-2 rounded-2xl rounded-tr-sm max-w-[85%] text-xs shadow-sm">
+                                                    Perfeito, pode confirmar.</div>
+                                            </div>
+                                            <div class="flex justify-start chat-message">
+                                                <div
+                                                    class="bg-white text-gray-800 px-3 py-2 rounded-2xl rounded-tl-sm max-w-[85%] text-xs shadow-sm border border-gray-100">
+                                                    Confirmado! ✅ Te aguardamos!</div>
+                                            </div>
+                                        </div>
+                                        <!-- Input -->
+                                        <div class="bg-white border-t border-gray-200 p-3 flex-shrink-0">
+                                            <div class="flex items-center gap-2 bg-gray-100 rounded-full px-4 py-2">
+                                                <span class="text-xs text-gray-400 flex-grow">Digite sua
+                                                    mensagem...</span>
+                                                <div
+                                                    class="w-6 h-6 rounded-full bg-[#6b7a65] flex items-center justify-center">
+                                                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-white py-2 flex justify-center flex-shrink-0">
+                                            <div class="w-24 h-1 bg-gray-300 rounded-full"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="font-serif text-3xl text-white mb-4 font-semibold">O Painel (Gestão Visual)</h3>
-                    <p class="text-white/90 leading-relaxed text-lg flex-grow">
-                        Tudo o que o Nilo faz é organizado automaticamente no seu Painel de Controle (Notion). Agenda,
-                        Financeiro e Fichas de Pacientes em um lugar visualmente limpo e intuitivo.
-                    </p>
-                    <div class="mt-8 pt-6 border-t border-white/20">
-                        <p class="text-[#e3c98c] font-medium italic">"Visualmente limpo e intuitivo."</p>
+
+                    <!-- View: O Painel -->
+                    <div id="view-panel" class="view-content">
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                            <!-- Text Content -->
+                            <div class="flex-1 text-center md:text-left max-w-md">
+                                <h3 class="font-serif text-4xl md:text-5xl text-white mb-6 leading-tight">
+                                    Controle Total da <span class="italic text-[#e3c98c]">Clínica</span>
+                                </h3>
+                                <p class="text-white/80 text-lg leading-relaxed mb-8">
+                                    Financeiro, agenda e pacientes em um único lugar. Sem planilhas, sem confusão. A
+                                    gestão visual que você sempre sonhou.
+                                </p>
+                                <div
+                                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md">
+                                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                    </svg>
+                                    <span class="text-white text-xs font-medium tracking-widest uppercase">Gestão
+                                        Visual</span>
+                                </div>
+                            </div>
+
+                            <!-- Mockup (Window) -->
+                            <div class="flex-1 flex justify-center md:justify-end relative w-full">
+                                <!-- Glow -->
+                                <div
+                                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#28CA42]/10 blur-[100px] rounded-full pointer-events-none">
+                                </div>
+
+                                <div
+                                    class="relative w-full max-w-[480px] rounded-xl border border-white/20 bg-[#faf6ef] overflow-hidden shadow-2xl transform hover:-translate-y-2 transition-transform duration-500 z-10">
+                                    <div class="h-8 bg-[#e5e5e5] flex items-center px-4 gap-2 border-b border-gray-200">
+                                        <div class="w-3 h-3 rounded-full bg-[#FF5F57]"></div>
+                                        <div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
+                                        <div class="w-3 h-3 rounded-full bg-[#28CA42]"></div>
+                                    </div>
+                                    <img src="assets/notion-dashboard.png?v=3" alt="Dashboard Notion Eucalyptus"
+                                        class="w-full h-auto object-cover opacity-95" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -971,6 +1234,43 @@
         }
     </script>
 
+    <script>
+        function switchView(view) {
+            const bg = document.getElementById('toggle-bg');
+            const btnConcierge = document.getElementById('btn-concierge');
+            const btnPanel = document.getElementById('btn-panel');
+            const viewConcierge = document.getElementById('view-concierge');
+            const viewPanel = document.getElementById('view-panel');
+
+            if (view === 'concierge') {
+                // Move Background
+                bg.style.transform = 'translateX(0)';
+
+                // Update Buttons
+                btnConcierge.classList.add('active');
+                btnPanel.classList.remove('active');
+
+                // Update Views
+                viewPanel.classList.remove('active');
+                setTimeout(() => {
+                    viewConcierge.classList.add('active');
+                }, 50); // Slight delay for smoother transition
+            } else {
+                // Move Background
+                bg.style.transform = 'translateX(100%)';
+
+                // Update Buttons
+                btnPanel.classList.add('active');
+                btnConcierge.classList.remove('active');
+
+                // Update Views
+                viewConcierge.classList.remove('active');
+                setTimeout(() => {
+                    viewPanel.classList.add('active');
+                }, 50);
+            }
+        }
+    </script>
 </body>
 
 </html>
