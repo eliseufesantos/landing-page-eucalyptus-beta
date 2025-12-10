@@ -517,6 +517,24 @@
             visibility: visible;
             opacity: 1;
         }
+
+        /* Pain Cards */
+        .pain-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .pain-card:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(79, 90, 75, 0.08);
+            border-color: rgba(168, 180, 165, 0.3);
+        }
     </style>
 </head>
 
@@ -642,33 +660,81 @@
 
     <!-- Seção: O Problema (Narrativa) -->
     <section id="dores" class="py-24 px-4 bg-gradient-to-b from-white to-[#faf6ef]">
-        <div class="max-w-4xl mx-auto">
-            <div
-                class="glass p-8 md:p-16 rounded-3xl backdrop-blur-xl border border-white/40 shadow-2xl text-center relative overflow-hidden">
-                <!-- Decorative background element -->
-                <div
-                    class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/40 to-transparent pointer-events-none">
+        <div class="max-w-6xl mx-auto">
+            <!-- Header da Seção -->
+            <div class="text-center mb-16 max-w-3xl mx-auto">
+                <h2 class="font-serif text-3xl md:text-5xl text-[#4f5a4b] font-light mb-6 leading-tight">
+                    Você construiu um nome,<br />
+                    <span class="font-semibold italic">mas se tornou refém dele.</span>
+                </h2>
+                <p class="text-lg md:text-xl text-[#595d5b] leading-relaxed font-light">
+                    O sucesso trouxe reconhecimento, mas o invisível começou a pesar. Qual desses cenários descreve sua
+                    rotina hoje?
+                </p>
+            </div>
+
+            <!-- Grid de Dores -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="pain-card group">
+                    <div
+                        class="mb-6 p-4 rounded-2xl bg-[#a8b4a5]/10 w-fit group-hover:bg-[#a8b4a5]/20 transition-colors">
+                        <svg class="w-8 h-8 text-[#4f5a4b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl text-[#4f5a4b] font-semibold mb-3">O "Direct" Infinito</h3>
+                    <p class="text-[#595d5b] text-sm leading-relaxed">
+                        Leads esfriam enquanto você atende. O paciente quer resposta agora, mas você está em
+                        procedimento.
+                    </p>
                 </div>
 
-                <div class="relative z-10">
-                    <h2 class="font-serif text-3xl md:text-5xl text-[#4f5a4b] font-light mb-8 leading-tight">
-                        Você construiu um nome,<br />
-                        <span class="font-semibold italic">mas se tornou refém dele.</span>
-                    </h2>
-
-                    <div class="space-y-6 text-lg md:text-xl text-[#595d5b] leading-relaxed font-light">
-                        <p>
-                            O sucesso trouxe reconhecimento, mas o volume operacional cobrou seu preço.
-                        </p>
-                        <p>
-                            Hoje, sua atenção é disputada a cada notificação, e tarefas manuais drenam a energia que
-                            deveria estar focada na expansão da marca ou no seu bem-estar.
-                        </p>
-                        <p class="font-medium text-[#4f5a4b]">
-                            O atual fluxo manual se tornou um freio invisível que impede sua clínica de fluir com a
-                            leveza que você merece.
-                        </p>
+                <!-- Card 2 -->
+                <div class="pain-card group">
+                    <div
+                        class="mb-6 p-4 rounded-2xl bg-[#e3c98c]/10 w-fit group-hover:bg-[#e3c98c]/20 transition-colors">
+                        <svg class="w-8 h-8 text-[#b7835a]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
                     </div>
+                    <h3 class="font-serif text-xl text-[#4f5a4b] font-semibold mb-3">A Equipe sem Ritmo</h3>
+                    <p class="text-[#595d5b] text-sm leading-relaxed">
+                        Cada atendente fala de um jeito. Sem padrão, sua marca perde a sofisticação no primeiro "oi".
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="pain-card group">
+                    <div
+                        class="mb-6 p-4 rounded-2xl bg-[#4f5a4b]/5 w-fit group-hover:bg-[#4f5a4b]/10 transition-colors">
+                        <svg class="w-8 h-8 text-[#4f5a4b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl text-[#4f5a4b] font-semibold mb-3">O Cemitério de Leads</h3>
+                    <p class="text-[#595d5b] text-sm leading-relaxed">
+                        Quem pediu preço semana passada foi esquecido. Sem follow-up, o dinheiro fica na mesa.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="pain-card group">
+                    <div
+                        class="mb-6 p-4 rounded-2xl bg-[#b7835a]/10 w-fit group-hover:bg-[#b7835a]/20 transition-colors">
+                        <svg class="w-8 h-8 text-[#b7835a]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl text-[#4f5a4b] font-semibold mb-3">O Desconforto da Cobrança</h3>
+                    <p class="text-[#595d5b] text-sm leading-relaxed">
+                        Cobrar paciente é chato. O financeiro fica desorganizado porque ninguém quer fazer o papel de
+                        "vilão".
+                    </p>
                 </div>
             </div>
         </div>
