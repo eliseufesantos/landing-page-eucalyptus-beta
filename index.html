@@ -535,6 +535,165 @@
             box-shadow: 0 12px 24px rgba(79, 90, 75, 0.08);
             border-color: rgba(168, 180, 165, 0.3);
         }
+
+        /* Floating Animation with Rotation */
+        @keyframes float1 {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-2deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(-2deg);
+            }
+        }
+
+        @keyframes float2 {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(3deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(3deg);
+            }
+        }
+
+        @keyframes float3 {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-1deg);
+            }
+
+            50% {
+                transform: translateY(-25px) rotate(-1deg);
+            }
+        }
+
+        @keyframes float4 {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(2deg);
+            }
+
+            50% {
+                transform: translateY(-18px) rotate(2deg);
+            }
+        }
+
+        .notification-card {
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+
+        .notification-card:hover {
+            animation-play-state: paused !important;
+            transform: scale(1.05) rotate(0deg) !important;
+            z-index: 10;
+        }
+
+        /* Individual card animations and positions */
+        .notif-1 {
+            animation: float1 5s ease-in-out infinite;
+            top: 5%;
+            left: 5%;
+        }
+
+        .notif-2 {
+            animation: float2 7s ease-in-out infinite;
+            animation-delay: 1s;
+            top: 25%;
+            right: 8%;
+        }
+
+        .notif-3 {
+            animation: float3 6s ease-in-out infinite;
+            animation-delay: 0.5s;
+            top: 50%;
+            left: 10%;
+        }
+
+        .notif-4 {
+            animation: float4 6.5s ease-in-out infinite;
+            animation-delay: 1.8s;
+            top: 70%;
+            right: 5%;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .notification-card {
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                margin-bottom: 1.5rem;
+            }
+
+            .notif-1,
+            .notif-2,
+            .notif-3,
+            .notif-4 {
+                animation: float1 4s ease-in-out infinite;
+            }
+        }
+
+
+        .delay-3 {
+            animation-delay: 2.2s;
+        }
+
+        /* FAQ Accordion */
+        .faq-item {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .faq-trigger {
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), opacity 0.5s ease;
+            opacity: 0;
+        }
+
+        .faq-item.active .faq-content {
+            opacity: 1;
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        /* Animation for Floating Elements */
+        @keyframes float-slow {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-float {
+            animation: float-slow 6s ease-in-out infinite;
+        }
     </style>
 </head>
 
@@ -659,84 +818,128 @@
     </section>
 
     <!-- Seção: O Problema (Narrativa) -->
-    <section id="dores" class="py-24 px-4 bg-gradient-to-b from-white to-[#faf6ef]">
-        <div class="max-w-6xl mx-auto">
+    <section id="dores" class="py-24 px-4 bg-[#F2F0E9] relative overflow-hidden">
+        <!-- Background decorative elements -->
+        <div class="absolute inset-0 opacity-30 pointer-events-none"
+            style="background-image: radial-gradient(#4f5a4b 0.5px, transparent 0.5px); background-size: 24px 24px;">
+        </div>
+
+        <div class="max-w-6xl mx-auto relative z-10">
             <!-- Header da Seção -->
-            <div class="text-center mb-16 max-w-3xl mx-auto">
-                <h2 class="font-serif text-3xl md:text-5xl text-[#4f5a4b] font-light mb-6 leading-tight">
+            <div class="text-center mb-20 max-w-3xl mx-auto">
+                <h2 class="font-serif text-4xl md:text-5xl text-[#2F3E34] font-medium leading-tight mb-6">
                     Você construiu um nome,<br />
-                    <span class="font-semibold italic">mas se tornou refém dele.</span>
+                    <span class="italic text-[#556B5C]">mas se tornou refém dele.</span>
                 </h2>
-                <p class="text-lg md:text-xl text-[#595d5b] leading-relaxed font-light">
-                    O sucesso trouxe reconhecimento, mas o invisível começou a pesar. Qual desses cenários descreve sua
-                    rotina hoje?
+                <p class="text-lg text-[#556B5C]/80 font-light">
+                    O ruído operacional que te impede de crescer com leveza.
                 </p>
             </div>
 
-            <!-- Grid de Dores -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Card 1 -->
-                <div class="pain-card group">
+            <!-- Container de Notificações Espalhadas -->
+            <div class="relative w-full h-auto md:h-[600px] md:min-h-[600px]">
+
+                <!-- Notificação 1: O "Direct" Infinito -->
+                <div class="notification-card notif-1 w-full md:w-[420px]">
                     <div
-                        class="mb-6 p-4 rounded-2xl bg-[#a8b4a5]/10 w-fit group-hover:bg-[#a8b4a5]/20 transition-colors">
-                        <svg class="w-8 h-8 text-[#4f5a4b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                        </svg>
+                        class="bg-white/60 backdrop-blur-md border border-[#C5A065]/30 rounded-2xl p-5 shadow-lg group cursor-default flex items-start gap-4">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 rounded-full bg-[#C5A065]/10 flex items-center justify-center text-[#C5A065]">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center justify-between mb-1">
+                                <h3 class="text-[#2F3E34] font-bold text-base leading-tight">O "Direct" Infinito</h3>
+                                <span class="text-[#C5A065] text-xs font-medium">Agora</span>
+                            </div>
+                            <p class="text-[#556B5C] text-sm leading-relaxed">Leads esfriam enquanto você atende. O
+                                paciente quer resposta agora.</p>
+                        </div>
                     </div>
-                    <h3 class="font-serif text-xl text-[#4f5a4b] font-semibold mb-3">O "Direct" Infinito</h3>
-                    <p class="text-[#595d5b] text-sm leading-relaxed">
-                        Leads esfriam enquanto você atende. O paciente quer resposta agora, mas você está em
-                        procedimento.
-                    </p>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="pain-card group">
+                <!-- Notificação 2: A Equipe sem Ritmo -->
+                <div class="notification-card notif-2 w-full md:w-[420px]">
                     <div
-                        class="mb-6 p-4 rounded-2xl bg-[#e3c98c]/10 w-fit group-hover:bg-[#e3c98c]/20 transition-colors">
-                        <svg class="w-8 h-8 text-[#b7835a]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg>
+                        class="bg-white/60 backdrop-blur-md border border-[#C5A065]/30 rounded-2xl p-5 shadow-lg group cursor-default flex items-start gap-4">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 rounded-full bg-[#C5A065]/10 flex items-center justify-center text-[#C5A065]">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center justify-between mb-1">
+                                <h3 class="text-[#2F3E34] font-bold text-base leading-tight">A Equipe sem Ritmo</h3>
+                                <span class="text-[#C5A065] text-xs font-medium">5 min</span>
+                            </div>
+                            <p class="text-[#556B5C] text-sm leading-relaxed">Cada atendente fala de um jeito. Sua marca
+                                perde a sofisticação.</p>
+                        </div>
                     </div>
-                    <h3 class="font-serif text-xl text-[#4f5a4b] font-semibold mb-3">A Equipe sem Ritmo</h3>
-                    <p class="text-[#595d5b] text-sm leading-relaxed">
-                        Cada atendente fala de um jeito. Sem padrão, sua marca perde a sofisticação no primeiro "oi".
-                    </p>
                 </div>
 
-                <!-- Card 3 -->
-                <div class="pain-card group">
+                <!-- Notificação 3: O Cemitério de Leads -->
+                <div class="notification-card notif-3 w-full md:w-[420px]">
                     <div
-                        class="mb-6 p-4 rounded-2xl bg-[#4f5a4b]/5 w-fit group-hover:bg-[#4f5a4b]/10 transition-colors">
-                        <svg class="w-8 h-8 text-[#4f5a4b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                        </svg>
+                        class="bg-white/60 backdrop-blur-md border border-[#C5A065]/30 rounded-2xl p-5 shadow-lg group cursor-default flex items-start gap-4">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 rounded-full bg-[#C5A065]/10 flex items-center justify-center text-[#C5A065]">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="3 6 5 6 21 6"></polyline>
+                                <path
+                                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                </path>
+                                <line x1="10" y1="11" x2="10" y2="17"></line>
+                                <line x1="14" y1="11" x2="14" y2="17"></line>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center justify-between mb-1">
+                                <h3 class="text-[#2F3E34] font-bold text-base leading-tight">O Cemitério de Leads</h3>
+                                <span class="text-[#C5A065] text-xs font-medium">15 min</span>
+                            </div>
+                            <p class="text-[#556B5C] text-sm leading-relaxed">Quem pediu preço semana passada foi
+                                esquecido. Dinheiro na mesa.</p>
+                        </div>
                     </div>
-                    <h3 class="font-serif text-xl text-[#4f5a4b] font-semibold mb-3">O Cemitério de Leads</h3>
-                    <p class="text-[#595d5b] text-sm leading-relaxed">
-                        Quem pediu preço semana passada foi esquecido. Sem follow-up, o dinheiro fica na mesa.
-                    </p>
                 </div>
 
-                <!-- Card 4 -->
-                <div class="pain-card group">
+                <!-- Notificação 4: O Desconforto da Cobrança -->
+                <div class="notification-card notif-4 w-full md:w-[420px]">
                     <div
-                        class="mb-6 p-4 rounded-2xl bg-[#b7835a]/10 w-fit group-hover:bg-[#b7835a]/20 transition-colors">
-                        <svg class="w-8 h-8 text-[#b7835a]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
+                        class="bg-white/60 backdrop-blur-md border border-[#C5A065]/30 rounded-2xl p-5 shadow-lg group cursor-default flex items-start gap-4">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 rounded-full bg-[#C5A065]/10 flex items-center justify-center text-[#C5A065]">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center justify-between mb-1">
+                                <h3 class="text-[#2F3E34] font-bold text-base leading-tight">O Desconforto da Cobrança
+                                </h3>
+                                <span class="text-[#C5A065] text-xs font-medium">32 min</span>
+                            </div>
+                            <p class="text-[#556B5C] text-sm leading-relaxed">Cobrar é chato. O financeiro fica
+                                desorganizado e ninguém assume.</p>
+                        </div>
                     </div>
-                    <h3 class="font-serif text-xl text-[#4f5a4b] font-semibold mb-3">O Desconforto da Cobrança</h3>
-                    <p class="text-[#595d5b] text-sm leading-relaxed">
-                        Cobrar paciente é chato. O financeiro fica desorganizado porque ninguém quer fazer o papel de
-                        "vilão".
-                    </p>
                 </div>
+
             </div>
+
         </div>
     </section>
 
@@ -1012,55 +1215,126 @@
         </div>
     </section>
 
-    <!-- Seção: Diferenciais (Antigo Programa Beta) -->
-    <section id="diferenciais" class="py-20 px-4 bg-[#faf6ef]">
-        <div class="max-w-4xl mx-auto">
-            <div
-                class="bg-gradient-to-br from-[#4f5a4b] to-[#595d5b] p-8 md:p-12 rounded-3xl text-white relative overflow-hidden beta-box transition-all duration-300 shadow-2xl">
-                <!-- Pattern decorativo -->
-                <div class="absolute top-0 right-0 w-64 h-64 bg-[#a8b4a5] opacity-10 rounded-full -mr-32 -mt-32 pointer-events-none"
-                    aria-hidden="true"></div>
-                <div class="absolute bottom-0 left-0 w-48 h-48 bg-[#e3c98c] opacity-10 rounded-full -ml-24 -mb-24 pointer-events-none"
-                    aria-hidden="true"></div>
+    <!-- Seção: Diferenciais -->
+    <section id="diferenciais" class="py-24 px-4 bg-[#faf6ef] relative overflow-hidden">
+        <!-- Background Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-b from-[#faf6ef] to-[#a8b4a5]/20"></div>
 
-                <div class="relative z-10 text-center md:text-left">
-                    <div
-                        class="inline-block px-5 py-2 rounded-full glass border border-white/30 text-white text-sm font-medium mb-6">
-                        SOBERANIA DIGITAL
-                    </div>
+        <!-- Decorative Elements -->
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#a8b4a5]/15 rounded-full blur-[100px] pointer-events-none">
+        </div>
 
-                    <h2 class="font-serif text-3xl md:text-5xl font-light mb-6 leading-tight">
-                        Propriedade,<br />
-                        <span class="font-semibold text-[#e3c98c]">não Aluguel</span>
-                    </h2>
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="relative group">
+                <!-- Glow Effect behind the card -->
+                <div
+                    class="absolute -inset-1 bg-gradient-to-r from-[#4f5a4b] via-[#e3c98c] to-[#4f5a4b] rounded-[2.5rem] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
+                </div>
 
-                    <p class="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
-                        Diferente de softwares engessados que cobram mensalidades eternas, nós entregamos a chave.
-                    </p>
+                <div
+                    class="relative bg-white/40 backdrop-blur-xl border border-white/50 rounded-[2rem] overflow-hidden shadow-2xl">
+                    <div class="grid md:grid-cols-2 gap-0">
+                        <!-- Left: Visual/Abstract com Nilo -->
+                        <div
+                            class="relative min-h-[280px] md:min-h-full bg-gradient-to-br from-[#4f5a4b] to-[#2F3E34] flex items-center justify-center overflow-hidden order-2 md:order-1">
+                            <!-- Abstract shapes -->
+                            <div class="absolute inset-0 opacity-20">
+                                <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                                    <path d="M0 0 C 40 60 60 60 100 0 Z" fill="url(#gradDif1)" />
+                                    <defs>
+                                        <linearGradient id="gradDif1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:rgb(227,201,140);stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:rgb(168,180,165);stop-opacity:1" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
 
-                    <div class="grid md:grid-cols-3 gap-8 border-t border-white/20 pt-8">
-                        <!-- Feature 1 -->
-                        <div>
-                            <h3 class="text-[#e3c98c] font-serif text-xl mb-2">Setup Único</h3>
-                            <p class="text-sm text-white/80 leading-relaxed">
-                                Desenhamos, implementamos e entregamos. Sem taxas ocultas.
-                            </p>
+                            <!-- Floating Elements -->
+                            <div class="relative z-10 text-center p-8">
+                                <div
+                                    class="w-16 h-16 mx-auto bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 flex items-center justify-center mb-6 shadow-xl animate-float">
+                                    <img src="assets/Eucalyptus5.webp" alt="Logo" class="w-10 h-10 brightness-0 invert">
+                                </div>
+                                <p class="text-white/60 text-xs uppercase tracking-widest mb-2">Assistente Virtual</p>
+                                <h3 class="text-white font-serif text-2xl font-semibold mb-3">Nilo</h3>
+                                <p class="text-white/70 text-sm max-w-[200px] mx-auto">
+                                    Sua clínica funcionando 24h, com empatia e inteligência.
+                                </p>
+                            </div>
                         </div>
 
-                        <!-- Feature 2 -->
-                        <div>
-                            <h3 class="text-[#e3c98c] font-serif text-xl mb-2">Seu Servidor</h3>
-                            <p class="text-sm text-white/80 leading-relaxed">
-                                Seus dados ficam na sua casa, seguros e privados.
-                            </p>
-                        </div>
+                        <!-- Right: Content -->
+                        <div
+                            class="p-10 md:p-14 flex flex-col justify-center text-center md:text-left order-1 md:order-2">
+                            <div
+                                class="inline-block px-4 py-2 rounded-full bg-[#4f5a4b]/10 border border-[#4f5a4b]/20 text-[#4f5a4b] text-xs font-semibold uppercase tracking-wider mb-6 w-fit mx-auto md:mx-0">
+                                Soberania Digital
+                            </div>
 
-                        <!-- Feature 3 -->
-                        <div>
-                            <h3 class="text-[#e3c98c] font-serif text-xl mb-2">Design Minimalista</h3>
-                            <p class="text-sm text-white/80 leading-relaxed">
-                                Um sistema feito para quem ama estética. Sem telas complexas.
+                            <h2 class="font-serif text-3xl md:text-4xl text-[#4f5a4b] font-light mb-5 leading-tight">
+                                Propriedade,<br />
+                                <span class="font-semibold italic text-[#b7835a]">não Aluguel</span>
+                            </h2>
+
+                            <p class="text-[#595d5b] mb-8 leading-relaxed">
+                                Diferente de softwares engessados que cobram mensalidades eternas, nós entregamos a
+                                chave.
                             </p>
+
+                            <div class="space-y-5 border-t border-[#4f5a4b]/10 pt-6">
+                                <!-- Feature 1 -->
+                                <div class="flex items-start gap-4 text-left">
+                                    <div
+                                        class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#e3c98c] to-[#b7835a] flex items-center justify-center flex-shrink-0 shadow-lg">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-[#4f5a4b] font-semibold mb-1">Setup Único</h3>
+                                        <p class="text-sm text-[#595d5b]/80">Desenhamos, implementamos e entregamos. Sem
+                                            taxas ocultas.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Feature 2 -->
+                                <div class="flex items-start gap-4 text-left">
+                                    <div
+                                        class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#a8b4a5] to-[#4f5a4b] flex items-center justify-center flex-shrink-0 shadow-lg">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-[#4f5a4b] font-semibold mb-1">Seu Servidor</h3>
+                                        <p class="text-sm text-[#595d5b]/80">Seus dados ficam na sua casa, seguros e
+                                            privados.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Feature 3 -->
+                                <div class="flex items-start gap-4 text-left">
+                                    <div
+                                        class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#e3c98c] to-[#b7835a] flex items-center justify-center flex-shrink-0 shadow-lg">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-[#4f5a4b] font-semibold mb-1">Design Minimalista</h3>
+                                        <p class="text-sm text-[#595d5b]/80">Um sistema feito para quem ama estética.
+                                            Sem telas complexas.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1069,172 +1343,248 @@
     </section>
 
     <!-- Seção: FAQ -->
-    <section id="faq" class="py-20 px-4 bg-[#faf6ef]">
-        <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="font-serif text-3xl md:text-4xl text-[#4f5a4b] font-light">
-                    Dúvidas Frequentes
+    <section id="faq" class="py-24 px-4 bg-[#faf6ef] relative overflow-hidden">
+        <!-- Decorative background elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+            <div class="absolute top-20 -left-20 w-96 h-96 bg-[#a8b4a5]/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 -right-20 w-96 h-96 bg-[#e3c98c]/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-3xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl text-[#4f5a4b] font-light mb-4">
+                    Perguntas Frequentes
                 </h2>
+                <p class="text-[#595d5b] text-lg font-light">
+                    Tudo o que você precisa saber sobre o Método Radix
+                </p>
             </div>
 
             <div class="space-y-4">
                 <!-- FAQ Item 1 -->
-                <div class="glass p-6 rounded-2xl border border-[#a8b4a5]/30">
-                    <h3 class="font-serif text-xl text-[#4f5a4b] mb-2 font-medium">Preciso entender de tecnologia?</h3>
-                    <p class="text-[#595d5b] leading-relaxed">
-                        Zero. Se você sabe usar o Instagram, saberá usar nosso sistema. Foi desenhado para ser visual e
-                        intuitivo.
-                    </p>
+                <div
+                    class="faq-item glass rounded-2xl border border-[#a8b4a5]/30 hover:border-[#a8b4a5]/60 transition-colors duration-300">
+                    <button
+                        class="faq-trigger w-full p-6 flex items-center justify-between text-left focus:outline-none">
+                        <span class="font-serif text-xl text-[#4f5a4b] font-medium">Preciso entender de
+                            tecnologia?</span>
+                        <span
+                            class="faq-icon w-8 h-8 rounded-full bg-[#a8b4a5]/20 flex items-center justify-center text-[#4f5a4b]">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 4v16m8-8H4" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-content px-6 pb-0">
+                        <div class="pb-6 text-[#595d5b] leading-relaxed border-t border-[#a8b4a5]/10 pt-4">
+                            Zero. Se você sabe usar o Instagram, saberá usar nosso sistema. Foi desenhado para ser
+                            visual e intuitivo, eliminando a complexidade dos softwares tradicionais.
+                        </div>
+                    </div>
                 </div>
 
                 <!-- FAQ Item 2 -->
-                <div class="glass p-6 rounded-2xl border border-[#a8b4a5]/30">
-                    <h3 class="font-serif text-xl text-[#4f5a4b] mb-2 font-medium">O Nilo parece um robô?</h3>
-                    <p class="text-[#595d5b] leading-relaxed">
-                        Não. Ele é treinado para ter empatia, usar o tom de voz da sua marca e ser extremamente polido
-                        com seus pacientes.
-                    </p>
+                <div
+                    class="faq-item glass rounded-2xl border border-[#a8b4a5]/30 hover:border-[#a8b4a5]/60 transition-colors duration-300">
+                    <button
+                        class="faq-trigger w-full p-6 flex items-center justify-between text-left focus:outline-none">
+                        <span class="font-serif text-xl text-[#4f5a4b] font-medium">O Nilo parece um robô?</span>
+                        <span
+                            class="faq-icon w-8 h-8 rounded-full bg-[#a8b4a5]/20 flex items-center justify-center text-[#4f5a4b]">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 4v16m8-8H4" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-content px-6 pb-0">
+                        <div class="pb-6 text-[#595d5b] leading-relaxed border-t border-[#a8b4a5]/10 pt-4">
+                            Não. Ele é treinado com IA avançada para ter empatia, usar o tom de voz da sua marca e ser
+                            extremamente polido. Seus pacientes sentirão que estão conversando com alguém da sua equipe.
+                        </div>
+                    </div>
                 </div>
 
                 <!-- FAQ Item 3 -->
-                <div class="glass p-6 rounded-2xl border border-[#a8b4a5]/30">
-                    <h3 class="font-serif text-xl text-[#4f5a4b] mb-2 font-medium">E se eu quiser mudar algo depois?
-                    </h3>
-                    <p class="text-[#595d5b] leading-relaxed">
-                        O sistema é seu. Ensinamos você a pilotar, mas ele roda sozinho. Você tem total autonomia.
-                    </p>
+                <div
+                    class="faq-item glass rounded-2xl border border-[#a8b4a5]/30 hover:border-[#a8b4a5]/60 transition-colors duration-300">
+                    <button
+                        class="faq-trigger w-full p-6 flex items-center justify-between text-left focus:outline-none">
+                        <span class="font-serif text-xl text-[#4f5a4b] font-medium">E se eu quiser mudar algo
+                            depois?</span>
+                        <span
+                            class="faq-icon w-8 h-8 rounded-full bg-[#a8b4a5]/20 flex items-center justify-center text-[#4f5a4b]">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 4v16m8-8H4" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-content px-6 pb-0">
+                        <div class="pb-6 text-[#595d5b] leading-relaxed border-t border-[#a8b4a5]/10 pt-4">
+                            O sistema é seu. Ensinamos você a pilotar, mas ele roda sozinho. Você tem total autonomia
+                            para ajustar fluxos, mensagens e configurações quando desejar.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div
+                    class="faq-item glass rounded-2xl border border-[#a8b4a5]/30 hover:border-[#a8b4a5]/60 transition-colors duration-300">
+                    <button
+                        class="faq-trigger w-full p-6 flex items-center justify-between text-left focus:outline-none">
+                        <span class="font-serif text-xl text-[#4f5a4b] font-medium">Serve para minha clínica?</span>
+                        <span
+                            class="faq-icon w-8 h-8 rounded-full bg-[#a8b4a5]/20 flex items-center justify-center text-[#4f5a4b]">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 4v16m8-8H4" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-content px-6 pb-0">
+                        <div class="pb-6 text-[#595d5b] leading-relaxed border-t border-[#a8b4a5]/10 pt-4">
+                            Se você busca sair do operacional e valoriza a experiência do paciente, sim. O Eucalyptus é
+                            ideal para clínicas que querem crescer sem perder a qualidade no atendimento.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção CTA Final -->
-    <section id="cta-final" class="py-20 px-4 bg-gradient-to-b from-[#faf6ef] to-[#a8b4a5]/20 relative">
-        <!-- Linhas douradas decorativas laterais -->
+    <!-- Footer com CTA Integrado -->
+    <footer id="contato" class="relative overflow-hidden">
+        <!-- Background com gradiente que transiciona do bege para o verde -->
+        <div class="absolute inset-0 bg-gradient-to-b from-[#faf6ef] via-[#a8b4a5]/40 to-[#4f5a4b]"></div>
+
+        <!-- Decorative glow element -->
         <div
-            class="absolute left-0 top-1/2 -translate-y-1/2 w-32 md:w-64 h-px bg-gradient-to-r from-transparent via-[#e3c98c] to-[#e3c98c] opacity-40">
-        </div>
-        <div
-            class="absolute right-0 top-1/2 -translate-y-1/2 w-32 md:w-64 h-px bg-gradient-to-l from-transparent via-[#e3c98c] to-[#e3c98c] opacity-40">
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#e3c98c]/15 rounded-full blur-[100px] pointer-events-none">
         </div>
 
-        <div class="max-w-3xl mx-auto relative z-10">
-            <!-- macOS Window Style -->
-            <div class="rounded-3xl overflow-hidden shadow-2xl cta-box transition-all duration-300">
-                <!-- Window Header -->
-                <div class="macos-window flex items-center">
-                    <div class="macos-dots">
-                        <div class="macos-dot red"></div>
-                        <div class="macos-dot yellow"></div>
-                        <div class="macos-dot green"></div>
-                    </div>
+        <!-- CTA Section (integrado ao topo do footer) -->
+        <div class="relative z-10 pt-24 pb-16 px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <!-- Badge -->
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-[#4f5a4b] text-sm font-medium mb-8">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    Vagas limitadas no programa Beta
                 </div>
 
-                <!-- Window Content -->
-                <div class="glass p-8 md:p-12 text-center backdrop-blur-xl border-x border-b border-white/40">
-                    <h2 class="font-serif text-4xl md:text-5xl text-[#4f5a4b] font-light mb-6">
-                        A organização que você busca<br />
-                        <span class="font-semibold">está a uma conversa de distância</span>
-                    </h2>
-                    <p class="text-lg text-[#595d5b] mb-8 leading-relaxed">
-                        Deixe o Nilo te mostrar como é ser atendido com excelência.
-                    </p>
+                <!-- Headline -->
+                <h2 class="font-serif text-4xl md:text-6xl text-[#4f5a4b] font-light mb-6 leading-tight">
+                    Sua clínica,<br />
+                    <span class="font-semibold italic">Autônoma.</span>
+                </h2>
 
-                    <a href="https://form.respondi.app/AkLggsjN" target="_blank"
-                        class="btn-cta inline-block text-white px-10 py-4 rounded-full text-lg font-semibold shadow-xl hover:shadow-2xl">
-                        Falar com o Nilo (Gratuito)
-                    </a>
-
-                    <p class="mt-6 text-sm text-[#595d5b]/70 flex items-center justify-center gap-2">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd"
-                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                                clip-rule="evenodd" />
-                        </svg>
-                        Retornaremos em até 24 horas úteis
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contato" class="bg-[#4f5a4b] text-white py-16 px-4">
-        <div class="max-w-7xl mx-auto">
-            <!-- Main Footer Content -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 text-center md:text-left">
-                <!-- Logo e Descrição -->
-                <div class="lg:col-span-2 flex flex-col items-center md:items-start">
-                    <div class="flex items-center gap-3 mb-4">
-                        <img src="assets/Eucalyptus5.webp" alt="Eucalyptus Solutions" class="h-10 w-auto" loading="lazy"
-                            width="40" height="40">
-                        <span class="font-serif text-2xl font-semibold tracking-wide">EUCALYPTUS</span>
-                    </div>
-                    <p class="text-white/80 text-sm leading-relaxed mb-6 max-w-md">
-                        Tecnologia com alma para clínicas que crescem com leveza.
-                    </p>
-                    <p class="text-white/60 text-xs italic">
-                        "Raízes fortes constroem crescimento leve"
-                    </p>
-                </div>
-
-                <!-- Contato -->
-                <div class="flex flex-col items-center md:items-start">
-                    <h4 class="font-semibold mb-4 text-lg">Contato</h4>
-                    <div class="space-y-3 text-white/80 text-sm mb-5">
-                        <p class="flex items-center gap-2">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            São Paulo, SP
-                        </p>
-                        <p class="flex items-center gap-2">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                            </svg>
-                            contato@eucalyptus.solutions
-                        </p>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <a href="https://instagram.com/eucalyptus.solutions" target="_blank" rel="noopener noreferrer"
-                            class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 hover:scale-110"
-                            aria-label="Instagram">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                            </svg>
-                        </a>
-                        <a href="https://linkedin.com/company/eucalyptus-solutions" target="_blank"
-                            rel="noopener noreferrer"
-                            class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 hover:scale-110"
-                            aria-label="LinkedIn">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Parceria Kommo -->
-                <div class="flex flex-col items-center md:items-start">
-                    <h4 class="font-semibold mb-4 text-lg">Parceria Oficial</h4>
-                    <div class="inline-block p-4 rounded-2xl glass-dark">
-                        <img src="assets/Badge dark.svg" alt="Kommo Official Partner"
-                            class="h-16 w-auto opacity-90 hover:opacity-100 transition-opacity" loading="lazy"
-                            width="64" height="64">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bottom Bar -->
-            <div class="border-t border-white/10 pt-8 text-center">
-                <p class="text-white/60 text-sm">
-                    © 2025 Eucalyptus Solutions. Todos os direitos reservados.
+                <!-- Subheadline -->
+                <p class="text-lg md:text-xl text-[#4f5a4b]/80 mb-10 leading-relaxed max-w-2xl mx-auto">
+                    Não deixe para depois a liberdade que você pode ter agora.<br class="hidden md:block" />
+                    O <span class="font-semibold">Nilo</span> está pronto para assumir o operacional.
                 </p>
+
+                <!-- CTA Button -->
+                <a href="https://form.respondi.app/AkLggsjN" target="_blank"
+                    class="inline-flex items-center gap-3 btn-cta text-white px-10 py-5 rounded-full text-lg font-semibold shadow-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <span>Falar com o Nilo</span>
+                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Divider visual -->
+        <div class="relative z-10 max-w-5xl mx-auto px-4">
+            <div class="h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+        </div>
+
+        <!-- Footer Content -->
+        <div class="relative z-10 pt-16 pb-8 px-4">
+            <div class="max-w-7xl mx-auto">
+                <!-- Main Footer Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 text-center md:text-left">
+                    <!-- Logo e Descrição -->
+                    <div class="lg:col-span-2 flex flex-col items-center md:items-start">
+                        <div class="flex items-center gap-3 mb-4">
+                            <img src="assets/Eucalyptus5.webp" alt="Eucalyptus Solutions"
+                                class="h-10 w-auto brightness-0 invert" loading="lazy" width="40" height="40">
+                            <span class="font-serif text-2xl font-semibold tracking-wide text-white">EUCALYPTUS</span>
+                        </div>
+                        <p class="text-white/70 text-sm leading-relaxed mb-6 max-w-md">
+                            Tecnologia com alma para clínicas que crescem com leveza.
+                        </p>
+                        <blockquote class="text-white/50 text-xs italic">
+                            "A verdadeira sofisticação é a simplicidade."
+                        </blockquote>
+                    </div>
+
+                    <!-- Contato -->
+                    <div class="flex flex-col items-center md:items-start">
+                        <h4 class="font-semibold mb-4 text-lg text-white">Contato</h4>
+                        <div class="space-y-3 text-white/70 text-sm mb-5">
+                            <p class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-[#e3c98c]" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                São Paulo, SP
+                            </p>
+                            <p class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-[#e3c98c]" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                                </svg>
+                                contato@eucalyptus.solutions
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <a href="https://instagram.com/eucalyptus.solutions" target="_blank"
+                                rel="noopener noreferrer"
+                                class="w-10 h-10 rounded-xl bg-white/10 hover:bg-[#e3c98c]/30 flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+                                aria-label="Instagram">
+                                <svg class="w-5 h-5 text-white group-hover:text-[#e3c98c]" fill="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg>
+                            </a>
+                            <a href="https://linkedin.com/company/eucalyptus-solutions" target="_blank"
+                                rel="noopener noreferrer"
+                                class="w-10 h-10 rounded-xl bg-white/10 hover:bg-[#e3c98c]/30 flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+                                aria-label="LinkedIn">
+                                <svg class="w-5 h-5 text-white group-hover:text-[#e3c98c]" fill="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Parceria Kommo -->
+                    <div class="flex flex-col items-center md:items-start">
+                        <h4 class="font-semibold mb-4 text-lg text-white">Parceria Oficial</h4>
+                        <div class="inline-block p-4 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
+                            <img src="assets/Badge dark.svg" alt="Kommo Official Partner"
+                                class="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity" loading="lazy"
+                                width="64" height="64">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Bar -->
+                <div class="border-t border-white/10 pt-8 text-center">
+                    <p class="text-white/50 text-sm">
+                        © 2025 Eucalyptus Solutions. Todos os direitos reservados.
+                    </p>
+                </div>
             </div>
         </div>
     </footer>
@@ -1336,6 +1686,31 @@
                 }, 50);
             }
         }
+
+        // FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.faq-trigger').forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const item = trigger.parentElement;
+                    const isActive = item.classList.contains('active');
+
+                    // Close all others
+                    document.querySelectorAll('.faq-item').forEach(i => {
+                        i.classList.remove('active');
+                        i.querySelector('.faq-content').style.maxHeight = null;
+                        i.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+                    });
+
+                    // Toggle current
+                    if (!isActive) {
+                        item.classList.add('active');
+                        const content = item.querySelector('.faq-content');
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        item.querySelector('.faq-icon').style.transform = 'rotate(45deg)';
+                    }
+                });
+            });
+        });
     </script>
 </body>
 
