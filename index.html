@@ -452,9 +452,20 @@
         .dock-bar.mobile {
             bottom: 20px;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-50%) translateY(100px);
             max-width: 380px;
             width: calc(100% - 32px);
+            opacity: 0;
+            visibility: hidden;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0.4s;
+        }
+
+        .dock-bar.mobile.visible {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+            visibility: visible;
         }
 
         @media (min-width: 769px) {
@@ -663,6 +674,370 @@
         .animate-pulse-slow {
             animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
+
+        /* ============================================
+           RESPONSIVIDADE PARA DISPOSITIVOS MÉDIOS
+           ============================================ */
+
+        /* TABLETS (768px - 1024px) */
+        @media (min-width: 768px) and (max-width: 1024px) {
+
+            /* Hero Section */
+            .hero-pattern h1 {
+                font-size: 2.75rem;
+                line-height: 1.2;
+            }
+
+            .hero-pattern p.text-xl {
+                font-size: 1.125rem;
+            }
+
+            /* Pain Section */
+            #dores h2 {
+                font-size: 2.25rem;
+            }
+
+            #dores .max-w-2xl {
+                max-width: 90%;
+            }
+
+            /* Solution Section */
+            #solucao h2 {
+                font-size: 2.5rem;
+            }
+
+            #solucao h3 {
+                font-size: 2rem;
+            }
+
+            #solucao .toggle-container {
+                width: 280px;
+                height: 48px;
+            }
+
+            /* Phone Mockup - Tablet */
+            #view-concierge .w-\[260px\] {
+                width: 220px;
+            }
+
+            #view-concierge .h-\[520px\] {
+                height: 440px;
+            }
+
+            /* Panel Mockup - Tablet */
+            #view-panel .max-w-\[480px\] {
+                max-width: 400px;
+            }
+
+            /* Jornada/Radix Section */
+            #jornada h2 {
+                font-size: 2.25rem;
+            }
+
+            #jornada .radix-step {
+                padding: 1.5rem;
+            }
+
+            #jornada .radix-step h3 {
+                font-size: 1.5rem;
+            }
+
+            /* Pill Numbers */
+            #jornada .text-\[7rem\],
+            #jornada .text-\[8rem\] {
+                font-size: 5rem !important;
+            }
+
+            /* Diferenciais Section */
+            #diferenciais h2 {
+                font-size: 2rem;
+            }
+
+            #diferenciais h3 {
+                font-size: 1.75rem;
+            }
+
+            /* Key Image */
+            #diferenciais .w-32,
+            #diferenciais .w-40 {
+                width: 6rem;
+                height: 6rem;
+            }
+
+            /* About Section */
+            #sobre h2 {
+                font-size: 1.875rem;
+            }
+
+            #sobre .aspect-\[4\/5\] {
+                aspect-ratio: 1 / 1;
+            }
+
+            /* FAQ Section */
+            #faq h2 {
+                font-size: 2.25rem;
+            }
+
+            #faq .faq-trigger span:first-child {
+                font-size: 1.125rem;
+            }
+
+            /* Footer CTA */
+            footer h2 {
+                font-size: 2.25rem;
+            }
+
+            footer .text-lg {
+                font-size: 1rem;
+            }
+        }
+
+        /* NOTEBOOKS MÉDIOS (1024px - 1280px) */
+        @media (min-width: 1024px) and (max-width: 1280px) {
+
+            /* Hero Section */
+            .hero-pattern h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero-pattern p.text-xl {
+                font-size: 1.25rem;
+            }
+
+            /* Video Placeholder */
+            .hero-pattern .max-w-3xl {
+                max-width: 640px;
+            }
+
+            /* Pain Section */
+            #dores h2 {
+                font-size: 2.75rem;
+            }
+
+            /* Solution Section */
+            #solucao h2 {
+                font-size: 3rem;
+            }
+
+            #solucao h3 {
+                font-size: 2.25rem;
+            }
+
+            /* Phone Mockup - Notebook */
+            #view-concierge .w-\[260px\] {
+                width: 240px;
+            }
+
+            #view-concierge .h-\[520px\] {
+                height: 480px;
+            }
+
+            /* Panel Mockup - Notebook */
+            #view-panel .max-w-\[480px\] {
+                max-width: 440px;
+            }
+
+            /* Jornada/Radix Section */
+            #jornada h2 {
+                font-size: 2.75rem;
+            }
+
+            #jornada .radix-step {
+                padding: 2rem 1.75rem;
+            }
+
+            #jornada .radix-step h3 {
+                font-size: 1.75rem;
+            }
+
+            /* Pill Numbers */
+            #jornada .text-\[7rem\],
+            #jornada .text-\[8rem\] {
+                font-size: 6rem !important;
+            }
+
+            /* Diferenciais Section */
+            #diferenciais h2 {
+                font-size: 2.25rem;
+            }
+
+            #diferenciais h3 {
+                font-size: 2rem;
+            }
+
+            #diferenciais .w-32,
+            #diferenciais .w-40 {
+                width: 7rem;
+                height: 7rem;
+            }
+
+            /* About Section */
+            #sobre h2 {
+                font-size: 2.25rem;
+            }
+
+            /* FAQ Section */
+            #faq h2 {
+                font-size: 2.75rem;
+            }
+
+            /* Footer CTA */
+            footer h2 {
+                font-size: 3rem;
+            }
+        }
+
+        /* AJUSTES GERAIS PARA TABLETS E NOTEBOOKS (768px - 1280px) */
+        @media (min-width: 768px) and (max-width: 1280px) {
+
+            /* Container widths */
+            .max-w-7xl {
+                max-width: 95%;
+            }
+
+            .max-w-6xl {
+                max-width: 90%;
+            }
+
+            .max-w-5xl {
+                max-width: 88%;
+            }
+
+            /* Section Padding */
+            section {
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+
+            /* Cards */
+            .pain-card {
+                padding: 1.25rem;
+            }
+
+            .glass-light {
+                padding: 1.25rem;
+            }
+
+            /* Badge sizes */
+            .badge-exclusive {
+                padding: 0.5rem 1rem;
+            }
+
+            /* Button sizes */
+            .btn-cta {
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+            }
+
+            /* Grid gaps */
+            .grid.gap-12 {
+                gap: 2rem;
+            }
+
+            .grid.gap-16 {
+                gap: 2.5rem;
+            }
+
+            /* Margin bottom adjustments */
+            .mb-20 {
+                margin-bottom: 3rem;
+            }
+
+            .mb-16 {
+                margin-bottom: 2.5rem;
+            }
+
+            /* Diferenciais Card - Better proportions */
+            #diferenciais .max-w-4xl {
+                max-width: 95%;
+            }
+
+            #diferenciais .p-8,
+            #diferenciais .p-12 {
+                padding: 1.5rem;
+            }
+
+            /* About Section Grid */
+            #sobre .grid {
+                gap: 2rem;
+            }
+
+            /* FAQ items spacing */
+            #faq .space-y-4>*+* {
+                margin-top: 0.75rem;
+            }
+
+            /* Footer grid */
+            footer .grid {
+                gap: 2rem;
+            }
+        }
+
+        /* LANDSCAPE TABLETS (altura menor) */
+        @media (min-width: 768px) and (max-width: 1024px) and (max-height: 800px) {
+            .hero-pattern {
+                min-height: auto;
+                padding-top: 6rem;
+                padding-bottom: 3rem;
+            }
+
+            .hero-pattern .aspect-video {
+                max-height: 280px;
+            }
+
+            #view-concierge .h-\[520px\],
+            #view-concierge .h-\[440px\] {
+                height: 380px !important;
+            }
+        }
+
+        /* Ajuste para floating animation em dispositivos médios */
+        @media (min-width: 768px) and (max-width: 1280px) {
+            @keyframes float-gentle {
+
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(-6px);
+                }
+            }
+
+            /* Notification cards */
+            #dores .glass-light {
+                padding: 1.25rem;
+            }
+
+            #dores .glass-light h3 {
+                font-size: 1rem;
+            }
+
+            #dores .glass-light p {
+                font-size: 0.8125rem;
+            }
+
+            /* Icon sizes in cards */
+            #dores .w-12 {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+        }
+
+        /* Timestamps - prevent breaking (applies to all screen sizes) */
+        #dores .dores-timestamp {
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-left: 8px;
+        }
+
+        /* Hide timestamps only on very small screens (iPhone SE, 5, etc) */
+        @media (max-width: 360px) {
+            #dores .dores-timestamp {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -674,31 +1049,39 @@
     <!-- Dock Bar Mobile -->
     <nav class="dock-bar mobile">
         <div class="flex items-center justify-around gap-3">
-            <a href="#dores" class="dock-icon" data-section="dores" title="O Problema">
+            <!-- O Ruído (Dores/Problema) - Ícone de perigo -->
+            <a href="#dores" class="dock-icon" data-section="dores" title="O Ruído">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                    <path d="M2 17l10 5 10-5" />
-                    <path d="M2 12l10 5 10-5" />
+                    <path
+                        d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                    <line x1="12" y1="9" x2="12" y2="13" />
+                    <line x1="12" y1="17" x2="12.01" y2="17" />
                 </svg>
             </a>
-            <a href="#solucao" class="dock-icon radix-icon" data-section="solucao" title="Ecossistema">
-                <img src="assets/radix-icon.webp" alt="Ecossistema" width="26" height="26">
-            </a>
-            <a href="#jornada" class="dock-icon" data-section="jornada" title="Jornada">
+            <!-- O Nilo (Solução) - Ícone de chat/concierge -->
+            <a href="#solucao" class="dock-icon" data-section="solucao" title="O Nilo">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    <path
+                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                 </svg>
             </a>
-            <a href="#contato" class="dock-icon" data-section="contato" title="Contato">
+            <!-- Método Radix (Jornada) - Ícone Radix -->
+            <a href="#jornada" class="dock-icon radix-icon" data-section="jornada" title="Método Radix">
+                <img src="assets/radix-icon.webp" alt="Método Radix" width="26" height="26">
+            </a>
+            <!-- Soberania (Diferenciais) - Ícone de chave -->
+            <a href="#diferenciais" class="dock-icon" data-section="diferenciais" title="Soberania">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    <path
+                        d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4" />
                 </svg>
             </a>
+            <!-- CTA Principal -->
             <a href="https://form.respondi.app/AkLggsjN" target="_blank" class="dock-cta">
-                Protocolo
+                Diagnóstico
             </a>
         </div>
     </nav>
@@ -748,16 +1131,15 @@
             </div>
 
             <!-- Headline -->
-            <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl text-[#1a2c24] font-light leading-tight mb-6">
-                A infraestrutura que transforma<br />
-                <span class="font-semibold">interesse em lucro real.</span>
+            <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-[#1a2c24] font-light leading-tight mb-6">
+                O ecossistema que transforma<br />
+                <span class="font-semibold">interesse em <span class="text-[#b7835a]">lucro real.</span></span>
             </h1>
 
             <!-- Subheadline -->
-            <p class="text-xl md:text-2xl text-[#595d5b] font-light mb-12 leading-relaxed max-w-3xl mx-auto">
-                Eleve o padrão da sua porta de entrada. Implementamos o ecossistema comercial que acolhe seus pacientes
-                instantaneamente e organiza sua demanda 24h por dia.<br class="hidden md:block" />
-                Aumente sua taxa de conversão sem aumentar sua carga de trabalho.
+            <p class="text-base md:text-lg text-[#7a7f7d] font-light mb-12 leading-relaxed max-w-2xl mx-auto">
+                Profissionalize sua porta de entrada com Inteligência Comercial. Um sistema que acolhe, qualifica e
+                agenda pacientes 24h por dia, maximizando sua conversão sem aumentar sua carga operacional.
             </p>
 
             <!-- Video Placeholder -->
@@ -811,11 +1193,11 @@
 
             <!-- Header da Seção -->
             <div class="text-center mb-16 max-w-3xl mx-auto">
-                <h2 class="font-serif text-4xl md:text-5xl text-white font-medium leading-tight mb-6">
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-white font-medium leading-tight mb-6">
                     Onde sua clínica está<br />
                     <span class="italic text-[#e3c98c]">deixando dinheiro na mesa?</span>
                 </h2>
-                <p class="text-lg text-white/80 font-light">
+                <p class="text-base md:text-lg text-white/70 font-light max-w-2xl mx-auto">
                     A desorganização digital não é apenas um incômodo; é uma torneira aberta desperdiçando faturamento.
                 </p>
             </div>
@@ -840,7 +1222,7 @@
                                 <div class="flex items-center justify-between mb-1">
                                     <h3 class="text-[#1a2c24] font-bold text-lg leading-tight">O Gap de Resposta
                                     </h3>
-                                    <span class="text-[#96743b] text-xs font-semibold">Agora</span>
+                                    <span class="dores-timestamp text-[#96743b] text-xs font-semibold">Agora</span>
                                 </div>
                                 <p class="text-[#1a2c24]/80 text-sm leading-relaxed font-medium">O lead quente esfria em
                                     minutos. Se você demora para responder, seu concorrente fecha a venda. O imediatismo
@@ -850,9 +1232,8 @@
                     </div>
                 </div>
 
-                <!-- Card 2 (Tilt Right) -->
-                <div
-                    class="animate-float-delay-2 w-full max-w-lg mx-auto transform rotate-2 transition-transform duration-300">
+                <!-- Card 2 -->
+                <div class="animate-float-delay-2 w-full max-w-lg mx-auto transition-transform duration-300">
                     <div class="glass-light p-6 rounded-2xl border border-white/40 shadow-xl backdrop-blur-xl">
                         <div class="flex items-start gap-4">
                             <div
@@ -869,7 +1250,7 @@
                                 <div class="flex items-center justify-between mb-1">
                                     <h3 class="text-[#1a2c24] font-bold text-lg leading-tight">O Cemitério de Leads
                                     </h3>
-                                    <span class="text-[#96743b] text-xs font-semibold">5 min</span>
+                                    <span class="dores-timestamp text-[#96743b] text-xs font-semibold">5 min</span>
                                 </div>
                                 <p class="text-[#1a2c24]/80 text-sm leading-relaxed font-medium">Centenas de contatos
                                     pedem preço e somem. Sem um follow-up automático e inteligente, você perde vendas
@@ -879,9 +1260,8 @@
                     </div>
                 </div>
 
-                <!-- Card 3 (Tilt Left) -->
-                <div
-                    class="animate-float-delay-3 w-full max-w-lg mx-auto transform -rotate-2 transition-transform duration-300">
+                <!-- Card 3 -->
+                <div class="animate-float-delay-3 w-full max-w-lg mx-auto transition-transform duration-300">
                     <div class="glass-light p-6 rounded-2xl border border-white/40 shadow-xl backdrop-blur-xl">
                         <div class="flex items-start gap-4">
                             <div
@@ -899,7 +1279,7 @@
                                     <h3 class="text-[#1a2c24] font-bold text-lg leading-tight">A Atendente
                                         Sobrecarregada
                                     </h3>
-                                    <span class="text-[#96743b] text-xs font-semibold">15 min</span>
+                                    <span class="dores-timestamp text-[#96743b] text-xs font-semibold">15 min</span>
                                 </div>
                                 <p class="text-[#1a2c24]/80 text-sm leading-relaxed font-medium">Copiar e colar
                                     mensagens, confirmar agenda manualmente... Sua equipe gasta energia em burocracia e
@@ -926,7 +1306,7 @@
                                 <div class="flex items-center justify-between mb-1">
                                     <h3 class="text-[#1a2c24] font-bold text-lg leading-tight">Cegueira de
                                         Dados</h3>
-                                    <span class="text-[#96743b] text-xs font-semibold">32 min</span>
+                                    <span class="dores-timestamp text-[#96743b] text-xs font-semibold">32 min</span>
                                 </div>
                                 <p class="text-[#1a2c24]/80 text-sm leading-relaxed font-medium">Quanto você vendeu
                                     pelo WhatsApp hoje? Sem métricas claras, você não gerencia um negócio, apenas apaga
@@ -981,15 +1361,13 @@
                     <span class="text-[#1a2c24] font-medium text-sm tracking-wide uppercase">Ecossistema
                         Proprietário</span>
                 </div>
-                <h2 class="font-serif text-4xl md:text-6xl text-[#2c352e] font-light mb-6">
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-[#2c352e] font-light mb-6">
                     Tecnologia Invisível.<br />
                     <span class="font-semibold text-[#b7835a]">Performance Visível.</span>
                 </h2>
-                <p class="text-xl text-[#1a2c24] max-w-3xl mx-auto leading-relaxed">
-                    Não vendemos mais um software que você aluga.<br class="hidden md:block" />
-                    Construímos uma Arquitetura de Negócios dentro do seu servidor, unindo automação, gestão e
-                    Inteligência
-                    Artificial.
+                <p class="text-base md:text-lg text-[#7a7f7d] max-w-2xl mx-auto leading-relaxed">
+                    Não vendemos mais um software que você aluga. Construímos uma Arquitetura de Negócios dentro do seu
+                    servidor, unindo automação, gestão e Inteligência Artificial.
                 </p>
             </div>
 
@@ -1038,7 +1416,9 @@
                             <!-- Text Content -->
                             <div class="flex-1 text-center md:text-left max-w-md">
                                 <h3 class="font-serif text-4xl md:text-5xl text-[#1a2c24] mb-6 leading-tight">
-                                    O Nilo: Atendimento de Elite, <span class="italic text-[#b7835a]">24/7</span>
+                                    O Nilo<br>
+                                    <span class="font-light">Atendimento de Elite</span> <span
+                                        class="italic text-[#b7835a]">24/7</span>
                                 </h3>
                                 <p class="text-[#595d5b] text-lg leading-relaxed mb-8">
                                     O Nilo não é um chatbot comum. Ele acolhe, tria e agenda com a polidez de um
@@ -1207,10 +1587,10 @@
         <div class="max-w-7xl mx-auto px-4 relative z-10">
             <!-- Header (Centered) -->
             <div class="text-center mb-20">
-                <h2 class="font-serif text-4xl md:text-5xl text-[#2c352e] font-light mb-6">
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-[#2c352e] font-light mb-6">
                     O caminho para a <span class="font-semibold text-[#b7835a]">Liberdade</span>
                 </h2>
-                <p class="text-lg text-[#1a2c24] max-w-2xl mx-auto">
+                <p class="text-base md:text-lg text-[#7a7f7d] max-w-2xl mx-auto">
                     O Método Radix. Um protocolo proprietário em 3 etapas que une IA e estratégia humana para devolver o
                     controle da sua clínica para você.
                 </p>
@@ -1526,13 +1906,10 @@
                 <div class="md:col-span-5 relative order-2 md:order-1 max-w-sm mx-auto md:max-w-none">
                     <!-- Image Card -->
                     <div class="relative rounded-3xl overflow-hidden shadow-xl group">
-                        <!-- Placeholder Image (Gray/Neutral until replaced) -->
-                        <div class="aspect-[4/5] bg-gray-200 relative flex items-center justify-center overflow-hidden">
-                            <!-- Placeholder Icon/Text if no image -->
-                            <svg class="w-20 h-20 text-gray-300 absolute" fill="currentColor" viewBox="0 0 24 24">
-                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                                    clip-rule="evenodd" />
-                            </svg>
+                        <!-- Imagem de Eliseu Mendes -->
+                        <div class="aspect-[4/5] relative overflow-hidden">
+                            <img src="assets/eliseu-profissional.png" alt="Eliseu Mendes - Fundador da Eucalyptus"
+                                class="w-full h-full object-cover" loading="lazy">
                             <!-- Overlay Gradient -->
                             <div class="absolute inset-0 bg-gradient-to-t from-[#1a2c24]/40 to-transparent opacity-60">
                             </div>
@@ -1540,9 +1917,9 @@
 
                         <!-- Optional Badge/Floating Element -->
                         <div class="absolute bottom-5 left-5 right-5">
-                            <div class="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl p-3">
-                                <p class="text-white/90 text-sm font-medium italic">
-                                    "Especialista em Automação & IA"
+                            <div class="backdrop-blur-md bg-[#1a2c24]/70 border border-white/20 rounded-xl p-3">
+                                <p class="text-white text-sm font-medium italic">
+                                    Especialista em Automação &amp; IA
                                 </p>
                             </div>
                         </div>
@@ -1604,10 +1981,10 @@
 
         <div class="max-w-3xl mx-auto relative z-10">
             <div class="text-center mb-16">
-                <h2 class="font-serif text-4xl md:text-5xl text-[#1a2c24] font-light mb-4">
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-[#1a2c24] font-light mb-4">
                     Perguntas Frequentes
                 </h2>
-                <p class="text-[#595d5b] text-lg font-light">
+                <p class="text-base md:text-lg text-[#7a7f7d] font-light max-w-2xl mx-auto">
                     Tudo o que você precisa saber sobre o Método Radix
                 </p>
             </div>
@@ -1729,7 +2106,7 @@
                 </div>
 
                 <!-- Headline -->
-                <h2 class="font-serif text-4xl md:text-6xl text-[#1a2c24] font-light mb-6 leading-tight">
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-[#1a2c24] font-light mb-6 leading-tight">
                     Sua clínica operando<br />
                     <span class="font-semibold italic text-[#b7835a]">no potencial máximo.</span>
                 </h2>
@@ -1905,6 +2282,30 @@
                     ticking = true;
                 }
             }, { passive: true });
+
+            // Dock Bar Mobile - Show after passing hero section
+            const dockBar = document.querySelector('.dock-bar.mobile');
+            const heroSection = document.getElementById('hero');
+
+            function updateDockBarVisibility() {
+                if (!dockBar || !heroSection) return;
+
+                const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+                const scrollPosition = window.scrollY + window.innerHeight * 0.3;
+
+                if (scrollPosition > heroBottom) {
+                    dockBar.classList.add('visible');
+                } else {
+                    dockBar.classList.remove('visible');
+                }
+            }
+
+            window.addEventListener('scroll', () => {
+                window.requestAnimationFrame(updateDockBarVisibility);
+            }, { passive: true });
+
+            // Initial check
+            updateDockBarVisibility();
         }
     </script>
 
