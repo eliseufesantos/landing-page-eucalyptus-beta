@@ -50,6 +50,11 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP Animation Library + ScrollTrigger Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Observer.min.js"></script>
     <style>
         :root {
             --verde-principal: #a8b4a5;
@@ -110,6 +115,43 @@
                 transform: scale(1.02);
                 box-shadow: 0 2px 8px rgba(168, 180, 165, 0.15);
             }
+        }
+
+        /* ==========================================
+           GSAP ANIMATION OPTIMIZATIONS
+           ========================================== */
+
+        /* GPU Acceleration for smooth animations */
+        .gsap-animated,
+        #hero h1,
+        #hero p,
+        #dores .glass-light,
+        #solucao .toggle-container,
+        #jornada .radix-step,
+        #diferenciais .relative.group,
+        #sobre .md\:col-span-5,
+        #faq .faq-item,
+        .btn-cta {
+            will-change: transform, opacity;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        /* Prevent content flash before GSAP animations */
+        .gsap-hide {
+            visibility: hidden;
+        }
+
+        /* Smooth transition timing */
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Enhanced easing for micro-interactions */
+        .smooth-transition {
+            transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         @keyframes fadeIn {
@@ -626,23 +668,14 @@
             }
         }
 
-        .animate-float-delay-1 {
-            animation: float-gentle 6s ease-in-out infinite;
-            animation-delay: 0s;
-        }
-
-        .animate-float-delay-2 {
-            animation: float-gentle 7s ease-in-out infinite;
-            animation-delay: 1.5s;
-        }
-
+        /* Floating animation classes - GSAP controls via JS */
+        .animate-float-delay-1,
+        .animate-float-delay-2,
         .animate-float-delay-3 {
-            animation: float-gentle 8s ease-in-out infinite;
-            animation-delay: 3s;
+            will-change: transform;
         }
 
         .faq-item {
-            transition: all 0.3s ease;
             overflow: hidden;
         }
 
@@ -656,19 +689,28 @@
         }
 
         .faq-content {
-            max-height: 0;
+            height: 0;
             overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), opacity 0.5s ease;
             opacity: 0;
         }
 
-        .faq-item.active .faq-content {
-            opacity: 1;
-            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        .faq-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
-        .faq-icon {
-            transition: transform 0.3s ease;
+        /* Radix Accordion - GSAP controlled */
+        .radix-content {
+            height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        .radix-arrow {
+            display: block;
+            flex-shrink: 0;
         }
 
         .animate-pulse-slow {
@@ -1206,8 +1248,7 @@
             <div class="flex flex-col gap-6 md:gap-8 w-full max-w-2xl mx-auto">
 
                 <!-- Card 1 (Tilt Left) -->
-                <div
-                    class="animate-float-delay-1 w-full max-w-lg mx-auto transform -rotate-2 transition-transform duration-300">
+                <div class="animate-float-delay-1 w-full max-w-lg mx-auto">
                     <div class="glass-light p-6 rounded-2xl border border-white/40 shadow-xl backdrop-blur-xl">
                         <div class="flex items-start gap-4">
                             <div
@@ -1233,7 +1274,7 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="animate-float-delay-2 w-full max-w-lg mx-auto transition-transform duration-300">
+                <div class="animate-float-delay-2 w-full max-w-lg mx-auto">
                     <div class="glass-light p-6 rounded-2xl border border-white/40 shadow-xl backdrop-blur-xl">
                         <div class="flex items-start gap-4">
                             <div
@@ -1261,7 +1302,7 @@
                 </div>
 
                 <!-- Card 3 -->
-                <div class="animate-float-delay-3 w-full max-w-lg mx-auto transition-transform duration-300">
+                <div class="animate-float-delay-3 w-full max-w-lg mx-auto">
                     <div class="glass-light p-6 rounded-2xl border border-white/40 shadow-xl backdrop-blur-xl">
                         <div class="flex items-start gap-4">
                             <div
@@ -1290,8 +1331,7 @@
                 </div>
 
                 <!-- Card 4 (Tilt Right) -->
-                <div
-                    class="animate-float-delay-1 w-full max-w-lg mx-auto transform rotate-2 transition-transform duration-300">
+                <div class="animate-float-delay-1 w-full max-w-lg mx-auto">
                     <div class="glass-light p-6 rounded-2xl border border-white/40 shadow-xl backdrop-blur-xl">
                         <div class="flex items-start gap-4">
                             <div
@@ -1627,8 +1667,7 @@
                             O Diagnóstico Duplo</p>
 
                         <!-- Collapsible Content -->
-                        <div
-                            class="radix-content max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
+                        <div class="radix-content overflow-hidden">
                             <p class="text-[#1a2c24] text-sm leading-relaxed text-center">
                                 A fundação segura. Unimos a precisão da IA com a minha leitura humana para desenhar a
                                 arquitetura ideal para o seu legado. Nada é padrão; tudo é sob medida para sua
@@ -1639,8 +1678,7 @@
                         <!-- Expand Button (Terracotta) -->
                         <div
                             class="mt-6 w-9 h-9 rounded-full border-2 border-[#b7835a] flex items-center justify-center text-[#b7835a] group-hover:bg-[#b7835a] group-hover:border-[#b7835a] group-hover:text-white transition-all duration-300">
-                            <svg class="w-4 h-4 radix-arrow transition-transform duration-300" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-4 h-4 radix-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M19 9l-7 7-7-7"></path>
                             </svg>
@@ -1676,8 +1714,7 @@
                             Construção & Transferência</p>
 
                         <!-- Collapsible Content -->
-                        <div
-                            class="radix-content max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
+                        <div class="radix-content overflow-hidden">
                             <p class="text-[#1a2c24] text-sm leading-relaxed text-center">
                                 O momento da materialização. Minha equipe constrói toda a infraestrutura nos bastidores
                                 (servidores, fluxos, painéis). Eu entrego as chaves e te ensino a pilotar.
@@ -1687,8 +1724,7 @@
                         <!-- Expand Button -->
                         <div
                             class="mt-6 w-9 h-9 rounded-full border-2 border-[#a8b4a5] flex items-center justify-center text-[#1a2c24] group-hover:bg-[#1a2c24] group-hover:border-[#1a2c24] group-hover:text-white transition-all duration-300">
-                            <svg class="w-4 h-4 radix-arrow transition-transform duration-300" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-4 h-4 radix-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M19 9l-7 7-7-7"></path>
                             </svg>
@@ -1724,8 +1760,7 @@
                             Suporte & Autonomia</p>
 
                         <!-- Collapsible Content -->
-                        <div
-                            class="radix-content max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
+                        <div class="radix-content overflow-hidden">
                             <p class="text-[#1a2c24] text-sm leading-relaxed text-center">
                                 A garantia da paz. O sistema entra em operação. Não te deixamos sozinha: oferecemos 90
                                 dias de Acompanhamento para ajustes finos.
@@ -1735,8 +1770,7 @@
                         <!-- Expand Button (Gold) -->
                         <div
                             class="mt-6 w-9 h-9 rounded-full border-2 border-[#e3c98c] flex items-center justify-center text-[#b7835a] group-hover:bg-[#b7835a] group-hover:border-[#b7835a] group-hover:text-white transition-all duration-300">
-                            <svg class="w-4 h-4 radix-arrow transition-transform duration-300" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-4 h-4 radix-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M19 9l-7 7-7-7"></path>
                             </svg>
@@ -2169,15 +2203,23 @@
                                 </svg>
                                 São Paulo, SP
                             </p>
-                            <!-- Email as Button on Mobile -->
+                            <!-- Email as Button on Mobile Only -->
                             <a href="mailto:contato@eucalyptus.solutions"
-                                class="flex items-center justify-center gap-2 w-full py-3 rounded-full bg-white/10 border border-white/10 text-white font-medium hover:bg-white/20 transition-colors md:w-auto md:bg-transparent md:border-0 md:p-0 md:justify-start md:text-white/70 md:font-normal">
+                                class="flex md:hidden items-center justify-center gap-2 w-full py-3 rounded-full bg-white/10 border border-white/10 text-white font-medium hover:bg-white/20 transition-colors">
                                 <svg class="w-4 h-4 text-[#e3c98c]" fill="currentColor" viewBox="0 0 20 20">
                                     <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                                     <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                                 </svg>
                                 contato@eucalyptus.solutions
                             </a>
+                            <!-- Email as Plain Text on Medium/Large Screens -->
+                            <p class="hidden md:flex items-center justify-start gap-2 text-white/70">
+                                <svg class="w-4 h-4 text-[#e3c98c]" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                                </svg>
+                                contato@eucalyptus.solutions
+                            </p>
                         </div>
                         <div class="flex items-center justify-center md:justify-start gap-3">
                             <a href="https://instagram.com/eucalyptus.solutions" target="_blank"
@@ -2346,56 +2388,211 @@
             }
         }
 
-        // FAQ Accordion Logic
+        // FAQ Accordion Logic with GSAP - Ultra Smooth
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.faq-trigger').forEach(trigger => {
                 trigger.addEventListener('click', () => {
                     const item = trigger.parentElement;
+                    const content = item.querySelector('.faq-content');
+                    const icon = item.querySelector('.faq-icon');
                     const isActive = item.classList.contains('active');
 
-                    // Close all others
+                    // Close all others with smooth GSAP
                     document.querySelectorAll('.faq-item').forEach(i => {
-                        i.classList.remove('active');
-                        i.querySelector('.faq-content').style.maxHeight = null;
-                        i.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+                        if (i !== item && i.classList.contains('active')) {
+                            i.classList.remove('active');
+                            const otherContent = i.querySelector('.faq-content');
+                            const otherIcon = i.querySelector('.faq-icon');
+
+                            gsap.to(otherContent, {
+                                height: 0,
+                                opacity: 0,
+                                duration: 0.5,
+                                ease: 'expo.out'
+                            });
+
+                            gsap.to(otherIcon, {
+                                rotation: 0,
+                                duration: 0.5,
+                                ease: 'expo.out'
+                            });
+                        }
                     });
 
-                    // Toggle current
+                    // Toggle current with ultra-smooth GSAP
                     if (!isActive) {
                         item.classList.add('active');
-                        const content = item.querySelector('.faq-content');
-                        content.style.maxHeight = content.scrollHeight + "px";
-                        item.querySelector('.faq-icon').style.transform = 'rotate(45deg)';
+
+                        // Measure height
+                        gsap.set(content, { height: 'auto', opacity: 1 });
+                        const autoHeight = content.offsetHeight;
+                        gsap.set(content, { height: 0, opacity: 0 });
+
+                        // Animate with smooth easing
+                        gsap.to(content, {
+                            height: autoHeight,
+                            opacity: 1,
+                            duration: 0.6,
+                            ease: 'expo.out',
+                            onComplete: () => {
+                                gsap.set(content, { height: 'auto' });
+                            }
+                        });
+
+                        gsap.to(icon, {
+                            rotation: 45,
+                            duration: 0.5,
+                            ease: 'expo.out'
+                        });
+                    } else {
+                        item.classList.remove('active');
+
+                        gsap.to(content, {
+                            height: 0,
+                            opacity: 0,
+                            duration: 0.5,
+                            ease: 'expo.out'
+                        });
+
+                        gsap.to(icon, {
+                            rotation: 0,
+                            duration: 0.5,
+                            ease: 'expo.out'
+                        });
                     }
                 });
             });
         });
 
-        // Radix Method Toggle Logic
+        // Radix Method Toggle Logic with GSAP - Ultra Smooth
         function toggleRadixStep(element) {
             const content = element.querySelector('.radix-content');
             const arrow = element.querySelector('.radix-arrow');
-            const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+            const isOpen = element.classList.contains('active-step');
 
-            // Close all
+            // Close all others with smooth GSAP
             document.querySelectorAll('.radix-step').forEach(step => {
-                const c = step.querySelector('.radix-content');
-                const a = step.querySelector('.radix-arrow');
-                c.style.maxHeight = null;
-                c.classList.remove('opacity-100');
-                if (a) a.style.transform = 'rotate(0deg)';
-                step.classList.remove('active-step');
+                if (step !== element && step.classList.contains('active-step')) {
+                    step.classList.remove('active-step');
+                    const otherContent = step.querySelector('.radix-content');
+                    const otherArrow = step.querySelector('.radix-arrow');
+
+                    gsap.to(otherContent, {
+                        height: 0,
+                        opacity: 0,
+                        duration: 0.5,
+                        ease: 'expo.out'
+                    });
+
+                    if (otherArrow) {
+                        gsap.to(otherArrow, {
+                            rotation: 0,
+                            duration: 0.5,
+                            ease: 'expo.out'
+                        });
+                    }
+                }
             });
 
-            // Open clicked if it wasn't open
+            // Toggle clicked element with ultra-smooth GSAP
             if (!isOpen) {
                 element.classList.add('active-step');
-                content.style.maxHeight = content.scrollHeight + "px";
-                content.classList.add('opacity-100');
-                if (arrow) arrow.style.transform = 'rotate(180deg)';
+
+                // Measure height
+                gsap.set(content, { height: 'auto', opacity: 1 });
+                const autoHeight = content.offsetHeight;
+                gsap.set(content, { height: 0, opacity: 0 });
+
+                // Animate with smooth easing
+                gsap.to(content, {
+                    height: autoHeight,
+                    opacity: 1,
+                    duration: 0.7,
+                    ease: 'expo.out',
+                    onComplete: () => {
+                        gsap.set(content, { height: 'auto' });
+                    }
+                });
+
+                if (arrow) {
+                    gsap.to(arrow, {
+                        rotation: 180,
+                        duration: 0.5,
+                        ease: 'expo.out'
+                    });
+                }
+            } else {
+                element.classList.remove('active-step');
+
+                gsap.to(content, {
+                    height: 0,
+                    opacity: 0,
+                    duration: 0.5,
+                    ease: 'expo.out'
+                });
+
+                if (arrow) {
+                    gsap.to(arrow, {
+                        rotation: 0,
+                        duration: 0.5,
+                        ease: 'expo.out'
+                    });
+                }
             }
         }
     </script>
+
+    <!-- GSAP Essential Animations Only -->
+    <script>
+        // Register GSAP plugins
+        gsap.registerPlugin(ScrollTrigger);
+
+        // GSAP Animation Configuration - ESSENTIALS ONLY
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // ==========================================
+            // DORES SECTION - SYNCHRONIZED FLOATING
+            // Todos os blocos com a mesma animação sincronizada
+            // ==========================================
+            const doresCards = document.querySelectorAll('#dores .animate-float-delay-1, #dores .animate-float-delay-2, #dores .animate-float-delay-3');
+
+            // Animar todos com os mesmos parâmetros para sincronizar
+            gsap.to(doresCards, {
+                y: -8,
+                duration: 3,
+                ease: 'power1.inOut',
+                yoyo: true,
+                repeat: -1
+            });
+
+            // ==========================================
+            // SMOOTH SCROLL WITH GSAP (for anchor links)
+            // ==========================================
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const target = document.querySelector(targetId);
+
+                    if (target) {
+                        gsap.to(window, {
+                            duration: 0.8,
+                            scrollTo: {
+                                y: target,
+                                offsetY: 80
+                            },
+                            ease: 'power2.inOut'
+                        });
+                    }
+                });
+            });
+
+            console.log('✨ GSAP essentials initialized!');
+        });
+    </script>
+
+    <!-- GSAP ScrollTo Plugin (for smooth scroll) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
 </body>
 
 </html>
