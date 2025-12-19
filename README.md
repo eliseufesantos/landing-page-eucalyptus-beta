@@ -16,8 +16,8 @@ Transformar o caos operacional das clínicas de estética em leveza, constância
 ## 🎨 Identidade Visual
 
 **Paleta de Cores:**
-- **Verde Principal**: `#a8b4a5`
-- **Verde Profundo**: `#4f5a4b` (contraste e textos)
+- **Verde Principal**: `#dbe4dc`
+- **Verde Profundo**: `#1a2c24` (contraste e textos)
 - **Bege Claro**: `#faf6ef` (fundo principal)
 - **Dourado Suave**: `#e3c98c` (detalhes)
 - **Cinza Base**: `#595d5b` (textos secundários)
