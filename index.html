@@ -10,37 +10,28 @@
     <meta name="theme-color" content="#a8b4a5">
     <meta name="keywords" content="eucalyptus, clínica estética, automação, gestão, CRM, método RADIX">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/Eucalyptus5.png">
     <link rel="apple-touch-icon" href="assets/Eucalyptus5.png">
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Eucalyptus Solutions | Inteligência Comercial para Clínicas">
     <meta property="og:description"
         content="Transforme o caos operacional em lucro real. Infraestrutura digital de alto padrão, sem mensalidades de software.">
 
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Eucalyptus Solutions | Inteligência Comercial para Clínicas">
     <meta name="twitter:description"
         content="Transforme o caos operacional em lucro real. Infraestrutura digital de alto padrão, sem mensalidades de software.">
 
-    <!-- Preconnect para recursos externos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
-
-    <!-- Preload de imagens críticas (hero) -->
     <link rel="preload" as="image" href="assets/Eucalyptus5.webp" fetchpriority="high">
     <link rel="preload" as="image" href="assets/radix-icon.webp">
-
-    <!-- Fontes otimizadas com display=swap para evitar FOIT -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@400;500&display=swap"
         rel="stylesheet">
 
-    <!-- Fallback fonts inline para prevenir FOUT -->
     <style>
         /* Fallback enquanto fontes carregam */
         body {
@@ -52,13 +43,10 @@
         }
     </style>
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- GSAP Animation Library + ScrollTrigger Plugin -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Observer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
     <style>
         :root {
             --verde-principal: #a8b4a5;
@@ -72,7 +60,6 @@
         body {
             background-color: var(--bege-claro);
             color: #4a4e4c;
-            /* Melhor contraste: 4.52:1 */
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
@@ -113,7 +100,6 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Hover apenas no desktop e mais sutil */
         @media (min-width: 769px) {
             .badge-exclusive:hover {
                 transform: scale(1.02);
@@ -121,39 +107,11 @@
             }
         }
 
-        /* ==========================================
-           GSAP ANIMATION OPTIMIZATIONS
-           ========================================== */
-
-        /* GPU Acceleration for smooth animations */
-        .gsap-animated,
-        #hero h1,
-        #hero p,
-        #dores .glass-light,
-        #solucao .toggle-container,
-        #jornada .radix-step,
-        #diferenciais .relative.group,
-        #sobre .md\:col-span-5,
-        #faq .faq-item,
-        .btn-cta {
-            will-change: transform, opacity;
-            transform: translateZ(0);
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-        }
-
-        /* Prevent content flash before GSAP animations */
-        .gsap-hide {
-            visibility: hidden;
-        }
-
-        /* Smooth transition timing */
         * {
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Enhanced easing for micro-interactions */
         .smooth-transition {
             transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -174,8 +132,6 @@
             animation: fadeIn 0.8s ease-out;
             will-change: opacity, transform;
         }
-
-        /* Toggle Component Styles - estilos base */
 
         .toggle-btn {
             position: relative;
@@ -207,7 +163,6 @@
             z-index: 1;
         }
 
-        /* Toggle Hint Animation */
         @keyframes toggleHint {
 
             0%,
@@ -240,7 +195,6 @@
             }
         }
 
-        /* Content Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -262,7 +216,6 @@
             animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Chat Message Animations */
         @keyframes chatMessageIn {
             from {
                 opacity: 0;
@@ -304,7 +257,6 @@
             animation-delay: 5.5s;
         }
 
-        /* Typing Indicator */
         @keyframes typingBounce {
 
             0%,
@@ -586,22 +538,11 @@
             box-shadow: 0 6px 16px rgba(183, 131, 90, 0.3);
         }
 
-        /* Critical CSS - Fallback para carregamento inicial */
-        .hero-section-fallback {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 64px 16px;
-        }
-
-        /* Reduz content shift durante carregamento */
         img:not([width]) {
             width: auto;
             height: auto;
         }
 
-        /* Previne FOUC (Flash of Unstyled Content) */
         html {
             visibility: visible;
             opacity: 1;
@@ -625,9 +566,6 @@
             border-color: rgba(168, 180, 165, 0.3);
         }
 
-
-
-        /* Card Visuals - Solid White */
         .glass-light {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
@@ -659,20 +597,6 @@
             }
         }
 
-        /* Gentle Float Animations */
-        @keyframes float-gentle {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        /* Floating animation classes - GSAP controls via JS */
         .animate-float-delay-1,
         .animate-float-delay-2,
         .animate-float-delay-3 {
@@ -705,7 +629,6 @@
             flex-shrink: 0;
         }
 
-        /* Radix Accordion - GSAP controlled */
         .radix-content {
             height: 0;
             overflow: hidden;
@@ -1089,13 +1012,11 @@
 
 <body class="smooth-scroll">
 
-    <!-- Progress Bar Mobile -->
     <div class="scroll-progress mobile-progress" id="scroll-progress-mobile" style="transform: scaleX(0);"></div>
 
-    <!-- Dock Bar Mobile -->
+    <!-- Dock Bar -->
     <nav class="dock-bar mobile">
         <div class="flex items-center justify-around gap-3">
-            <!-- O Ruído (Dores/Problema) - Ícone de perigo -->
             <a href="#dores" class="dock-icon" data-section="dores" title="O Ruído">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
@@ -1105,7 +1026,6 @@
                     <line x1="12" y1="17" x2="12.01" y2="17" />
                 </svg>
             </a>
-            <!-- O Nilo (Solução) - Ícone de chat/concierge -->
             <a href="#solucao" class="dock-icon" data-section="solucao" title="O Nilo">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
@@ -1113,11 +1033,9 @@
                         d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                 </svg>
             </a>
-            <!-- Método Radix (Jornada) - Ícone Radix -->
             <a href="#jornada" class="dock-icon radix-icon" data-section="jornada" title="Método Radix">
                 <img src="assets/radix-icon.webp" alt="Método Radix" width="26" height="26">
             </a>
-            <!-- Soberania (Diferenciais) - Ícone de chave -->
             <a href="#diferenciais" class="dock-icon" data-section="diferenciais" title="Soberania">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
@@ -1125,7 +1043,6 @@
                         d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4" />
                 </svg>
             </a>
-            <!-- CTA Principal -->
             <a href="https://form.respondi.app/AkLggsjN" target="_blank" class="dock-cta">
                 Diagnóstico
             </a>
@@ -1136,14 +1053,11 @@
     <header class="fixed top-0 left-0 right-0 z-50">
         <nav class="max-w-7xl mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
-                <!-- Logo e Nome -->
                 <div class="flex items-center gap-4">
                     <img src="assets/Eucalyptus5.webp" alt="Eucalyptus Solutions" class="h-14 w-auto"
                         fetchpriority="high" width="56" height="56">
                     <span class="font-serif text-2xl font-semibold text-white tracking-wide">EUCALYPTUS</span>
                 </div>
-
-                <!-- Navigation Desktop -->
                 <div class="desktop-nav hidden md:flex items-center gap-8">
                     <a href="#dores" class="text-white/80 hover:text-white transition-colors text-sm font-medium">O
                         Ruído</a>
@@ -1160,970 +1074,989 @@
                 </div>
             </div>
         </nav>
-        <!-- Progress Bar -->
         <div class="scroll-progress" id="scroll-progress" style="transform: scaleX(0);"></div>
     </header>
 
     <!-- Hero Section -->
-    <section id="hero"
-        class="hero-pattern min-h-screen flex items-center justify-center px-4 py-16 pt-32 pb-24 md:pb-16">
-        <div class="max-w-4xl mx-auto text-center animate-fade-in">
-            <!-- Logo/Badge -->
-            <div class="inline-block mb-8">
-                <div
-                    class="px-6 py-2 rounded-full border-2 border-[#a8b4a5] text-[#1a2c24] text-sm font-medium tracking-wide">
-                    INTELIGÊNCIA COMERCIAL
-                </div>
-            </div>
-
-            <!-- Headline -->
-            <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-[#1a2c24] font-light leading-tight mb-6">
-                O ecossistema que transforma<br />
-                <span class="font-semibold">interesse em <span class="text-[#b7835a]">lucro real.</span></span>
-            </h1>
-
-            <!-- Subheadline -->
-            <p class="text-base md:text-lg text-[#7a7f7d] font-light mb-12 leading-relaxed max-w-2xl mx-auto">
-                Profissionalize sua porta de entrada com Inteligência Comercial. Um sistema que acolhe, qualifica e
-                agenda pacientes 24h por dia, maximizando sua conversão sem aumentar sua carga operacional.
-            </p>
-
-            <!-- Video Placeholder -->
-            <div
-                class="relative max-w-3xl mx-auto mb-12 rounded-3xl overflow-hidden shadow-2xl border border-white/40 glass group cursor-pointer">
-                <div class="aspect-video bg-black/5 flex items-center justify-center relative">
-                    <!-- Thumbnail/Placeholder Image (Optional) -->
-                    <div class="absolute inset-0 bg-gradient-to-br from-[#a8b4a5]/20 to-[#e3c98c]/20"></div>
-
-                    <!-- Play Button -->
+    <main>
+        <section id="hero"
+            class="hero-pattern min-h-screen flex items-center justify-center px-4 py-16 pt-32 pb-24 md:pb-16">
+            <div class="max-w-4xl mx-auto text-center animate-fade-in">
+                <div class="inline-block mb-8">
                     <div
-                        class="w-20 h-20 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center border border-white/50 shadow-lg group-hover:scale-110 transition-transform duration-300 z-10">
-                        <svg class="w-8 h-8 text-[#1a2c24] ml-1" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8 5v14l11-7z" />
-                        </svg>
+                        class="px-6 py-2 rounded-full border-2 border-[#a8b4a5] text-[#1a2c24] text-sm font-medium tracking-wide">
+                        INTELIGÊNCIA COMERCIAL
                     </div>
-                    <p class="absolute bottom-6 text-[#1a2c24] font-medium tracking-wide text-sm uppercase">Ver a
-                        arquitetura funcionando</p>
+                </div>
+                <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-[#1a2c24] font-light leading-tight mb-6">
+                    O ecossistema que transforma<br />
+                    <span class="font-semibold">interesse em <span class="text-[#b7835a]">lucro real.</span></span>
+                </h1>
+
+                <p class="text-base md:text-lg text-[#7a7f7d] font-light mb-12 leading-relaxed max-w-2xl mx-auto">
+                    Profissionalize sua porta de entrada com Inteligência Comercial. Um sistema que acolhe, qualifica e
+                    agenda pacientes 24h por dia, maximizando sua conversão sem aumentar sua carga operacional.
+                </p>
+
+                <div
+                    class="relative max-w-3xl mx-auto mb-12 rounded-3xl overflow-hidden shadow-2xl border border-white/40 glass group cursor-pointer">
+                    <div class="aspect-video bg-black/5 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-[#a8b4a5]/20 to-[#e3c98c]/20"></div>
+                        <div
+                            class="w-20 h-20 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center border border-white/50 shadow-lg group-hover:scale-110 transition-transform duration-300 z-10">
+                            <svg class="w-8 h-8 text-[#1a2c24] ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                        <p class="absolute bottom-6 text-[#1a2c24] font-medium tracking-wide text-sm uppercase">Ver a
+                            arquitetura funcionando</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center gap-4">
+                    <a href="https://form.respondi.app/AkLggsjN" target="_blank"
+                        class="btn-cta inline-block text-white px-10 py-4 rounded-full text-lg font-semibold shadow-xl hover:shadow-2xl">
+                        Conhecer o Ecossistema
+                    </a>
+                    <p class="text-sm text-[#595d5b] font-medium opacity-80">
+                        Setup único. Sem mensalidades de software.
+                    </p>
                 </div>
             </div>
+        </section>
 
-            <!-- CTA Button -->
-            <div class="flex flex-col items-center gap-4">
-                <a href="https://form.respondi.app/AkLggsjN" target="_blank"
-                    class="btn-cta inline-block text-white px-10 py-4 rounded-full text-lg font-semibold shadow-xl hover:shadow-2xl">
-                    Conhecer o Ecossistema
-                </a>
-                <p class="text-sm text-[#595d5b] font-medium opacity-80">
-                    Setup único. Sem mensalidades de software.
-                </p>
+        <!-- Seção: O Problema (Narrativa) -->
+        <section id="dores" class="py-24 px-4 bg-gradient-to-b from-[#1a2c24] to-[#dbe4dc] relative overflow-hidden">
+            <!-- Background decorative elements -->
+            <div class="absolute inset-0 opacity-30 pointer-events-none"
+                style="background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px); background-size: 24px 24px;">
             </div>
-        </div>
-    </section>
 
-    <!-- Seção: O Problema (Narrativa) -->
-    <section id="dores" class="py-24 px-4 bg-gradient-to-b from-[#1a2c24] to-[#dbe4dc] relative overflow-hidden">
-        <!-- Background decorative elements -->
-        <div class="absolute inset-0 opacity-30 pointer-events-none"
-            style="background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px); background-size: 24px 24px;">
-        </div>
-
-        <div class="max-w-6xl mx-auto relative z-10">
-            <!-- Ícone de Alerta (Antes do Título - Contextual) -->
-            <div class="flex justify-center mb-8">
-                <div class="relative w-[80px] h-[80px] md:w-[100px] md:h-[100px]">
-                    <img src="assets/PerigoIcon.png" alt="Alerta"
-                        class="w-full h-full object-contain filter drop-shadow-lg relative z-10">
-                    <div class="absolute inset-[-20px] bg-red-500/40 rounded-full blur-2xl"></div>
+            <div class="max-w-6xl mx-auto relative z-10">
+                <!-- Ícone de Alerta (Antes do Título - Contextual) -->
+                <div class="flex justify-center mb-8">
+                    <div class="relative w-[80px] h-[80px] md:w-[100px] md:h-[100px]">
+                        <img src="assets/PerigoIcon.png" alt="Alerta" width="100" height="100"
+                            class="w-full h-full object-contain filter drop-shadow-lg relative z-10">
+                        <div class="absolute inset-[-20px] bg-red-500/40 rounded-full blur-2xl"></div>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Header da Seção -->
-            <div class="text-center mb-16 max-w-3xl mx-auto">
-                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-white font-medium leading-tight mb-6">
-                    Onde sua clínica está<br />
-                    <span class="italic text-[#e3c98c]">deixando dinheiro na mesa?</span>
-                </h2>
-                <p class="text-base md:text-lg text-white/70 font-light max-w-2xl mx-auto">
-                    A desorganização digital não é apenas um incômodo; é uma torneira aberta desperdiçando faturamento.
-                </p>
-            </div>
+                <!-- Header da Seção -->
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-white font-medium leading-tight mb-6">
+                        Onde sua clínica está<br />
+                        <span class="italic text-[#e3c98c]">deixando dinheiro na mesa?</span>
+                    </h2>
+                    <p class="text-base md:text-lg text-white/70 font-light max-w-2xl mx-auto">
+                        A desorganização digital não é apenas um incômodo; é uma torneira aberta desperdiçando
+                        faturamento.
+                    </p>
+                </div>
 
-            <!-- Cards de Notificação (Alternando Esquerda/Direita) -->
-            <div class="flex flex-col gap-6 md:gap-8 w-full max-w-2xl mx-auto">
+                <!-- Cards de Notificação (Alternando Esquerda/Direita) -->
+                <div class="flex flex-col gap-6 md:gap-8 w-full max-w-2xl mx-auto">
 
-                <!-- Card 1 (Tilt Left) -->
-                <div class="animate-float-delay-1 w-full max-w-lg mx-auto">
-                    <div class="glass-light p-6 rounded-2xl border border-white/40 shadow-xl backdrop-blur-xl">
-                        <div class="flex items-start gap-4">
-                            <div
-                                class="w-12 h-12 rounded-full bg-[#e3c98c]/20 flex items-center justify-center text-[#96743b] flex-shrink-0">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path
-                                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <div class="flex items-center justify-between mb-1">
-                                    <h3 class="text-[#1a2c24] font-bold text-lg leading-tight">O Gap de Resposta
-                                    </h3>
-                                    <span class="dores-timestamp text-[#96743b] text-xs font-semibold">Agora</span>
+                    <!-- Card 1 (Tilt Left) -->
+                    <div class="animate-float-delay-1 w-full max-w-lg mx-auto">
+                        <div class="glass-light p-6 rounded-2xl border border-white/40 shadow-xl backdrop-blur-xl">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-[#e3c98c]/20 flex items-center justify-center text-[#96743b] flex-shrink-0">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                                    </svg>
                                 </div>
-                                <p class="text-[#1a2c24]/80 text-sm leading-relaxed font-medium">O lead quente esfria em
-                                    minutos. Se você demora para responder, seu concorrente fecha a venda. O imediatismo
-                                    não é opcional, é mandatório.</p>
+                                <div>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <h3 class="text-[#1a2c24] font-bold text-lg leading-tight">O Gap de Resposta
+                                        </h3>
+                                        <span class="dores-timestamp text-[#96743b] text-xs font-semibold">Agora</span>
+                                    </div>
+                                    <p class="text-[#1a2c24]/80 text-sm leading-relaxed font-medium">O lead quente
+                                        esfria em
+                                        minutos. Se você demora para responder, seu concorrente fecha a venda. O
+                                        imediatismo
+                                        não é opcional, é mandatório.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Card 2 -->
-                <div class="animate-float-delay-2 w-full max-w-lg mx-auto">
-                    <div class="glass-light p-6 rounded-2xl border border-white/40 shadow-xl backdrop-blur-xl">
-                        <div class="flex items-start gap-4">
-                            <div
-                                class="w-12 h-12 rounded-full bg-[#e3c98c]/20 flex items-center justify-center text-[#96743b] flex-shrink-0">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="9" cy="7" r="4"></circle>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <div class="flex items-center justify-between mb-1">
-                                    <h3 class="text-[#1a2c24] font-bold text-lg leading-tight">O Cemitério de Leads
-                                    </h3>
-                                    <span class="dores-timestamp text-[#96743b] text-xs font-semibold">5 min</span>
+                    <!-- Card 2 -->
+                    <div class="animate-float-delay-2 w-full max-w-lg mx-auto">
+                        <div class="glass-light p-6 rounded-2xl border border-white/40 shadow-xl backdrop-blur-xl">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-[#e3c98c]/20 flex items-center justify-center text-[#96743b] flex-shrink-0">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
                                 </div>
-                                <p class="text-[#1a2c24]/80 text-sm leading-relaxed font-medium">Centenas de contatos
-                                    pedem preço e somem. Sem um follow-up automático e inteligente, você perde vendas
-                                    que já estavam quase prontas.</p>
+                                <div>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <h3 class="text-[#1a2c24] font-bold text-lg leading-tight">O Cemitério de Leads
+                                        </h3>
+                                        <span class="dores-timestamp text-[#96743b] text-xs font-semibold">5 min</span>
+                                    </div>
+                                    <p class="text-[#1a2c24]/80 text-sm leading-relaxed font-medium">Centenas de
+                                        contatos
+                                        pedem preço e somem. Sem um follow-up automático e inteligente, você perde
+                                        vendas
+                                        que já estavam quase prontas.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Card 3 -->
+                    <div class="animate-float-delay-3 w-full max-w-lg mx-auto">
+                        <div class="glass-light p-6 rounded-2xl border border-white/40 shadow-xl backdrop-blur-xl">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-[#e3c98c]/20 flex items-center justify-center text-[#96743b] flex-shrink-0">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path
+                                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <h3 class="text-[#1a2c24] font-bold text-lg leading-tight">A Atendente
+                                            Sobrecarregada
+                                        </h3>
+                                        <span class="dores-timestamp text-[#96743b] text-xs font-semibold">15 min</span>
+                                    </div>
+                                    <p class="text-[#1a2c24]/80 text-sm leading-relaxed font-medium">Copiar e colar
+                                        mensagens, confirmar agenda manualmente... Sua equipe gasta energia em
+                                        burocracia e
+                                        esquece de encantar o paciente presencial.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 (Tilt Right) -->
+                    <div class="animate-float-delay-1 w-full max-w-lg mx-auto">
+                        <div class="glass-light p-6 rounded-2xl border border-white/40 shadow-xl backdrop-blur-xl">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-[#e3c98c]/20 flex items-center justify-center text-[#96743b] flex-shrink-0">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <h3 class="text-[#1a2c24] font-bold text-lg leading-tight">Cegueira de
+                                            Dados</h3>
+                                        <span class="dores-timestamp text-[#96743b] text-xs font-semibold">32 min</span>
+                                    </div>
+                                    <p class="text-[#1a2c24]/80 text-sm leading-relaxed font-medium">Quanto você vendeu
+                                        pelo WhatsApp hoje? Sem métricas claras, você não gerencia um negócio, apenas
+                                        apaga
+                                        incêndios.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
-                <!-- Card 3 -->
-                <div class="animate-float-delay-3 w-full max-w-lg mx-auto">
-                    <div class="glass-light p-6 rounded-2xl border border-white/40 shadow-xl backdrop-blur-xl">
-                        <div class="flex items-start gap-4">
+
+            </div>
+
+            </div>
+        </section>
+
+
+        <!-- Divider Ornamental -->
+        <div class="w-full flex justify-center py-8 relative z-30 pointer-events-none bg-[#dbe4dc] px-4">
+            <svg class="w-full max-w-6xl text-[#c69c3a] filter drop-shadow-md" viewBox="0 0 800 40" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <!-- Curva Esquerda -->
+                <path d="M0 22C80 22 130 35 240 35C350 35 380 10 400 10" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" />
+                <!-- Curva Direita -->
+                <path d="M800 22C720 22 670 35 560 35C450 35 420 10 400 10" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" />
+                <!-- Detalhe Central (Losango) -->
+                <path d="M400 5L405 10L400 15L395 10L400 5Z" fill="currentColor" />
+                <!-- Pontos Decorativos -->
+                <circle cx="240" cy="28" r="1.5" fill="currentColor" class="opacity-80" />
+                <circle cx="560" cy="28" r="1.5" fill="currentColor" class="opacity-80" />
+            </svg>
+        </div>
+
+        <!-- Seção: A Solução (O Ecossistema) -->
+        <section id="solucao" class="py-24 px-4 relative overflow-hidden" style="background: #dbe4dc;">
+            <!-- Pattern decorativo sutil -->
+            <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+                <div class="absolute top-20 right-20 w-[400px] h-[400px] bg-[#e3c98c]/5 rounded-full blur-[100px]">
+                </div>
+                <div class="absolute bottom-20 left-20 w-[300px] h-[300px] bg-[#2F3E34]/5 rounded-full blur-[80px]">
+                </div>
+            </div>
+
+            <div class="max-w-6xl mx-auto relative z-10">
+                <div class="text-center mb-20">
+                    <!-- Badge elegante (Light Mode Context) -->
+                    <div
+                        class="inline-flex items-center gap-3 px-6 py-3 rounded-full mb-8 bg-white/40 border border-[#1a2c24]/10 shadow-sm">
+                        <img src="assets/radix-icon.webp" alt="Eucalyptus" class="w-9 h-9 opacity-80" loading="lazy"
+                            width="36" height="36">
+                        <span class="text-[#1a2c24] font-medium text-sm tracking-wide uppercase">Ecossistema
+                            Proprietário</span>
+                    </div>
+                    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-[#2c352e] font-light mb-6">
+                        Tecnologia Invisível.<br />
+                        <span class="font-semibold text-[#b7835a]">Performance Visível.</span>
+                    </h2>
+                    <p class="text-base md:text-lg text-[#7a7f7d] max-w-2xl mx-auto leading-relaxed">
+                        Não vendemos mais um software que você aluga. Construímos uma Arquitetura de Negócios dentro do
+                        seu
+                        servidor, unindo automação, gestão e Inteligência Artificial.
+                    </p>
+                </div>
+
+                <!-- Toggle Section -->
+                <div class="max-w-5xl mx-auto">
+                    <!-- Toggle Header -->
+                    <div class="flex flex-col items-center mb-16">
+                        <!-- Toggle elegante e simples -->
+                        <div
+                            class="toggle-container relative inline-flex rounded-full p-1 w-[320px] h-[54px] bg-white/40 border border-[#1a2c24]/10 shadow-sm">
+                            <div id="toggle-bg" class="toggle-bg w-[50%] left-1"></div>
+                            <button onclick="switchView('concierge')" id="btn-concierge"
+                                class="toggle-btn active w-1/2 flex items-center justify-center gap-2 text-sm font-medium tracking-wide">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                                </svg>
+                                O Concierge
+                            </button>
+                            <button onclick="switchView('panel')" id="btn-panel"
+                                class="toggle-btn w-1/2 flex items-center justify-center gap-2 text-sm font-medium tracking-wide">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                                </svg>
+                                O Painel
+                            </button>
+                        </div>
+                        <!-- Dica sutil -->
+                        <div id="toggle-hint" class="flex items-center gap-2 mt-4 text-sm toggle-hint-text">
+                            <span class="text-[#1a2c24] font-medium opacity-80">Deslize para explorar</span>
+                            <svg class="w-4 h-4 toggle-hint text-[#b7835a]" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Content Container -->
+                    <div class="relative min-h-[500px]">
+
+                        <!-- View: O Concierge -->
+                        <div id="view-concierge" class="view-content active">
+                            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                                <!-- Text Content -->
+                                <div class="flex-1 text-center md:text-left max-w-md">
+                                    <h3 class="font-serif text-4xl md:text-5xl text-[#1a2c24] mb-6 leading-tight">
+                                        O Nilo<br>
+                                        <span class="font-light">Atendimento de Elite</span> <span
+                                            class="italic text-[#b7835a]">24/7</span>
+                                    </h3>
+                                    <p class="text-[#595d5b] text-lg leading-relaxed mb-8">
+                                        O Nilo não é um chatbot comum. Ele acolhe, tria e agenda com a polidez de um
+                                        concierge de hotel 5 estrelas. Ele nunca dorme, nunca fica de mau humor e nunca
+                                        esquece um lead.
+                                    </p>
+                                    <!-- Badge simples -->
+                                    <div
+                                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 border border-[#e3c98c]/25">
+                                        <div class="w-2 h-2 rounded-full bg-[#28CA42] animate-pulse"></div>
+                                        <span
+                                            class="text-[#1a2c24] text-xs font-medium tracking-widest uppercase">Disponível
+                                            24/7</span>
+                                    </div>
+                                </div>
+
+                                <!-- Mockup (Phone) -->
+                                <div class="flex-1 flex justify-center md:justify-end relative">
+                                    <!-- Glow -->
+                                    <div
+                                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-[#e3c98c]/20 blur-[100px] rounded-full pointer-events-none">
+                                    </div>
+
+                                    <div
+                                        class="relative w-[260px] h-[520px] rounded-[3rem] border-[8px] border-[#2d2d2d] bg-white overflow-hidden shadow-2xl transform hover:-translate-y-2 transition-transform duration-500 z-10">
+                                        <div
+                                            class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-[#2d2d2d] rounded-b-xl z-20">
+                                        </div>
+                                        <div class="absolute inset-0 flex flex-col bg-[#f5f5f5]">
+                                            <!-- Header -->
+                                            <div
+                                                class="bg-white border-b border-gray-200 pt-10 pb-3 px-4 text-center flex-shrink-0">
+                                                <div
+                                                    class="w-12 h-12 mx-auto mb-2 rounded-full bg-[#f5efe6] flex items-center justify-center text-xl shadow-sm border border-gray-100">
+                                                    🐨</div>
+                                                <p class="font-semibold text-[#1a2c24] text-sm">Nilo</p>
+                                                <p
+                                                    class="text-[10px] text-green-500 flex items-center justify-center gap-1">
+                                                    <span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span> Online
+                                                </p>
+                                            </div>
+                                            <!-- Messages -->
+                                            <div class="flex-grow overflow-hidden px-4 py-4 space-y-3">
+                                                <div class="flex justify-end chat-message">
+                                                    <div
+                                                        class="bg-[#6b7a65] text-white px-3 py-2 rounded-2xl rounded-tr-sm max-w-[85%] text-xs shadow-sm">
+                                                        Tem horário para amanhã?</div>
+                                                </div>
+                                                <div class="flex justify-start chat-message">
+                                                    <div
+                                                        class="bg-white text-gray-800 px-3 py-2 rounded-2xl rounded-tl-sm max-w-[85%] text-xs shadow-sm border border-gray-100">
+                                                        Olá! Tenho sim. Às 15h fica bom? 😊</div>
+                                                </div>
+                                                <div class="flex justify-end chat-message">
+                                                    <div
+                                                        class="bg-[#6b7a65] text-white px-3 py-2 rounded-2xl rounded-tr-sm max-w-[85%] text-xs shadow-sm">
+                                                        Perfeito, pode confirmar.</div>
+                                                </div>
+                                                <div class="flex justify-start chat-message">
+                                                    <div
+                                                        class="bg-white text-gray-800 px-3 py-2 rounded-2xl rounded-tl-sm max-w-[85%] text-xs shadow-sm border border-gray-100">
+                                                        Confirmado! ✅ Te aguardamos!</div>
+                                                </div>
+                                            </div>
+                                            <!-- Input -->
+                                            <div class="bg-white border-t border-gray-200 p-3 flex-shrink-0">
+                                                <div class="flex items-center gap-2 bg-gray-100 rounded-full px-4 py-2">
+                                                    <span class="text-xs text-gray-400 flex-grow">Digite sua
+                                                        mensagem...</span>
+                                                    <div
+                                                        class="w-6 h-6 rounded-full bg-[#6b7a65] flex items-center justify-center">
+                                                        <svg class="w-3 h-3 text-white" fill="none"
+                                                            stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bg-white py-2 flex justify-center flex-shrink-0">
+                                                <div class="w-24 h-1 bg-gray-300 rounded-full"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- View: O Painel -->
+                        <div id="view-panel" class="view-content">
+                            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                                <!-- Text Content -->
+                                <div class="flex-1 text-center md:text-left max-w-md">
+                                    <h3 class="font-serif text-4xl md:text-5xl text-[#1a2c24] mb-6 leading-tight">
+                                        Inteligência de Negócios <span class="italic text-[#b7835a]">Centralizada</span>
+                                    </h3>
+                                    <p class="text-[#595d5b] text-lg leading-relaxed mb-8">
+                                        Centralizamos o cérebro da sua operação no Notion. Acompanhe seu fluxo de caixa,
+                                        organize seu planner de conteúdo, monitore metas e tenha visão total do funil de
+                                        cada paciente. Dados claros para decisões rápidas.
+                                    </p>
+                                    <!-- Badge simples -->
+                                    <div
+                                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 border border-[#e3c98c]/25">
+                                        <svg class="w-3 h-3 text-[#1a2c24]" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                        </svg>
+                                        <span
+                                            class="text-[#1a2c24] text-xs font-medium tracking-widest uppercase">Gestão
+                                            Visual</span>
+                                    </div>
+                                </div>
+
+                                <!-- Mockup (Window) -->
+                                <div class="flex-1 flex justify-center md:justify-end relative w-full">
+                                    <!-- Glow -->
+                                    <div
+                                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#28CA42]/10 blur-[100px] rounded-full pointer-events-none">
+                                    </div>
+
+                                    <div
+                                        class="relative w-full max-w-[480px] rounded-xl border border-white/20 bg-[#faf6ef] overflow-hidden shadow-2xl transform hover:-translate-y-2 transition-transform duration-500 z-10">
+                                        <div
+                                            class="h-8 bg-[#e5e5e5] flex items-center px-4 gap-2 border-b border-gray-200">
+                                            <div class="w-3 h-3 rounded-full bg-[#FF5F57]"></div>
+                                            <div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
+                                            <div class="w-3 h-3 rounded-full bg-[#28CA42]"></div>
+                                        </div>
+                                        <img src="assets/notion-dashboard.png?v=3" alt="Dashboard Notion Eucalyptus"
+                                            width="480" height="320" class="w-full h-auto object-cover opacity-95"
+                                            loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Seção: A Jornada (Horizontal Pillars) -->
+        <!-- Seção: A Jornada (Horizontal Pillars) -->
+        <section id="jornada" class="py-24 relative overflow-hidden"
+            style="background: linear-gradient(180deg, #faf6ef 0%, #faf6ef 60%, #d9c8b0 100%);">
+            <!-- Decorative Background Elements -->
+            <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+                <!-- Top-left terracotta radial (adjusted opacity) -->
+                <div
+                    class="absolute top-0 left-0 w-[500px] h-[500px] bg-[#b7835a]/8 rounded-full blur-[120px] -translate-x-1/3 -translate-y-1/3">
+                </div>
+                <!-- Center gold radial (adjusted opacity) -->
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#e3c98c]/10 rounded-full blur-[100px]">
+                </div>
+                <!-- Bottom-right green radial -->
+                <div
+                    class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#1a2c24]/20 rounded-full blur-[80px] translate-x-1/4 translate-y-1/4">
+                </div>
+                <!-- Subtle dot pattern (dark dots) -->
+                <div class="absolute inset-0 opacity-[0.03]"
+                    style="background-image: radial-gradient(#2c352e 1px, transparent 1px); background-size: 30px 30px;">
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 relative z-10">
+                <!-- Header (Centered) -->
+                <div class="text-center mb-20">
+                    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-[#2c352e] font-light mb-6">
+                        O caminho para a <span class="font-semibold text-[#b7835a]">Liberdade</span>
+                    </h2>
+                    <p class="text-base md:text-lg text-[#7a7f7d] max-w-2xl mx-auto">
+                        O Método Radix. Um protocolo proprietário em 3 etapas que une IA e estratégia humana para
+                        devolver o
+                        controle da sua clínica para você.
+                    </p>
+                </div>
+
+                <!-- Pillars Container -->
+                <div class="grid grid-cols-1 md:grid-cols-3 border-t border-b border-[#2c352e]/10">
+
+                    <!-- Pillar 1 -->
+                    <div class="radix-step group relative p-8 md:p-12 border-b md:border-b-0 border-r-0 md:border-r border-[#2c352e]/10 cursor-pointer transition-all duration-500 bg-white/40 hover:bg-white/80"
+                        onclick="toggleRadixStep(this)">
+                        <!-- Watermark Number (Terracotta) -->
+                        <div
+                            class="absolute top-4 right-6 text-[7rem] md:text-[8rem] font-serif text-[#b7835a]/30 group-hover:text-[#b7835a]/50 transition-colors pointer-events-none font-bold leading-none">
+                            1</div>
+
+                        <div class="relative z-10 flex flex-col items-center text-center">
+                            <!-- Icon: Seed/Root (Terracotta) -->
                             <div
-                                class="w-12 h-12 rounded-full bg-[#e3c98c]/20 flex items-center justify-center text-[#96743b] flex-shrink-0">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <polyline points="3 6 5 6 21 6"></polyline>
-                                    <path
-                                        d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                class="w-14 h-14 rounded-full bg-gradient-to-br from-[#b7835a]/20 to-[#a06b4a]/10 text-[#b7835a] flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300 border border-[#b7835a]/30">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <!-- Seed/Sprout Icon -->
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M12 22c-1.5-2-4-4-4-8 0-2.5 1.5-4.5 4-6 2.5 1.5 4 3.5 4 6 0 4-2.5 6-4 8z M12 16v6 M8 10c-2-1-4-.5-5 1 M16 10c2-1 4-.5 5 1">
                                     </path>
                                 </svg>
                             </div>
-                            <div>
-                                <div class="flex items-center justify-between mb-1">
-                                    <h3 class="text-[#1a2c24] font-bold text-lg leading-tight">A Atendente
-                                        Sobrecarregada
-                                    </h3>
-                                    <span class="dores-timestamp text-[#96743b] text-xs font-semibold">15 min</span>
-                                </div>
-                                <p class="text-[#1a2c24]/80 text-sm leading-relaxed font-medium">Copiar e colar
-                                    mensagens, confirmar agenda manualmente... Sua equipe gasta energia em burocracia e
-                                    esquece de encantar o paciente presencial.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Card 4 (Tilt Right) -->
-                <div class="animate-float-delay-1 w-full max-w-lg mx-auto">
-                    <div class="glass-light p-6 rounded-2xl border border-white/40 shadow-xl backdrop-blur-xl">
-                        <div class="flex items-start gap-4">
+                            <h3
+                                class="font-serif text-3xl text-[#2c352e] mb-3 group-hover:text-[#b7835a] transition-colors">
+                                Enraizamento</h3>
+                            <p
+                                class="text-[#1a2c24] text-xs font-semibold uppercase tracking-[0.2em] mb-6 pb-4 border-b border-[#b7835a]/40 w-full max-w-[160px] mx-auto">
+                                O Diagnóstico Duplo</p>
+
+                            <!-- Collapsible Content -->
+                            <div class="radix-content overflow-hidden">
+                                <p class="text-[#1a2c24] text-sm leading-relaxed text-center">
+                                    A fundação segura. Unimos a precisão da IA com a minha leitura humana para desenhar
+                                    a
+                                    arquitetura ideal para o seu legado. Nada é padrão; tudo é sob medida para sua
+                                    realidade.
+                                </p>
+                            </div>
+
+                            <!-- Expand Button (Terracotta) -->
                             <div
-                                class="w-12 h-12 rounded-full bg-[#e3c98c]/20 flex items-center justify-center text-[#96743b] flex-shrink-0">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <line x1="12" y1="1" x2="12" y2="23"></line>
-                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                class="mt-6 w-9 h-9 rounded-full border-2 border-[#b7835a] flex items-center justify-center text-[#b7835a] group-hover:bg-[#b7835a] group-hover:border-[#b7835a] group-hover:text-white transition-all duration-300">
+                                <svg class="w-4 h-4 radix-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </div>
-                            <div>
-                                <div class="flex items-center justify-between mb-1">
-                                    <h3 class="text-[#1a2c24] font-bold text-lg leading-tight">Cegueira de
-                                        Dados</h3>
-                                    <span class="dores-timestamp text-[#96743b] text-xs font-semibold">32 min</span>
-                                </div>
-                                <p class="text-[#1a2c24]/80 text-sm leading-relaxed font-medium">Quanto você vendeu
-                                    pelo WhatsApp hoje? Sem métricas claras, você não gerencia um negócio, apenas apaga
-                                    incêndios.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-
-        </div>
-
-        </div>
-    </section>
-
-
-    <!-- Divider Ornamental -->
-    <div class="w-full flex justify-center py-8 relative z-30 pointer-events-none bg-[#dbe4dc] px-4">
-        <svg class="w-full max-w-6xl text-[#c69c3a] filter drop-shadow-md" viewBox="0 0 800 40" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <!-- Curva Esquerda -->
-            <path d="M0 22C80 22 130 35 240 35C350 35 380 10 400 10" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" />
-            <!-- Curva Direita -->
-            <path d="M800 22C720 22 670 35 560 35C450 35 420 10 400 10" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" />
-            <!-- Detalhe Central (Losango) -->
-            <path d="M400 5L405 10L400 15L395 10L400 5Z" fill="currentColor" />
-            <!-- Pontos Decorativos -->
-            <circle cx="240" cy="28" r="1.5" fill="currentColor" class="opacity-80" />
-            <circle cx="560" cy="28" r="1.5" fill="currentColor" class="opacity-80" />
-        </svg>
-    </div>
-
-    <!-- Seção: A Solução (O Ecossistema) -->
-    <section id="solucao" class="py-24 px-4 relative overflow-hidden" style="background: #dbe4dc;">
-        <!-- Pattern decorativo sutil -->
-        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-            <div class="absolute top-20 right-20 w-[400px] h-[400px] bg-[#e3c98c]/5 rounded-full blur-[100px]"></div>
-            <div class="absolute bottom-20 left-20 w-[300px] h-[300px] bg-[#2F3E34]/5 rounded-full blur-[80px]"></div>
-        </div>
-
-        <div class="max-w-6xl mx-auto relative z-10">
-            <div class="text-center mb-20">
-                <!-- Badge elegante (Light Mode Context) -->
-                <div
-                    class="inline-flex items-center gap-3 px-6 py-3 rounded-full mb-8 bg-white/40 border border-[#1a2c24]/10 shadow-sm">
-                    <img src="assets/radix-icon.webp" alt="Eucalyptus" class="w-9 h-9 opacity-80" loading="lazy"
-                        width="36" height="36">
-                    <span class="text-[#1a2c24] font-medium text-sm tracking-wide uppercase">Ecossistema
-                        Proprietário</span>
-                </div>
-                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-[#2c352e] font-light mb-6">
-                    Tecnologia Invisível.<br />
-                    <span class="font-semibold text-[#b7835a]">Performance Visível.</span>
-                </h2>
-                <p class="text-base md:text-lg text-[#7a7f7d] max-w-2xl mx-auto leading-relaxed">
-                    Não vendemos mais um software que você aluga. Construímos uma Arquitetura de Negócios dentro do seu
-                    servidor, unindo automação, gestão e Inteligência Artificial.
-                </p>
-            </div>
-
-            <!-- Toggle Section -->
-            <div class="max-w-5xl mx-auto">
-                <!-- Toggle Header -->
-                <div class="flex flex-col items-center mb-16">
-                    <!-- Toggle elegante e simples -->
-                    <div
-                        class="toggle-container relative inline-flex rounded-full p-1 w-[320px] h-[54px] bg-white/40 border border-[#1a2c24]/10 shadow-sm">
-                        <div id="toggle-bg" class="toggle-bg w-[50%] left-1"></div>
-                        <button onclick="switchView('concierge')" id="btn-concierge"
-                            class="toggle-btn active w-1/2 flex items-center justify-center gap-2 text-sm font-medium tracking-wide">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                            </svg>
-                            O Concierge
-                        </button>
-                        <button onclick="switchView('panel')" id="btn-panel"
-                            class="toggle-btn w-1/2 flex items-center justify-center gap-2 text-sm font-medium tracking-wide">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                            </svg>
-                            O Painel
-                        </button>
-                    </div>
-                    <!-- Dica sutil -->
-                    <div id="toggle-hint" class="flex items-center gap-2 mt-4 text-sm toggle-hint-text">
-                        <span class="text-[#1a2c24] font-medium opacity-80">Deslize para explorar</span>
-                        <svg class="w-4 h-4 toggle-hint text-[#b7835a]" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                        </svg>
-                    </div>
-                </div>
-
-                <!-- Dynamic Content Container -->
-                <div class="relative min-h-[500px]">
-
-                    <!-- View: O Concierge -->
-                    <div id="view-concierge" class="view-content active">
-                        <div class="flex flex-col md:flex-row items-center justify-between gap-12">
-                            <!-- Text Content -->
-                            <div class="flex-1 text-center md:text-left max-w-md">
-                                <h3 class="font-serif text-4xl md:text-5xl text-[#1a2c24] mb-6 leading-tight">
-                                    O Nilo<br>
-                                    <span class="font-light">Atendimento de Elite</span> <span
-                                        class="italic text-[#b7835a]">24/7</span>
-                                </h3>
-                                <p class="text-[#595d5b] text-lg leading-relaxed mb-8">
-                                    O Nilo não é um chatbot comum. Ele acolhe, tria e agenda com a polidez de um
-                                    concierge de hotel 5 estrelas. Ele nunca dorme, nunca fica de mau humor e nunca
-                                    esquece um lead.
-                                </p>
-                                <!-- Badge simples -->
-                                <div
-                                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 border border-[#e3c98c]/25">
-                                    <div class="w-2 h-2 rounded-full bg-[#28CA42] animate-pulse"></div>
-                                    <span
-                                        class="text-[#1a2c24] text-xs font-medium tracking-widest uppercase">Disponível
-                                        24/7</span>
-                                </div>
-                            </div>
-
-                            <!-- Mockup (Phone) -->
-                            <div class="flex-1 flex justify-center md:justify-end relative">
-                                <!-- Glow -->
-                                <div
-                                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-[#e3c98c]/20 blur-[100px] rounded-full pointer-events-none">
-                                </div>
-
-                                <div
-                                    class="relative w-[260px] h-[520px] rounded-[3rem] border-[8px] border-[#2d2d2d] bg-white overflow-hidden shadow-2xl transform hover:-translate-y-2 transition-transform duration-500 z-10">
-                                    <div
-                                        class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-[#2d2d2d] rounded-b-xl z-20">
-                                    </div>
-                                    <div class="absolute inset-0 flex flex-col bg-[#f5f5f5]">
-                                        <!-- Header -->
-                                        <div
-                                            class="bg-white border-b border-gray-200 pt-10 pb-3 px-4 text-center flex-shrink-0">
-                                            <div
-                                                class="w-12 h-12 mx-auto mb-2 rounded-full bg-[#f5efe6] flex items-center justify-center text-xl shadow-sm border border-gray-100">
-                                                🐨</div>
-                                            <p class="font-semibold text-[#1a2c24] text-sm">Nilo</p>
-                                            <p
-                                                class="text-[10px] text-green-500 flex items-center justify-center gap-1">
-                                                <span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span> Online
-                                            </p>
-                                        </div>
-                                        <!-- Messages -->
-                                        <div class="flex-grow overflow-hidden px-4 py-4 space-y-3">
-                                            <div class="flex justify-end chat-message">
-                                                <div
-                                                    class="bg-[#6b7a65] text-white px-3 py-2 rounded-2xl rounded-tr-sm max-w-[85%] text-xs shadow-sm">
-                                                    Tem horário para amanhã?</div>
-                                            </div>
-                                            <div class="flex justify-start chat-message">
-                                                <div
-                                                    class="bg-white text-gray-800 px-3 py-2 rounded-2xl rounded-tl-sm max-w-[85%] text-xs shadow-sm border border-gray-100">
-                                                    Olá! Tenho sim. Às 15h fica bom? 😊</div>
-                                            </div>
-                                            <div class="flex justify-end chat-message">
-                                                <div
-                                                    class="bg-[#6b7a65] text-white px-3 py-2 rounded-2xl rounded-tr-sm max-w-[85%] text-xs shadow-sm">
-                                                    Perfeito, pode confirmar.</div>
-                                            </div>
-                                            <div class="flex justify-start chat-message">
-                                                <div
-                                                    class="bg-white text-gray-800 px-3 py-2 rounded-2xl rounded-tl-sm max-w-[85%] text-xs shadow-sm border border-gray-100">
-                                                    Confirmado! ✅ Te aguardamos!</div>
-                                            </div>
-                                        </div>
-                                        <!-- Input -->
-                                        <div class="bg-white border-t border-gray-200 p-3 flex-shrink-0">
-                                            <div class="flex items-center gap-2 bg-gray-100 rounded-full px-4 py-2">
-                                                <span class="text-xs text-gray-400 flex-grow">Digite sua
-                                                    mensagem...</span>
-                                                <div
-                                                    class="w-6 h-6 rounded-full bg-[#6b7a65] flex items-center justify-center">
-                                                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor"
-                                                        viewBox="0 0 24 24">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="bg-white py-2 flex justify-center flex-shrink-0">
-                                            <div class="w-24 h-1 bg-gray-300 rounded-full"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
-                    <!-- View: O Painel -->
-                    <div id="view-panel" class="view-content">
-                        <div class="flex flex-col md:flex-row items-center justify-between gap-12">
-                            <!-- Text Content -->
-                            <div class="flex-1 text-center md:text-left max-w-md">
-                                <h3 class="font-serif text-4xl md:text-5xl text-[#1a2c24] mb-6 leading-tight">
-                                    Inteligência de Negócios <span class="italic text-[#b7835a]">Centralizada</span>
-                                </h3>
-                                <p class="text-[#595d5b] text-lg leading-relaxed mb-8">
-                                    Centralizamos o cérebro da sua operação no Notion. Acompanhe seu fluxo de caixa,
-                                    organize seu planner de conteúdo, monitore metas e tenha visão total do funil de
-                                    cada paciente. Dados claros para decisões rápidas.
-                                </p>
-                                <!-- Badge simples -->
-                                <div
-                                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 border border-[#e3c98c]/25">
-                                    <svg class="w-3 h-3 text-[#1a2c24]" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                                    </svg>
-                                    <span class="text-[#1a2c24] text-xs font-medium tracking-widest uppercase">Gestão
-                                        Visual</span>
-                                </div>
-                            </div>
-
-                            <!-- Mockup (Window) -->
-                            <div class="flex-1 flex justify-center md:justify-end relative w-full">
-                                <!-- Glow -->
-                                <div
-                                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#28CA42]/10 blur-[100px] rounded-full pointer-events-none">
-                                </div>
-
-                                <div
-                                    class="relative w-full max-w-[480px] rounded-xl border border-white/20 bg-[#faf6ef] overflow-hidden shadow-2xl transform hover:-translate-y-2 transition-transform duration-500 z-10">
-                                    <div class="h-8 bg-[#e5e5e5] flex items-center px-4 gap-2 border-b border-gray-200">
-                                        <div class="w-3 h-3 rounded-full bg-[#FF5F57]"></div>
-                                        <div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
-                                        <div class="w-3 h-3 rounded-full bg-[#28CA42]"></div>
-                                    </div>
-                                    <img src="assets/notion-dashboard.png?v=3" alt="Dashboard Notion Eucalyptus"
-                                        class="w-full h-auto object-cover opacity-95" loading="lazy">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        </div>
-    </section>
-
-    <!-- Seção: A Jornada (Horizontal Pillars) -->
-    <!-- Seção: A Jornada (Horizontal Pillars) -->
-    <section id="jornada" class="py-24 relative overflow-hidden"
-        style="background: linear-gradient(180deg, #faf6ef 0%, #faf6ef 60%, #d9c8b0 100%);">
-        <!-- Decorative Background Elements -->
-        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-            <!-- Top-left terracotta radial (adjusted opacity) -->
-            <div
-                class="absolute top-0 left-0 w-[500px] h-[500px] bg-[#b7835a]/8 rounded-full blur-[120px] -translate-x-1/3 -translate-y-1/3">
-            </div>
-            <!-- Center gold radial (adjusted opacity) -->
-            <div
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#e3c98c]/10 rounded-full blur-[100px]">
-            </div>
-            <!-- Bottom-right green radial -->
-            <div
-                class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#1a2c24]/20 rounded-full blur-[80px] translate-x-1/4 translate-y-1/4">
-            </div>
-            <!-- Subtle dot pattern (dark dots) -->
-            <div class="absolute inset-0 opacity-[0.03]"
-                style="background-image: radial-gradient(#2c352e 1px, transparent 1px); background-size: 30px 30px;">
-            </div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 relative z-10">
-            <!-- Header (Centered) -->
-            <div class="text-center mb-20">
-                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-[#2c352e] font-light mb-6">
-                    O caminho para a <span class="font-semibold text-[#b7835a]">Liberdade</span>
-                </h2>
-                <p class="text-base md:text-lg text-[#7a7f7d] max-w-2xl mx-auto">
-                    O Método Radix. Um protocolo proprietário em 3 etapas que une IA e estratégia humana para devolver o
-                    controle da sua clínica para você.
-                </p>
-            </div>
-
-            <!-- Pillars Container -->
-            <div class="grid grid-cols-1 md:grid-cols-3 border-t border-b border-[#2c352e]/10">
-
-                <!-- Pillar 1 -->
-                <div class="radix-step group relative p-8 md:p-12 border-b md:border-b-0 border-r-0 md:border-r border-[#2c352e]/10 cursor-pointer transition-all duration-500 bg-white/40 hover:bg-white/80"
-                    onclick="toggleRadixStep(this)">
-                    <!-- Watermark Number (Terracotta) -->
-                    <div
-                        class="absolute top-4 right-6 text-[7rem] md:text-[8rem] font-serif text-[#b7835a]/30 group-hover:text-[#b7835a]/50 transition-colors pointer-events-none font-bold leading-none">
-                        1</div>
-
-                    <div class="relative z-10 flex flex-col items-center text-center">
-                        <!-- Icon: Seed/Root (Terracotta) -->
+                    <!-- Pillar 2 -->
+                    <div class="radix-step group relative p-8 md:p-12 border-b md:border-b-0 border-r-0 md:border-r border-[#2c352e]/10 cursor-pointer transition-all duration-500 bg-white/40 hover:bg-white/80"
+                        onclick="toggleRadixStep(this)">
+                        <!-- Watermark Number (Increased Contrast) -->
                         <div
-                            class="w-14 h-14 rounded-full bg-gradient-to-br from-[#b7835a]/20 to-[#a06b4a]/10 text-[#b7835a] flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300 border border-[#b7835a]/30">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <!-- Seed/Sprout Icon -->
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M12 22c-1.5-2-4-4-4-8 0-2.5 1.5-4.5 4-6 2.5 1.5 4 3.5 4 6 0 4-2.5 6-4 8z M12 16v6 M8 10c-2-1-4-.5-5 1 M16 10c2-1 4-.5 5 1">
-                                </path>
-                            </svg>
-                        </div>
+                            class="absolute top-4 right-6 text-[7rem] md:text-[8rem] font-serif text-[#a8b4a5]/30 group-hover:text-[#a8b4a5]/50 transition-colors pointer-events-none font-bold leading-none">
+                            2</div>
 
-                        <h3
-                            class="font-serif text-3xl text-[#2c352e] mb-3 group-hover:text-[#b7835a] transition-colors">
-                            Enraizamento</h3>
-                        <p
-                            class="text-[#1a2c24] text-xs font-semibold uppercase tracking-[0.2em] mb-6 pb-4 border-b border-[#b7835a]/40 w-full max-w-[160px] mx-auto">
-                            O Diagnóstico Duplo</p>
-
-                        <!-- Collapsible Content -->
-                        <div class="radix-content overflow-hidden">
-                            <p class="text-[#1a2c24] text-sm leading-relaxed text-center">
-                                A fundação segura. Unimos a precisão da IA com a minha leitura humana para desenhar a
-                                arquitetura ideal para o seu legado. Nada é padrão; tudo é sob medida para sua
-                                realidade.
-                            </p>
-                        </div>
-
-                        <!-- Expand Button (Terracotta) -->
-                        <div
-                            class="mt-6 w-9 h-9 rounded-full border-2 border-[#b7835a] flex items-center justify-center text-[#b7835a] group-hover:bg-[#b7835a] group-hover:border-[#b7835a] group-hover:text-white transition-all duration-300">
-                            <svg class="w-4 h-4 radix-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pillar 2 -->
-                <div class="radix-step group relative p-8 md:p-12 border-b md:border-b-0 border-r-0 md:border-r border-[#2c352e]/10 cursor-pointer transition-all duration-500 bg-white/40 hover:bg-white/80"
-                    onclick="toggleRadixStep(this)">
-                    <!-- Watermark Number (Increased Contrast) -->
-                    <div
-                        class="absolute top-4 right-6 text-[7rem] md:text-[8rem] font-serif text-[#a8b4a5]/30 group-hover:text-[#a8b4a5]/50 transition-colors pointer-events-none font-bold leading-none">
-                        2</div>
-
-                    <div class="relative z-10 flex flex-col items-center text-center">
-                        <!-- Icon: Symbiosis/Connection (Thematic) -->
-                        <div
-                            class="w-14 h-14 rounded-full bg-gradient-to-br from-[#a8b4a5]/20 to-[#1a2c24]/5 text-[#1a2c24] flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300 border border-[#a8b4a5]/30">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <!-- Handshake/Connection Icon -->
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M7 11l3-3 2 2 5-5M17 11v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m10 0l-3-3-2 2-3-3-2.5 2.5M7 11l1-1">
-                                </path>
-                            </svg>
-                        </div>
-
-                        <h3
-                            class="font-serif text-3xl text-[#2c352e] mb-3 group-hover:text-[#b7835a] transition-colors">
-                            Simbiose</h3>
-                        <p
-                            class="text-[#1a2c24] text-xs font-semibold uppercase tracking-[0.2em] mb-6 pb-4 border-b border-[#a8b4a5]/50 w-full max-w-[180px] mx-auto">
-                            Construção & Transferência</p>
-
-                        <!-- Collapsible Content -->
-                        <div class="radix-content overflow-hidden">
-                            <p class="text-[#1a2c24] text-sm leading-relaxed text-center">
-                                O momento da materialização. Minha equipe constrói toda a infraestrutura nos bastidores
-                                (servidores, fluxos, painéis). Eu entrego as chaves e te ensino a pilotar.
-                            </p>
-                        </div>
-
-                        <!-- Expand Button -->
-                        <div
-                            class="mt-6 w-9 h-9 rounded-full border-2 border-[#a8b4a5] flex items-center justify-center text-[#1a2c24] group-hover:bg-[#1a2c24] group-hover:border-[#1a2c24] group-hover:text-white transition-all duration-300">
-                            <svg class="w-4 h-4 radix-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pillar 3 -->
-                <div class="radix-step group relative p-8 md:p-12 cursor-pointer transition-all duration-500 bg-white/40 hover:bg-white/80"
-                    onclick="toggleRadixStep(this)">
-                    <!-- Watermark Number (Gold Accent) -->
-                    <div
-                        class="absolute top-4 right-6 text-[7rem] md:text-[8rem] font-serif text-[#e3c98c]/35 group-hover:text-[#e3c98c]/55 transition-colors pointer-events-none font-bold leading-none">
-                        3</div>
-
-                    <div class="relative z-10 flex flex-col items-center text-center">
-                        <!-- Icon: Flower/Bloom (Thematic - Gold Accent) -->
-                        <div
-                            class="w-14 h-14 rounded-full bg-gradient-to-br from-[#e3c98c]/25 to-[#d4b896]/15 text-[#b7835a] flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300 border border-[#e3c98c]/40">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <!-- Flower/Lotus Icon -->
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M12 22v-6m0 0c-3 0-5-2-5-5s2-5 5-5 5 2 5 5-2 5-5 5zm0-10c0-3-1.5-5-3-6 1.5-.5 3-.5 3 0s1.5-.5 3 0c-1.5 1-3 3-3 6z">
-                                </path>
-                            </svg>
-                        </div>
-
-                        <h3
-                            class="font-serif text-3xl text-[#2c352e] mb-3 group-hover:text-[#b7835a] transition-colors">
-                            Florescimento</h3>
-                        <p
-                            class="text-[#1a2c24] text-xs font-semibold uppercase tracking-[0.2em] mb-6 pb-4 border-b border-[#e3c98c]/50 w-full max-w-[160px] mx-auto">
-                            Suporte & Autonomia</p>
-
-                        <!-- Collapsible Content -->
-                        <div class="radix-content overflow-hidden">
-                            <p class="text-[#1a2c24] text-sm leading-relaxed text-center">
-                                A garantia da paz. O sistema entra em operação. Não te deixamos sozinha: oferecemos 90
-                                dias de Acompanhamento para ajustes finos.
-                            </p>
-                        </div>
-
-                        <!-- Expand Button (Gold) -->
-                        <div
-                            class="mt-6 w-9 h-9 rounded-full border-2 border-[#e3c98c] flex items-center justify-center text-[#b7835a] group-hover:bg-[#b7835a] group-hover:border-[#b7835a] group-hover:text-white transition-all duration-300">
-                            <svg class="w-4 h-4 radix-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Seção: Diferenciais -->
-    <section id="diferenciais" class="py-24 px-4 bg-[#E5E9E4] relative overflow-hidden">
-        <!-- Background Gradient Suave -->
-        <div class="absolute inset-0 bg-gradient-to-b from-[#E5E9E4] via-[#E5E9E4] to-[#a8b4a5]/10"></div>
-
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Título da Seção (opcional, para contextualizar antes do card) -->
-            <div class="text-center mb-12">
-                <span class="text-[#b7835a] text-xs font-bold tracking-[0.2em] uppercase mb-3 block">Exclusividade
-                    Eucalyptus</span>
-                <h2 class="font-serif text-3xl md:text-4xl text-[#1a2c24]">O que nos torna únicos</h2>
-            </div>
-
-            <!-- Card "Black Card" Style - Soberania Digital -->
-            <div class="relative group mx-auto max-w-4xl">
-                <!-- Glow Dourado Intenso no Hover -->
-                <div
-                    class="absolute -inset-1 bg-gradient-to-r from-[#b7835a] via-[#e3c98c] to-[#b7835a] rounded-[2.5rem] blur opacity-40 group-hover:opacity-70 transition duration-700">
-                </div>
-
-                <!-- Card Container -->
-                <div
-                    class="relative bg-[#1a2c24] rounded-[2.5rem] overflow-hidden shadow-2xl border border-[#e3c98c]/20">
-                    <!-- Background Texture/Noise -->
-                    <div
-                        class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay">
-                    </div>
-
-                    <!-- Brilho de fundo -->
-                    <div
-                        class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#e3c98c]/5 rounded-full blur-[120px] pointer-events-none">
-                    </div>
-
-                    <div class="grid md:grid-cols-12 gap-0 relative z-10">
-
-                        <!-- Coluna da Chave (Esquerda/Topo) - 5 colunas -->
-                        <div
-                            class="md:col-span-5 relative min-h-[300px] md:min-h-full flex flex-col items-center justify-center p-8 md:p-12 md:border-r border-[#e3c98c]/10 bg-gradient-to-b from-[#1f352b] to-[#1a2c24]">
-                            <!-- Círculo de Luz atrás da Chave -->
+                        <div class="relative z-10 flex flex-col items-center text-center">
+                            <!-- Icon: Symbiosis/Connection (Thematic) -->
                             <div
-                                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#e3c98c]/10 rounded-full blur-2xl">
+                                class="w-14 h-14 rounded-full bg-gradient-to-br from-[#a8b4a5]/20 to-[#1a2c24]/5 text-[#1a2c24] flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300 border border-[#a8b4a5]/30">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <!-- Handshake/Connection Icon -->
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M7 11l3-3 2 2 5-5M17 11v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m10 0l-3-3-2 2-3-3-2.5 2.5M7 11l1-1">
+                                    </path>
+                                </svg>
                             </div>
 
-                            <!-- Chave Flutuante -->
-                            <div class="relative w-32 h-32 md:w-40 md:h-40 animate-float z-10">
-                                <img src="assets/Chave.png" alt="Chave de Ouro"
-                                    class="w-full h-full object-contain filter drop-shadow-[0_0_25px_rgba(227,201,140,0.5)]">
-                            </div>
+                            <h3
+                                class="font-serif text-3xl text-[#2c352e] mb-3 group-hover:text-[#b7835a] transition-colors">
+                                Simbiose</h3>
+                            <p
+                                class="text-[#1a2c24] text-xs font-semibold uppercase tracking-[0.2em] mb-6 pb-4 border-b border-[#a8b4a5]/50 w-full max-w-[180px] mx-auto">
+                                Construção & Transferência</p>
 
-                            <!-- Label "Soberania" -->
-                            <div class="mt-8 text-center">
-                                <div
-                                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#e3c98c]/30 bg-[#e3c98c]/5 backdrop-blur-sm">
-                                    <svg class="w-3 h-3 text-[#e3c98c]" fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                    </svg>
-                                    <span class="text-[#e3c98c] text-[10px] uppercase tracking-widest font-bold">A chave
-                                        é sua</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Coluna de Conteúdo (Direita/Baixo) - 7 colunas -->
-                        <div class="md:col-span-7 p-8 md:p-12 flex flex-col justify-center">
-
-                            <h3 class="font-serif text-3xl md:text-4xl text-white mb-4 leading-tight">
-                                Soberania <span class="text-[#e3c98c] italic">Digital</span>
-                            </h3>
-
-                            <p class="text-white/70 text-base leading-relaxed mb-8">
-                                Chega de pagar aluguel para morar na sua própria casa digital. No Eucalyptus, nós
-                                construímos a estrutura, entregamos a chave e o sistema é 100% seu. Propriedade real
-                                sobre seus dados e sua operação.
-                            </p>
-
-                            <!-- Lista de Benefícios Premium -->
-                            <div class="space-y-6">
-                                <!-- Item 1 -->
-                                <div class="flex items-start gap-4 group/item">
-                                    <div
-                                        class="w-10 h-10 rounded-full bg-[#e3c98c]/10 border border-[#e3c98c]/20 flex items-center justify-center text-[#e3c98c] group-hover/item:bg-[#e3c98c] group-hover/item:text-[#1a2c24] transition-colors duration-300">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-white font-medium text-lg">Infraestrutura Própria</h4>
-                                        <p class="text-white/50 text-sm">Seu servidor, suas regras. Nada compartilhado
-                                            com outras clínicas.</p>
-                                    </div>
-                                </div>
-
-                                <!-- Item 2 -->
-                                <div class="flex items-start gap-4 group/item">
-                                    <div
-                                        class="w-10 h-10 rounded-full bg-[#e3c98c]/10 border border-[#e3c98c]/20 flex items-center justify-center text-[#e3c98c] group-hover/item:bg-[#e3c98c] group-hover/item:text-[#1a2c24] transition-colors duration-300">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-white font-medium text-lg">Privacidade Absoluta</h4>
-                                        <p class="text-white/50 text-sm">Dados criptografados e inacessíveis a
-                                            terceiros.</p>
-                                    </div>
-                                </div>
-
-                                <!-- Item 3 -->
-                                <div class="flex items-start gap-4 group/item">
-                                    <div
-                                        class="w-10 h-10 rounded-full bg-[#e3c98c]/10 border border-[#e3c98c]/20 flex items-center justify-center text-[#e3c98c] group-hover/item:bg-[#e3c98c] group-hover/item:text-[#1a2c24] transition-colors duration-300">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-white font-medium text-lg">Pagamento Único</h4>
-                                        <p class="text-white/50 text-sm">Você paga pela construção e entrega. Sem
-                                            mensalidades de software.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Seção: About Me (Sobre Mim) -->
-    <section id="sobre" class="py-20 px-4 bg-[#E5E9E4] relative overflow-hidden">
-        <!-- Background Gradient (Inverted) -->
-        <div class="absolute inset-0 bg-gradient-to-b from-[#a8b4a5]/10 to-[#E5E9E4] pointer-events-none"></div>
-
-        <!-- Background Pattern (Subtle) -->
-        <div class="absolute inset-0 opacity-[0.4]"
-            style="background-image: radial-gradient(#a8b4a5 0.5px, transparent 0.5px); background-size: 24px 24px;">
-        </div>
-
-        <!-- Decorative Glow -->
-        <div
-            class="absolute top-1/2 right-0 w-[500px] h-[500px] bg-[#e3c98c]/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none">
-        </div>
-
-        <div class="max-w-5xl mx-auto relative z-10">
-            <div class="grid md:grid-cols-12 gap-8 lg:gap-16 items-center">
-
-                <!-- Left Column: Image (Balanced) -->
-                <div class="md:col-span-5 relative order-2 md:order-1 max-w-sm mx-auto md:max-w-none">
-                    <!-- Image Card -->
-                    <div class="relative rounded-3xl overflow-hidden shadow-xl group">
-                        <!-- Imagem de Eliseu Mendes -->
-                        <div class="aspect-[4/5] relative overflow-hidden">
-                            <img src="assets/eliseu-profissional.png" alt="Eliseu Mendes - Fundador da Eucalyptus"
-                                class="w-full h-full object-cover" loading="lazy">
-                            <!-- Overlay Gradient -->
-                            <div class="absolute inset-0 bg-gradient-to-t from-[#1a2c24]/40 to-transparent opacity-60">
-                            </div>
-                        </div>
-
-                        <!-- Optional Badge/Floating Element -->
-                        <div class="absolute bottom-5 left-5 right-5">
-                            <div class="backdrop-blur-md bg-[#1a2c24]/70 border border-white/20 rounded-xl p-3">
-                                <p class="text-white text-sm font-medium italic">
-                                    Especialista em Automação &amp; IA
+                            <!-- Collapsible Content -->
+                            <div class="radix-content overflow-hidden">
+                                <p class="text-[#1a2c24] text-sm leading-relaxed text-center">
+                                    O momento da materialização. Minha equipe constrói toda a infraestrutura nos
+                                    bastidores
+                                    (servidores, fluxos, painéis). Eu entrego as chaves e te ensino a pilotar.
                                 </p>
                             </div>
+
+                            <!-- Expand Button -->
+                            <div
+                                class="mt-6 w-9 h-9 rounded-full border-2 border-[#a8b4a5] flex items-center justify-center text-[#1a2c24] group-hover:bg-[#1a2c24] group-hover:border-[#1a2c24] group-hover:text-white transition-all duration-300">
+                                <svg class="w-4 h-4 radix-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Decorative Element behind image -->
-                    <div class="absolute -z-10 top-5 -left-5 w-full h-full rounded-3xl border-2 border-[#b7835a]/20">
+                    <!-- Pillar 3 -->
+                    <div class="radix-step group relative p-8 md:p-12 cursor-pointer transition-all duration-500 bg-white/40 hover:bg-white/80"
+                        onclick="toggleRadixStep(this)">
+                        <!-- Watermark Number (Gold Accent) -->
+                        <div
+                            class="absolute top-4 right-6 text-[7rem] md:text-[8rem] font-serif text-[#e3c98c]/35 group-hover:text-[#e3c98c]/55 transition-colors pointer-events-none font-bold leading-none">
+                            3</div>
+
+                        <div class="relative z-10 flex flex-col items-center text-center">
+                            <!-- Icon: Flower/Bloom (Thematic - Gold Accent) -->
+                            <div
+                                class="w-14 h-14 rounded-full bg-gradient-to-br from-[#e3c98c]/25 to-[#d4b896]/15 text-[#b7835a] flex items-center justify-center mb-6 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300 border border-[#e3c98c]/40">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <!-- Flower/Lotus Icon -->
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M12 22v-6m0 0c-3 0-5-2-5-5s2-5 5-5 5 2 5 5-2 5-5 5zm0-10c0-3-1.5-5-3-6 1.5-.5 3-.5 3 0s1.5-.5 3 0c-1.5 1-3 3-3 6z">
+                                    </path>
+                                </svg>
+                            </div>
+
+                            <h3
+                                class="font-serif text-3xl text-[#2c352e] mb-3 group-hover:text-[#b7835a] transition-colors">
+                                Florescimento</h3>
+                            <p
+                                class="text-[#1a2c24] text-xs font-semibold uppercase tracking-[0.2em] mb-6 pb-4 border-b border-[#e3c98c]/50 w-full max-w-[160px] mx-auto">
+                                Suporte & Autonomia</p>
+
+                            <!-- Collapsible Content -->
+                            <div class="radix-content overflow-hidden">
+                                <p class="text-[#1a2c24] text-sm leading-relaxed text-center">
+                                    A garantia da paz. O sistema entra em operação. Não te deixamos sozinha: oferecemos
+                                    90
+                                    dias de Acompanhamento para ajustes finos.
+                                </p>
+                            </div>
+
+                            <!-- Expand Button (Gold) -->
+                            <div
+                                class="mt-6 w-9 h-9 rounded-full border-2 border-[#e3c98c] flex items-center justify-center text-[#b7835a] group-hover:bg-[#b7835a] group-hover:border-[#b7835a] group-hover:text-white transition-all duration-300">
+                                <svg class="w-4 h-4 radix-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Seção: Diferenciais -->
+        <section id="diferenciais" class="py-24 px-4 bg-[#E5E9E4] relative overflow-hidden">
+            <!-- Background Gradient Suave -->
+            <div class="absolute inset-0 bg-gradient-to-b from-[#E5E9E4] via-[#E5E9E4] to-[#a8b4a5]/10"></div>
+
+            <div class="max-w-5xl mx-auto relative z-10">
+                <!-- Título da Seção (opcional, para contextualizar antes do card) -->
+                <div class="text-center mb-12">
+                    <span class="text-[#b7835a] text-xs font-bold tracking-[0.2em] uppercase mb-3 block">Exclusividade
+                        Eucalyptus</span>
+                    <h2 class="font-serif text-3xl md:text-4xl text-[#1a2c24]">O que nos torna únicos</h2>
                 </div>
 
-                <!-- Right Column: Content -->
-                <div class="md:col-span-7 order-1 md:order-2">
-                    <span class="text-[#b7835a] text-xs font-bold tracking-[0.2em] uppercase mb-2 block">SOBRE O
-                        FUNDADOR</span>
+                <!-- Card "Black Card" Style - Soberania Digital -->
+                <div class="relative group mx-auto max-w-4xl">
+                    <!-- Glow Dourado Intenso no Hover -->
+                    <div
+                        class="absolute -inset-1 bg-gradient-to-r from-[#b7835a] via-[#e3c98c] to-[#b7835a] rounded-[2.5rem] blur opacity-40 group-hover:opacity-70 transition duration-700">
+                    </div>
 
-                    <h2 class="font-serif text-3xl md:text-4xl text-[#2c352e] mb-2">
-                        Eliseu Mendes
+                    <!-- Card Container -->
+                    <div
+                        class="relative bg-[#1a2c24] rounded-[2.5rem] overflow-hidden shadow-2xl border border-[#e3c98c]/20">
+                        <!-- Background Texture/Noise -->
+                        <div
+                            class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay">
+                        </div>
+
+                        <!-- Brilho de fundo -->
+                        <div
+                            class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#e3c98c]/5 rounded-full blur-[120px] pointer-events-none">
+                        </div>
+
+                        <div class="grid md:grid-cols-12 gap-0 relative z-10">
+
+                            <!-- Coluna da Chave (Esquerda/Topo) - 5 colunas -->
+                            <div
+                                class="md:col-span-5 relative min-h-[300px] md:min-h-full flex flex-col items-center justify-center p-8 md:p-12 md:border-r border-[#e3c98c]/10 bg-gradient-to-b from-[#1f352b] to-[#1a2c24]">
+                                <!-- Círculo de Luz atrás da Chave -->
+                                <div
+                                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#e3c98c]/10 rounded-full blur-2xl">
+                                </div>
+
+                                <!-- Chave Flutuante -->
+                                <div class="relative w-32 h-32 md:w-40 md:h-40 animate-float z-10">
+                                    <img src="assets/Chave.png" alt="Chave de Ouro" width="160" height="160"
+                                        class="w-full h-full object-contain filter drop-shadow-[0_0_25px_rgba(227,201,140,0.5)]">
+                                </div>
+
+                                <!-- Label "Soberania" -->
+                                <div class="mt-8 text-center">
+                                    <div
+                                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#e3c98c]/30 bg-[#e3c98c]/5 backdrop-blur-sm">
+                                        <svg class="w-3 h-3 text-[#e3c98c]" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                        </svg>
+                                        <span class="text-[#e3c98c] text-[10px] uppercase tracking-widest font-bold">A
+                                            chave
+                                            é sua</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Coluna de Conteúdo (Direita/Baixo) - 7 colunas -->
+                            <div class="md:col-span-7 p-8 md:p-12 flex flex-col justify-center">
+
+                                <h3 class="font-serif text-3xl md:text-4xl text-white mb-4 leading-tight">
+                                    Soberania <span class="text-[#e3c98c] italic">Digital</span>
+                                </h3>
+
+                                <p class="text-white/70 text-base leading-relaxed mb-8">
+                                    Chega de pagar aluguel para morar na sua própria casa digital. No Eucalyptus, nós
+                                    construímos a estrutura, entregamos a chave e o sistema é 100% seu. Propriedade real
+                                    sobre seus dados e sua operação.
+                                </p>
+
+                                <!-- Lista de Benefícios Premium -->
+                                <div class="space-y-6">
+                                    <!-- Item 1 -->
+                                    <div class="flex items-start gap-4 group/item">
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-[#e3c98c]/10 border border-[#e3c98c]/20 flex items-center justify-center text-[#e3c98c] group-hover/item:bg-[#e3c98c] group-hover/item:text-[#1a2c24] transition-colors duration-300">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-white font-medium text-lg">Infraestrutura Própria</h4>
+                                            <p class="text-white/50 text-sm">Seu servidor, suas regras. Nada
+                                                compartilhado
+                                                com outras clínicas.</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Item 2 -->
+                                    <div class="flex items-start gap-4 group/item">
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-[#e3c98c]/10 border border-[#e3c98c]/20 flex items-center justify-center text-[#e3c98c] group-hover/item:bg-[#e3c98c] group-hover/item:text-[#1a2c24] transition-colors duration-300">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-white font-medium text-lg">Privacidade Absoluta</h4>
+                                            <p class="text-white/50 text-sm">Dados criptografados e inacessíveis a
+                                                terceiros.</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Item 3 -->
+                                    <div class="flex items-start gap-4 group/item">
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-[#e3c98c]/10 border border-[#e3c98c]/20 flex items-center justify-center text-[#e3c98c] group-hover/item:bg-[#e3c98c] group-hover/item:text-[#1a2c24] transition-colors duration-300">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-white font-medium text-lg">Pagamento Único</h4>
+                                            <p class="text-white/50 text-sm">Você paga pela construção e entrega. Sem
+                                                mensalidades de software.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Seção: About Me (Sobre Mim) -->
+        <section id="sobre" class="py-20 px-4 bg-[#E5E9E4] relative overflow-hidden">
+            <!-- Background Gradient (Inverted) -->
+            <div class="absolute inset-0 bg-gradient-to-b from-[#a8b4a5]/10 to-[#E5E9E4] pointer-events-none"></div>
+
+            <!-- Background Pattern (Subtle) -->
+            <div class="absolute inset-0 opacity-[0.4]"
+                style="background-image: radial-gradient(#a8b4a5 0.5px, transparent 0.5px); background-size: 24px 24px;">
+            </div>
+
+            <!-- Decorative Glow -->
+            <div
+                class="absolute top-1/2 right-0 w-[500px] h-[500px] bg-[#e3c98c]/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none">
+            </div>
+
+            <div class="max-w-5xl mx-auto relative z-10">
+                <div class="grid md:grid-cols-12 gap-8 lg:gap-16 items-center">
+
+                    <!-- Left Column: Image (Balanced) -->
+                    <div class="md:col-span-5 relative order-2 md:order-1 max-w-sm mx-auto md:max-w-none">
+                        <!-- Image Card -->
+                        <div class="relative rounded-3xl overflow-hidden shadow-xl group">
+                            <!-- Imagem de Eliseu Mendes -->
+                            <div class="aspect-[4/5] relative overflow-hidden">
+                                <img src="assets/eliseu-profissional.png" alt="Eliseu Mendes - Fundador da Eucalyptus"
+                                    width="400" height="500" class="w-full h-full object-cover" loading="lazy">
+                                <!-- Overlay Gradient -->
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-[#1a2c24]/40 to-transparent opacity-60">
+                                </div>
+                            </div>
+
+                            <!-- Optional Badge/Floating Element -->
+                            <div class="absolute bottom-5 left-5 right-5">
+                                <div class="backdrop-blur-md bg-[#1a2c24]/70 border border-white/20 rounded-xl p-3">
+                                    <p class="text-white text-sm font-medium italic">
+                                        Especialista em Automação &amp; IA
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Decorative Element behind image -->
+                        <div
+                            class="absolute -z-10 top-5 -left-5 w-full h-full rounded-3xl border-2 border-[#b7835a]/20">
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Content -->
+                    <div class="md:col-span-7 order-1 md:order-2">
+                        <span class="text-[#b7835a] text-xs font-bold tracking-[0.2em] uppercase mb-2 block">SOBRE O
+                            FUNDADOR</span>
+
+                        <h2 class="font-serif text-3xl md:text-4xl text-[#2c352e] mb-2">
+                            Eliseu Mendes
+                        </h2>
+                        <p class="text-[#1a2c24] text-base font-light italic mb-6">
+                            Arquiteto de Soluções Digitais
+                        </p>
+
+                        <div class="space-y-4 text-[#595d5b] text-base leading-relaxed">
+                            <p>
+                                Minha base é técnica: sou graduado pela FIAP e desenvolvo soluções de IA no Grupo Alun.
+                                Meu olhar é humano.
+                            </p>
+                            <p>
+                                Durante anos, vi donas de clínicas incríveis se tornarem "secretárias de luxo" dos seus
+                                próprios negócios, reféns de processos manuais e urgências constantes.
+                            </p>
+                            <p>
+                                O Eucalyptus e o Método Radix são a resposta a esse ruído. Desenvolvi uma arquitetura
+                                digital que organiza sua clínica com a mesma elegância de um hotel 5 estrelas. Não
+                                entrego
+                                apenas automação. Entrego sua autonomia de volta.
+                            </p>
+                        </div>
+
+                        <!-- Signature / Quote Highlight -->
+                        <div class="mt-8 pt-6 border-t border-[#2c352e]/10">
+                            <blockquote class="text-[#1a2c24] font-serif text-lg md:text-xl leading-snug">
+                                "Minha missão é usar a alta tecnologia para devolver o ativo mais precioso de todos: o
+                                seu
+                                tempo."
+                            </blockquote>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: FAQ -->
+        <section id="faq" class="py-24 px-4 bg-[#faf6ef] relative overflow-hidden">
+            <!-- Decorative background elements -->
+            <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                <div class="absolute top-20 -left-20 w-96 h-96 bg-[#a8b4a5]/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-20 -right-20 w-96 h-96 bg-[#e3c98c]/10 rounded-full blur-3xl"></div>
+            </div>
+
+            <div class="max-w-3xl mx-auto relative z-10">
+                <div class="text-center mb-16">
+                    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-[#1a2c24] font-light mb-4">
+                        Perguntas Frequentes
                     </h2>
-                    <p class="text-[#1a2c24] text-base font-light italic mb-6">
-                        Arquiteto de Soluções Digitais
+                    <p class="text-base md:text-lg text-[#7a7f7d] font-light max-w-2xl mx-auto">
+                        Tudo o que você precisa saber sobre o Método Radix
                     </p>
-
-                    <div class="space-y-4 text-[#595d5b] text-base leading-relaxed">
-                        <p>
-                            Minha base é técnica: sou graduado pela FIAP e desenvolvo soluções de IA no Grupo Alun.
-                            Meu olhar é humano.
-                        </p>
-                        <p>
-                            Durante anos, vi donas de clínicas incríveis se tornarem "secretárias de luxo" dos seus
-                            próprios negócios, reféns de processos manuais e urgências constantes.
-                        </p>
-                        <p>
-                            O Eucalyptus e o Método Radix são a resposta a esse ruído. Desenvolvi uma arquitetura
-                            digital que organiza sua clínica com a mesma elegância de um hotel 5 estrelas. Não entrego
-                            apenas automação. Entrego sua autonomia de volta.
-                        </p>
-                    </div>
-
-                    <!-- Signature / Quote Highlight -->
-                    <div class="mt-8 pt-6 border-t border-[#2c352e]/10">
-                        <blockquote class="text-[#1a2c24] font-serif text-lg md:text-xl leading-snug">
-                            "Minha missão é usar a alta tecnologia para devolver o ativo mais precioso de todos: o seu
-                            tempo."
-                        </blockquote>
-                    </div>
                 </div>
 
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção: FAQ -->
-    <section id="faq" class="py-24 px-4 bg-[#faf6ef] relative overflow-hidden">
-        <!-- Decorative background elements -->
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-            <div class="absolute top-20 -left-20 w-96 h-96 bg-[#a8b4a5]/10 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-20 -right-20 w-96 h-96 bg-[#e3c98c]/10 rounded-full blur-3xl"></div>
-        </div>
-
-        <div class="max-w-3xl mx-auto relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-[#1a2c24] font-light mb-4">
-                    Perguntas Frequentes
-                </h2>
-                <p class="text-base md:text-lg text-[#7a7f7d] font-light max-w-2xl mx-auto">
-                    Tudo o que você precisa saber sobre o Método Radix
-                </p>
-            </div>
-
-            <div class="space-y-4">
-                <!-- FAQ Item 1 -->
-                <div
-                    class="faq-item glass rounded-2xl border border-[#a8b4a5]/30 hover:border-[#a8b4a5]/60 transition-colors duration-300">
-                    <button
-                        class="faq-trigger w-full p-6 flex items-center justify-between text-left focus:outline-none">
-                        <span class="font-serif text-xl text-[#1a2c24] font-medium">Preciso entender de
-                            tecnologia?</span>
-                        <span
-                            class="faq-icon w-8 h-8 rounded-full bg-[#a8b4a5]/20 flex items-center justify-center text-[#1a2c24]">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 4v16m8-8H4" />
-                            </svg>
-                        </span>
-                    </button>
-                    <div class="faq-content px-6 pb-0">
-                        <div class="pb-6 text-[#595d5b] leading-relaxed border-t border-[#a8b4a5]/10 pt-4">
-                            Zero. Se você sabe usar o Instagram, saberá usar nosso sistema. Foi desenhado para ser
-                            visual e intuitivo, eliminando a complexidade dos softwares tradicionais.
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div
+                        class="faq-item glass rounded-2xl border border-[#a8b4a5]/30 hover:border-[#a8b4a5]/60 transition-colors duration-300">
+                        <button
+                            class="faq-trigger w-full p-6 flex items-center justify-between text-left focus:outline-none">
+                            <span class="font-serif text-xl text-[#1a2c24] font-medium">Preciso entender de
+                                tecnologia?</span>
+                            <span
+                                class="faq-icon w-8 h-8 rounded-full bg-[#a8b4a5]/20 flex items-center justify-center text-[#1a2c24]">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4" />
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-content px-6 pb-0">
+                            <div class="pb-6 text-[#595d5b] leading-relaxed border-t border-[#a8b4a5]/10 pt-4">
+                                Zero. Se você sabe usar o Instagram, saberá usar nosso sistema. Foi desenhado para ser
+                                visual e intuitivo, eliminando a complexidade dos softwares tradicionais.
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- FAQ Item 2 -->
-                <div
-                    class="faq-item glass rounded-2xl border border-[#a8b4a5]/30 hover:border-[#a8b4a5]/60 transition-colors duration-300">
-                    <button
-                        class="faq-trigger w-full p-6 flex items-center justify-between text-left focus:outline-none">
-                        <span class="font-serif text-xl text-[#1a2c24] font-medium">O Nilo parece um robô?</span>
-                        <span
-                            class="faq-icon w-8 h-8 rounded-full bg-[#a8b4a5]/20 flex items-center justify-center text-[#1a2c24]">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 4v16m8-8H4" />
-                            </svg>
-                        </span>
-                    </button>
-                    <div class="faq-content px-6 pb-0">
-                        <div class="pb-6 text-[#595d5b] leading-relaxed border-t border-[#a8b4a5]/10 pt-4">
-                            Não. Ele é treinado com IA avançada para ter empatia, usar o tom de voz da sua marca e ser
-                            extremamente polido. Seus pacientes sentirão que estão conversando com alguém da sua equipe.
+                    <!-- FAQ Item 2 -->
+                    <div
+                        class="faq-item glass rounded-2xl border border-[#a8b4a5]/30 hover:border-[#a8b4a5]/60 transition-colors duration-300">
+                        <button
+                            class="faq-trigger w-full p-6 flex items-center justify-between text-left focus:outline-none">
+                            <span class="font-serif text-xl text-[#1a2c24] font-medium">O Nilo parece um robô?</span>
+                            <span
+                                class="faq-icon w-8 h-8 rounded-full bg-[#a8b4a5]/20 flex items-center justify-center text-[#1a2c24]">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4" />
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-content px-6 pb-0">
+                            <div class="pb-6 text-[#595d5b] leading-relaxed border-t border-[#a8b4a5]/10 pt-4">
+                                Não. Ele é treinado com IA avançada para ter empatia, usar o tom de voz da sua marca e
+                                ser
+                                extremamente polido. Seus pacientes sentirão que estão conversando com alguém da sua
+                                equipe.
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- FAQ Item 3 -->
-                <div
-                    class="faq-item glass rounded-2xl border border-[#a8b4a5]/30 hover:border-[#a8b4a5]/60 transition-colors duration-300">
-                    <button
-                        class="faq-trigger w-full p-6 flex items-center justify-between text-left focus:outline-none">
-                        <span class="font-serif text-xl text-[#1a2c24] font-medium">Tenho custos mensais?</span>
-                        <span
-                            class="faq-icon w-8 h-8 rounded-full bg-[#a8b4a5]/20 flex items-center justify-center text-[#1a2c24]">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 4v16m8-8H4" />
-                            </svg>
-                        </span>
-                    </button>
-                    <div class="faq-content px-6 pb-0">
-                        <div class="pb-6 text-[#595d5b] leading-relaxed border-t border-[#a8b4a5]/10 pt-4">
-                            Apenas os custos diretos de infraestrutura (servidor e API oficial do WhatsApp), que são
-                            pagos diretamente aos fornecedores. É uma fração do valor de contratar softwares prontos ou
-                            mais funcionários.
+                    <!-- FAQ Item 3 -->
+                    <div
+                        class="faq-item glass rounded-2xl border border-[#a8b4a5]/30 hover:border-[#a8b4a5]/60 transition-colors duration-300">
+                        <button
+                            class="faq-trigger w-full p-6 flex items-center justify-between text-left focus:outline-none">
+                            <span class="font-serif text-xl text-[#1a2c24] font-medium">Tenho custos mensais?</span>
+                            <span
+                                class="faq-icon w-8 h-8 rounded-full bg-[#a8b4a5]/20 flex items-center justify-center text-[#1a2c24]">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4" />
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-content px-6 pb-0">
+                            <div class="pb-6 text-[#595d5b] leading-relaxed border-t border-[#a8b4a5]/10 pt-4">
+                                Apenas os custos diretos de infraestrutura (servidor e API oficial do WhatsApp), que são
+                                pagos diretamente aos fornecedores. É uma fração do valor de contratar softwares prontos
+                                ou
+                                mais funcionários.
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- FAQ Item 4 -->
-                <div
-                    class="faq-item glass rounded-2xl border border-[#a8b4a5]/30 hover:border-[#a8b4a5]/60 transition-colors duration-300">
-                    <button
-                        class="faq-trigger w-full p-6 flex items-center justify-between text-left focus:outline-none">
-                        <span class="font-serif text-xl text-[#1a2c24] font-medium">E se eu quiser mudar algo
-                            depois?</span>
-                        <span
-                            class="faq-icon w-8 h-8 rounded-full bg-[#a8b4a5]/20 flex items-center justify-center text-[#1a2c24]">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 4v16m8-8H4" />
-                            </svg>
-                        </span>
-                    </button>
-                    <div class="faq-content px-6 pb-0">
-                        <div class="pb-6 text-[#595d5b] leading-relaxed border-t border-[#a8b4a5]/10 pt-4">
-                            O sistema é seu. Ensinamos você a pilotar, mas ele roda sozinho. Você tem total autonomia
-                            para ajustar fluxos e configurações quando desejar, ou pode contar com nosso suporte
-                            pontual.
+                    <!-- FAQ Item 4 -->
+                    <div
+                        class="faq-item glass rounded-2xl border border-[#a8b4a5]/30 hover:border-[#a8b4a5]/60 transition-colors duration-300">
+                        <button
+                            class="faq-trigger w-full p-6 flex items-center justify-between text-left focus:outline-none">
+                            <span class="font-serif text-xl text-[#1a2c24] font-medium">E se eu quiser mudar algo
+                                depois?</span>
+                            <span
+                                class="faq-icon w-8 h-8 rounded-full bg-[#a8b4a5]/20 flex items-center justify-center text-[#1a2c24]">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4" />
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="faq-content px-6 pb-0">
+                            <div class="pb-6 text-[#595d5b] leading-relaxed border-t border-[#a8b4a5]/10 pt-4">
+                                O sistema é seu. Ensinamos você a pilotar, mas ele roda sozinho. Você tem total
+                                autonomia
+                                para ajustar fluxos e configurações quando desejar, ou pode contar com nosso suporte
+                                pontual.
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer com CTA Integrado -->
+    <!-- Footer -->
     <footer id="contato" class="relative overflow-hidden">
         <!-- Background: Removed - using solid backgrounds per section -->
 
@@ -2140,7 +2073,8 @@
                     style="background: linear-gradient(135deg, rgba(227, 201, 140, 0.15) 0%, rgba(183, 131, 90, 0.1) 100%);">
                     <span
                         class="w-2.5 h-2.5 rounded-full bg-[#e3c98c] animate-pulse shadow-[0_0_12px_rgba(227,201,140,0.8)]"></span>
-                    <span class="text-[#b7835a] text-sm font-semibold tracking-wider uppercase">Vagas limitadas</span>
+                    <span class="text-[#b7835a] text-sm font-semibold tracking-wider uppercase">Vagas
+                        limitadas</span>
                 </div>
 
                 <!-- Headline -->
@@ -2545,22 +2479,11 @@
             }
         }
     </script>
-
-    <!-- GSAP Essential Animations Only -->
     <script>
-        // Register GSAP plugins
-        gsap.registerPlugin(ScrollTrigger);
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-        // GSAP Animation Configuration - ESSENTIALS ONLY
         document.addEventListener('DOMContentLoaded', () => {
-
-            // ==========================================
-            // DORES SECTION - SYNCHRONIZED FLOATING
-            // Todos os blocos com a mesma animação sincronizada
-            // ==========================================
             const doresCards = document.querySelectorAll('#dores .animate-float-delay-1, #dores .animate-float-delay-2, #dores .animate-float-delay-3');
-
-            // Animar todos com os mesmos parâmetros para sincronizar
             gsap.to(doresCards, {
                 y: -8,
                 duration: 3,
@@ -2569,34 +2492,21 @@
                 repeat: -1
             });
 
-            // ==========================================
-            // SMOOTH SCROLL WITH GSAP (for anchor links)
-            // ==========================================
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const target = document.querySelector(targetId);
-
+                    const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
                         gsap.to(window, {
                             duration: 0.8,
-                            scrollTo: {
-                                y: target,
-                                offsetY: 80
-                            },
+                            scrollTo: { y: target, offsetY: 80 },
                             ease: 'power2.inOut'
                         });
                     }
                 });
             });
-
-            console.log('✨ GSAP essentials initialized!');
         });
     </script>
-
-    <!-- GSAP ScrollTo Plugin (for smooth scroll) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
 </body>
 
 </html>
