@@ -1,141 +1,85 @@
-# Landing Page Eucalyptus Solutions
+# Eucalyptus Solutions | Inteligência Comercial para Clínicas
 
-Landing Page elegante e sensível para o Programa Beta da Eucalyptus Solutions, apresentando o Método RADIX™ e a proposta de ecossistema de crescimento para clínicas de estética.
+Ecossistema de Crescimento elegante e de alta performance para clínicas de estética, focado em transformar o caos operacional em lucro real através de Inteligência Comercial e Automação Sensível.
 
-## 🌿 Sobre a Eucalyptus Solutions
+## 🌿 A Proposta: Ecossistema de Crescimento
 
-**Proposta de Valor:**
-Um Ecossistema de Crescimento que organiza o invisível da sua clínica — para que você recupere leveza, ritmo e presença nos atendimentos sem virar gestora em tempo integral.
+O Eucalyptus é uma Arquitetura de Negócios proprietária que organiza o invisível da sua clínica. Não é apenas um software; é um ecossistema digital que devolve leveza, ritmo e presença à dona do negócio sem transformá-la em gestora em tempo integral.
 
-**Público-Alvo:**
-Donas e gestoras de clínicas de estética, por volta dos 30 anos, com alto senso estético e rotina intensa.
+**Diferencial Radix:** Implementação de infraestrutura digital de alto padrão, sem mensalidades de software fixas, com foco em soberania total sobre seus dados.
 
-**Posicionamento:**
-Transformar o caos operacional das clínicas de estética em leveza, constância e beleza organizada — com tecnologia sensível e consultoria estética.
+## 🎨 Identidade Visual & Estética
 
-## 🎨 Identidade Visual
+A estética é inspirada em marcas premium que unem sofisticação, empatia e inteligência emocional (ex: Tay Dantas).
 
 **Paleta de Cores:**
-- **Verde Principal**: `#dbe4dc`
-- **Verde Profundo**: `#1a2c24` (contraste e textos)
-- **Bege Claro**: `#faf6ef` (fundo principal)
-- **Dourado Suave**: `#e3c98c` (detalhes)
-- **Cinza Base**: `#595d5b` (textos secundários)
-- **Acento Quente**: `#b7835a` (CTAs e destaques)
+- **Verde Principal**: `#a8b4a5` (Suavidade e natureza)
+- **Verde Profundo**: `#1a2c24` (Sólido, contraste e autoridade)
+- **Bege Claro**: `#faf6ef` (Fundo principal, leveza)
+- **Dourado**: `#e3c98c` (Refinamento e detalhes)
+- **Cinza**: `#595d5b` (Textos secundários)
+- **Acento (Terracota)**: `#b7835a` (CTAs e destaques térmicos)
 
 **Tipografia:**
-- **Serif**: Cormorant Garamond (títulos e elementos destacados)
-- **Sans-serif**: Inter (corpo de texto e interface)
+- **Serif**: [Cormorant Garamond](https://fonts.google.com/specimen/Cormorant+Garamond) (Títulos e elegância clássica)
+- **Sans-serif**: [Inter](https://fonts.google.com/specimen/Inter) (Interface e legibilidade moderna)
 
-## 📋 Estrutura da Landing Page
+## 📋 Estrutura da Experiência (Landing Page)
 
-### 1. Hero Section
-- Headline: "Crescer com leveza é possível"
-- Subheadline: "Um ecossistema que organiza o invisível da sua clínica e devolve paz à sua rotina"
-- CTA principal vinculado ao formulário Respondi
-- Badge de exclusividade: "Programa exclusivo para 5 clínicas em São Paulo"
+### 1. Hero: O Despertar
+Foco na promessa de transformar interesse em lucro real. Destaque para o setup único e a ausência de mensalidades.
 
-### 2. As 4 Dores Estéticas
-Cards empáticos apresentando os principais desafios:
-- **Sempre atrasada**: Leads esperando horas por resposta
-- **Equipe improvisando**: Falta de padrão no atendimento
-- **Clientes que somem**: Leads perdidos sem follow-up
-- **Dinheiro parado**: Inadimplência e cobranças desorganizadas
+### 2. O Ruído: Onde o Dinheiro Escorre
+Apresentação empática dos gaps operacionais:
+- **O Gap de Resposta**: Leads que esfriam por demora no atendimento.
+- **O Cemitério de Leads**: Falta de follow-up inteligente.
+- **A Atendente Sobrecarregada**: Burocracia impedindo o encantamento.
+- **Cegueira de Dados**: Gestão sem métricas claras.
 
-### 3. Método RADIX™
-Timeline visual apresentando as 5 etapas:
-- **R** - Reconhecimento: Diagnóstico sensível da rotina
-- **A** - Automação Inteligente: IA com tom humanizado
-- **D** - Desenvolvimento Cultural: Treinamento da equipe
-- **I** - Integração Contínua: Acompanhamento evolutivo
-- **X** - eXpansão: Crescimento com autonomia
+### 3. O Nilo & O Painel: O Ecossistema
+- **O Nilo (Concierge)**: IA conversacional polida que qualifica e agenda 24/7.
+- **O Painel (Gestão Visual)**: Central de inteligência no Notion para controle total de funil, metas e caixa.
 
-**Tagline:** "Raízes fortes constroem crescimento leve"
+### 4. Método RADIX™
+Protocolo proprietário em 3 etapas:
+1. **Enraizamento**: Diagnóstico duplo (IA + Sensibilidade humana).
+2. **Simbiose**: Construção da infraestrutura e transferência de chaves.
+3. **Florescimento**: Suporte dedicado de 90 dias e autonomia plena.
 
-### 4. Programa Exclusivo Beta
-Seção destacada com:
-- Limitação de 5 clínicas em São Paulo
-- Implementação completa em 6 semanas
-- 60 dias de suporte dedicado
-- Condições especiais para pioneiras
-- CTA: "Quero fazer parte"
+### 5. Soberania Digital
+O card de exclusividade que reforça o conceito de "propriedade digital". O cliente é dono do seu servidor, seus dados e sua operação.
 
-### 5. CTA Final
-- Convite para diagnóstico sensível
-- Link para formulário Respondi
-- Promessa de retorno em 24h úteis
+## 🛠 Stack Tecnológica
 
-### 6. Footer
-- Informações de contato: São Paulo, SP
-- Email: contato@eucalyptus.solutions
-- Tagline do método RADIX
-- Copyright 2025
+**Frontend:**
+- **HTML5** Semântico
+- **Tailwind CSS** (Estilização moderna e responsiva via CDN)
+- **GSAP** (GreenSock) para animações premium:
+  - ScrollTrigger (Interações baseadas em rolagem)
+  - ScrollToPlugin (Navegação suave)
+- **Google Fonts** (Cormorant Garamond + Inter)
 
-## 🔗 Integrações
+**Infraestrutura & Gestão:**
+- **CRM:** Kommo (Parceria Oficial)
+- **Automação:** N8N
+- **Gestão:** Notion
+- **Comunicação:** API Oficial WhatsApp
 
-**Formulário de Captação:**
-https://form.respondi.app/AkLggsjN
+## 🚀 Como Visualizar
 
-**Stack Tecnológico:**
-- HTML5 semântico
-- Tailwind CSS (via CDN)
-- Google Fonts (Cormorant Garamond + Inter)
-- Animações CSS customizadas
-
-## 🚀 Como Usar
-
-1. Clone o repositório
-2. Abra o arquivo [index.html](index.html) em um navegador moderno
-3. Não há dependências ou build necessário - página pronta para uso
-
-## ✨ Características Técnicas
-
-- **Design Responsivo**: Adaptável para desktop, tablet e mobile
-- **Performance Otimizada**: CSS inline, fontes pré-carregadas
-- **Animações Suaves**: Fade-in, hover effects e transições elegantes
-- **SEO Friendly**: Meta tags otimizadas e estrutura semântica
-- **Acessibilidade**: Contraste adequado e navegação clara
-
-## 📱 Responsividade
-
-- **Desktop**: > 768px (layout completo)
-- **Mobile**: < 768px (layout adaptado com stacking)
+1. O projeto é um site estático moderno.
+2. Basta abrir o arquivo `index.html` em qualquer navegador atual.
+3. Não requer processos de build complicados para visualização básica.
 
 ## 🎯 Tom de Voz
 
-**Essência:** Consultivo, calmo e magnético
-**Inspiração:** Tay Dantas e marcas premium que unem sofisticação, empatia e inteligência emocional
-
+**Personalidade:** Consultiva, calma, magnética e altamente profissional.
 **Mensagens-Chave:**
-- Tecnologia com alma
-- Crescer com leveza é possível
-- O sistema que organiza o invisível
-- O bastidor que sustenta a beleza
+- "Tecnologia com alma."
+- "Crescer com leveza é uma decisão estratégica."
+- "O sistema que organiza o invisível."
+- "Retome a soberania do seu negócio."
 
-## 📊 Produtos Eucalyptus
-
-### Eucalyptus Mini
-Versão enxuta para clínicas pequenas
-**Investimento:** R$ 7.500
-**Prazo:** 2 semanas
-
-### Eucalyptus Full
-Ecossistema completo com IA, dashboards e treinamento
-**Investimento:** R$ 18.000 a R$ 35.000
-**Prazo:** 6 semanas
-
-## 🛠 Stack de Implementação
-
-- **CRM:** Kommo
-- **Automação:** N8N
-- **IA Conversacional:** Claude API
-- **IA Análise:** Whisper + Claude
-- **Gestão:** Notion
-- **Assinatura:** Zapsign
-- **Landing Pages:** Lovable + Cursor
-- **Comunicação:** WhatsApp + Instagram
-- **Captação:** Respondi, Typeform, Linktree
-
-## 📄 Licença
+---
 
 © 2025 Eucalyptus Solutions. Todos os direitos reservados.
