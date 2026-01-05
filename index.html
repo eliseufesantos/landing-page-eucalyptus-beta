@@ -230,31 +230,11 @@
 
         .chat-message {
             opacity: 0;
-            animation: chatMessageIn 0.4s ease-out forwards;
+            transform: translateY(10px) scale(0.95);
         }
 
-        .chat-message:nth-child(1) {
-            animation-delay: 0.5s;
-        }
-
-        .chat-message:nth-child(2) {
-            animation-delay: 1.5s;
-        }
-
-        .chat-message:nth-child(3) {
-            animation-delay: 2.5s;
-        }
-
-        .chat-message:nth-child(4) {
-            animation-delay: 3.5s;
-        }
-
-        .chat-message:nth-child(5) {
-            animation-delay: 4.5s;
-        }
-
-        .chat-message:nth-child(6) {
-            animation-delay: 5.5s;
+        .typing-indicator {
+            opacity: 0;
         }
 
         @keyframes typingBounce {
@@ -290,11 +270,7 @@
             animation-delay: 0.4s;
         }
 
-        .typing-indicator {
-            opacity: 0;
-            animation: chatMessageIn 0.4s ease-out forwards;
-            animation-delay: 1s;
-        }
+
 
         /* Remove will-change após animação */
         .animate-fade-in.animation-complete {
@@ -1870,7 +1846,7 @@
                         <div class="relative rounded-3xl overflow-hidden shadow-xl group">
                             <!-- Imagem de Eliseu Mendes -->
                             <div class="aspect-[4/5] relative overflow-hidden">
-                                <img src="assets/eliseu-profissional.webp" alt="Eliseu Mendes - Fundador da Eucalyptus"
+                                <img src="assets/eliseu-profissional.png" alt="Eliseu Mendes - Fundador da Eucalyptus"
                                     width="400" height="500" class="w-full h-full object-cover" loading="lazy">
                                 <!-- Overlay Gradient -->
                                 <div
@@ -2309,6 +2285,10 @@
                 viewPanel.classList.remove('active');
                 setTimeout(() => {
                     viewConcierge.classList.add('active');
+                    // Reiniciar timeline se necessário
+                    if (window.niloTimeline) {
+                        window.niloTimeline.restart();
+                    }
                 }, 50);
             } else {
                 // Move Background
@@ -2505,6 +2485,31 @@
                     }
                 });
             });
+
+            // Trigger para as mensagens do Nilo no Ecossistema
+            const chatMessages = document.querySelectorAll('#view-concierge .chat-message');
+            const typingIndicator = document.querySelector('#view-concierge .typing-indicator');
+
+            if (chatMessages.length > 0) {
+                window.niloTimeline = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: "#view-concierge",
+                        start: "top 80%",
+                        once: true
+                    }
+                });
+
+                chatMessages.forEach((msg, index) => {
+                    // Adiciona um pequeno atraso entre as mensagens
+                    window.niloTimeline.to(msg, {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 0.4,
+                        ease: "power2.out"
+                    }, index * 1.2 + 0.5);
+                });
+            }
         });
     </script>
 </body>
