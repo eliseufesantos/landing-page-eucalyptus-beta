@@ -606,9 +606,8 @@
         }
 
         .radix-content {
-            height: 0;
-            overflow: hidden;
-            opacity: 0;
+            height: auto;
+            opacity: 1;
         }
 
         .radix-arrow {
@@ -1539,8 +1538,8 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 border-t border-b border-[#2c352e]/10">
 
                     <!-- Pillar 1 -->
-                    <div class="radix-step group relative p-8 md:p-12 border-b md:border-b-0 border-r-0 md:border-r border-[#2c352e]/10 cursor-pointer transition-all duration-500 bg-white/40 hover:bg-white/80"
-                        onclick="toggleRadixStep(this)">
+                    <div
+                        class="radix-step group relative p-8 md:p-12 border-b md:border-b-0 border-r-0 md:border-r border-[#2c352e]/10 transition-all duration-500 bg-white/40 hover:bg-white/60">
                         <!-- Watermark Number (Terracotta) -->
                         <div
                             class="absolute top-4 right-6 text-[7rem] md:text-[8rem] font-serif text-[#b7835a]/30 group-hover:text-[#b7835a]/50 transition-colors pointer-events-none font-bold leading-none">
@@ -1575,20 +1574,13 @@
                                 </p>
                             </div>
 
-                            <!-- Expand Button (Terracotta) -->
-                            <div
-                                class="mt-6 w-9 h-9 rounded-full border-2 border-[#b7835a] flex items-center justify-center text-[#b7835a] group-hover:bg-[#b7835a] group-hover:border-[#b7835a] group-hover:text-white transition-all duration-300">
-                                <svg class="w-4 h-4 radix-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </div>
+
                         </div>
                     </div>
 
                     <!-- Pillar 2 -->
-                    <div class="radix-step group relative p-8 md:p-12 border-b md:border-b-0 border-r-0 md:border-r border-[#2c352e]/10 cursor-pointer transition-all duration-500 bg-white/40 hover:bg-white/80"
-                        onclick="toggleRadixStep(this)">
+                    <div
+                        class="radix-step group relative p-8 md:p-12 border-b md:border-b-0 border-r-0 md:border-r border-[#2c352e]/10 transition-all duration-500 bg-white/40 hover:bg-white/60">
                         <!-- Watermark Number (Increased Contrast) -->
                         <div
                             class="absolute top-4 right-6 text-[7rem] md:text-[8rem] font-serif text-[#a8b4a5]/30 group-hover:text-[#a8b4a5]/50 transition-colors pointer-events-none font-bold leading-none">
@@ -1622,20 +1614,13 @@
                                 </p>
                             </div>
 
-                            <!-- Expand Button -->
-                            <div
-                                class="mt-6 w-9 h-9 rounded-full border-2 border-[#a8b4a5] flex items-center justify-center text-[#1a2c24] group-hover:bg-[#1a2c24] group-hover:border-[#1a2c24] group-hover:text-white transition-all duration-300">
-                                <svg class="w-4 h-4 radix-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </div>
+
                         </div>
                     </div>
 
                     <!-- Pillar 3 -->
-                    <div class="radix-step group relative p-8 md:p-12 cursor-pointer transition-all duration-500 bg-white/40 hover:bg-white/80"
-                        onclick="toggleRadixStep(this)">
+                    <div
+                        class="radix-step group relative p-8 md:p-12 transition-all duration-500 bg-white/40 hover:bg-white/60">
                         <!-- Watermark Number (Gold Accent) -->
                         <div
                             class="absolute top-4 right-6 text-[7rem] md:text-[8rem] font-serif text-[#e3c98c]/35 group-hover:text-[#e3c98c]/55 transition-colors pointer-events-none font-bold leading-none">
@@ -1669,14 +1654,7 @@
                                 </p>
                             </div>
 
-                            <!-- Expand Button (Gold) -->
-                            <div
-                                class="mt-6 w-9 h-9 rounded-full border-2 border-[#e3c98c] flex items-center justify-center text-[#b7835a] group-hover:bg-[#b7835a] group-hover:border-[#b7835a] group-hover:text-white transition-all duration-300">
-                                <svg class="w-4 h-4 radix-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </div>
+
                         </div>
                     </div>
 
@@ -2382,82 +2360,7 @@
             });
         });
 
-        // Radix Method Toggle Logic with GSAP - Ultra Smooth
-        function toggleRadixStep(element) {
-            const content = element.querySelector('.radix-content');
-            const arrow = element.querySelector('.radix-arrow');
-            const isOpen = element.classList.contains('active-step');
 
-            // Close all others with smooth GSAP
-            document.querySelectorAll('.radix-step').forEach(step => {
-                if (step !== element && step.classList.contains('active-step')) {
-                    step.classList.remove('active-step');
-                    const otherContent = step.querySelector('.radix-content');
-                    const otherArrow = step.querySelector('.radix-arrow');
-
-                    gsap.to(otherContent, {
-                        height: 0,
-                        opacity: 0,
-                        duration: 0.5,
-                        ease: 'expo.out'
-                    });
-
-                    if (otherArrow) {
-                        gsap.to(otherArrow, {
-                            rotation: 0,
-                            duration: 0.5,
-                            ease: 'expo.out'
-                        });
-                    }
-                }
-            });
-
-            // Toggle clicked element with ultra-smooth GSAP
-            if (!isOpen) {
-                element.classList.add('active-step');
-
-                // Measure height
-                gsap.set(content, { height: 'auto', opacity: 1 });
-                const autoHeight = content.offsetHeight;
-                gsap.set(content, { height: 0, opacity: 0 });
-
-                // Animate with smooth easing
-                gsap.to(content, {
-                    height: autoHeight,
-                    opacity: 1,
-                    duration: 0.7,
-                    ease: 'expo.out',
-                    onComplete: () => {
-                        gsap.set(content, { height: 'auto' });
-                    }
-                });
-
-                if (arrow) {
-                    gsap.to(arrow, {
-                        rotation: 180,
-                        duration: 0.5,
-                        ease: 'expo.out'
-                    });
-                }
-            } else {
-                element.classList.remove('active-step');
-
-                gsap.to(content, {
-                    height: 0,
-                    opacity: 0,
-                    duration: 0.5,
-                    ease: 'expo.out'
-                });
-
-                if (arrow) {
-                    gsap.to(arrow, {
-                        rotation: 0,
-                        duration: 0.5,
-                        ease: 'expo.out'
-                    });
-                }
-            }
-        }
     </script>
     <script>
         gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
